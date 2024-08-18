@@ -1,0 +1,83 @@
+.rootClosed {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 5;
+}
+
+.rootOpened {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .7);
+    border-right: 1px solid var(--grey-color);
+    border-left: 1px solid var(--grey-color);
+    z-index: 5;
+}
+
+.rootClosed .modal {
+    position: absolute;
+    top: 110dvh;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 350px;
+    transition: var(--transition-time);
+    transition-timing-function: var(--transition-timing-fuction);
+    transition-property: top;
+}
+
+.rootOpened .modal {
+    position: absolute;
+    top: calc(100dvh - 350px);
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 40px 8rem;
+    background-color: var(--default-light-color);
+    border-radius: var(--normal-border-radius) var(--normal-border-radius) 0 0;
+    transition: var(--transition-time);
+    transition-timing-function: var(--transition-timing-fuction);
+    transition-property: top;
+}
+
+.buttonContainer {
+    margin-top: 30px;
+    width: 25%;
+}
+
+@media (max-width: 1200px) {
+    .rootOpened .modal {
+        padding: 40px 4rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .buttonContainer {
+        margin-top: 30px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .rootOpened .modal {
+        padding: 40px 2rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .rootOpened .modal {
+        padding: 40px 1rem;
+    }
+}
+
+@media (max-width: 300px) {
+    .rootOpened .modal {
+        top: calc(100dvh - 550px);
+    }
+}

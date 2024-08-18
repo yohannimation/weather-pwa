@@ -1,0 +1,87 @@
+.root {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 40px;
+    border-radius: var(--full-border-radius);
+    overflow: hidden;
+}
+
+.defaultSelected, .secondarySelected {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--default-light-color);
+    border-radius: var(--full-border-radius);
+    overflow: hidden;
+}
+
+.error {
+    color: red;
+}
+
+.slider {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slider > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: var(--grey-color);
+    z-index: 1;
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    transition: var(--transition-time);
+}
+
+.defaultSelected .slider span, .secondarySelected .slider span {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    z-index: 0;
+    background-color: var(--grey-color);
+    border-radius: var(--full-border-radius);
+    transition: var(--transition-time);
+    transition-timing-function: var(--transition-timing-fuction);
+    transition-property: left, right;
+}
+
+.defaultSelected .slider .defaultValue {
+    color: var(--default-light-color);
+}
+
+.defaultSelected .slider span {
+    left: 0;
+    right: 50%;
+}
+
+.secondarySelected .slider .secondaryValue {
+    color: var(--default-light-color);
+}
+
+.secondarySelected .slider span {
+    left: 50%;
+    right: 0;
+}
+
+@media (max-width: 450px) {
+    .root {
+        width: 100%;
+    }
+  }

@@ -1,0 +1,47 @@
+.root {
+    margin: 0 auto;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 40px;
+}
+
+.SearchBarContainer {
+    position: relative;
+    width: 100%;
+}
+
+.inputSearch {
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--default-light-color);
+    border-radius: var(--full-border-radius);
+    font-size: 1em;
+    font-family: var(--font-text);
+    outline: 0px solid transparent;
+    z-index: 1;
+}
+
+.inputSearch:focus {
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--default-light-color);
+    border-radius: var(--full-border-radius);
+    outline: 2px solid var(--dark-color);
+}
+
+.modalContainer {
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+}
+
+.button {
+    margin-top: 30px;
+}
