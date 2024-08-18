@@ -1,0 +1,95 @@
+.root {
+    width: 100%;
+    height: 100%;
+}
+
+.loaderOff {
+    display: none;
+}
+
+.loaderOn {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.appImgContainer {
+    margin: 10% 0 15% 0;
+}
+
+.appImg {
+    width: 100%;
+    height: 50px;
+    background-color: red;
+}
+
+.formContainer {
+    padding: 30px;
+    width: 100%;
+    height: 300px;
+    background: radial-gradient(
+        farthest-corner at 0 0, var(--default-second-color) 0%, var(--default-first-color) 60%
+    );
+    border-radius: var(--normal-border-radius);
+    transition: var(--transition-time);
+}
+
+.booleanSliderContainer {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.form {
+    margin: 0 auto 0 auto;
+    width: 75%;
+    height: 160px;
+}
+
+.defaultFormContainer, .secondaryFormContainer {
+    display: grid;
+    grid-template-columns: 100% 100%;
+    grid-gap: 50%;
+    position: relative;
+    height: 100%;
+    transition: var(--transition-time);
+    transition-timing-function: var(--transition-timing-fuction);
+    transition-property: left;
+}
+
+.defaultFormContainer {
+    left: 0;
+}
+
+.secondaryFormContainer {
+    left: -150%;
+}
+
+.defaultForm, .secondaryForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.preventMessage {
+    margin-top: 10px;
+    font-size: .9em;
+}
+
+@media (max-width: 450px) {
+    .booleanSliderContainer {
+        width: 100%;
+    }
+    
+    .form {
+        width: 100%;
+    }
+  }
+
