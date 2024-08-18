@@ -1,0 +1,17 @@
+{
+  "cookieModal": {
+    "componentTitle": "Accept cookies ?",
+    "modalContent": ""
+  },
+  "locate": {
+    "headerTitle": "Location",
+    "pageTitle": "Enter a location",
+    "booleanSliderValues": {
+      "default": "Manually",
+      "secondary": "Automaticaly"
+    },
+    "searchBarPlaceholder": "City name",
+    "locateMeButton": "Locate me",
+    "locateMePreventMessage": "This app will ask you to allow the use of your device GPS"
+  }
+}

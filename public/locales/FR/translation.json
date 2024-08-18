@@ -1,0 +1,20 @@
+{
+  "cookieModal": {
+    "componentTitle": "Accepter les cookies ?",
+    "modalContent": {
+      "message": "Les cookies sont essentiel au bon fonctionnement de l'application. Il est donc nécessaire de les accepter pour continuer.",
+      "commercialPurposes": "Aucune données ne sera utilisé à des fins commercial."
+    }
+  },  
+  "locate": {
+    "headerTitle": "Localisation",
+    "pageTitle": "Selectionner une ville ou un village",
+    "booleanSliderValues": {
+      "default": "Manuellement",
+      "secondary": "Automatiquement"
+    },
+    "searchBarPlaceholder": "Nom de la ville ou le village",
+    "locateMeButton": "Me localiser",
+    "locateMePreventMessage": "Cette application va vous demander d'autoriser l'utilisation du GPS de votre appareil."
+  }
+}
