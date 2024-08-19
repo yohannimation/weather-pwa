@@ -23,6 +23,10 @@ const SearchBar = props => {
         returnValue(value);
     }
 
+    const requestCityData = (inputValue) => {
+        setInputValue(inputValue);
+    }
+
     useEffect(() => {
         async function fetchCityData() {
             if (
@@ -44,10 +48,6 @@ const SearchBar = props => {
 
         fetchCityData();
     }, [inputValue])
-
-    const requestCityData = (inputValue) => {
-        setInputValue(inputValue);
-    }
 
     return (
         <div className={styles.root}>

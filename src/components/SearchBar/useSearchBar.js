@@ -16,7 +16,3 @@ export const getCityData = async (cityName) => {
         throw new Error(error);
     }
 }
-
-export const getCountryFlag = async () => {
-
-}

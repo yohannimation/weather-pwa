@@ -1,8 +1,7 @@
 import React, { useState, useEffect }  from 'react';
 import { Helmet } from "react-helmet";
 
-import { setCoordinate, setCityName } from "../../components/LocalStorage/useSetter";
-import { getLocation } from './useLocate';
+import { searchBarTreatment, getLocation } from './useLocate';
 import { useTranslation } from 'react-i18next';
 
 import BooleanSlider from "../../components/BooleanSlider";
@@ -28,7 +27,7 @@ const Locate = () => {
         setBooleanSliderValueSelected(value);
     }
 
-    const handdleLocateButton = async () => {
+    const handleLocateButton = async () => {
         setIsLoading(styles.loaderOn);
 
         getLocation((positionData) => {
@@ -64,21 +63,8 @@ const Locate = () => {
         })*/
     }
 
-    const searchBarTreatment = (value) => {
-        if (
-            typeof value === 'object' &&
-            "cityName" in value &&
-            "cityLatitude" in value &&
-            "cityLongitude" in value &&
-            setCityName(value.cityName) &&
-            setCoordinate(
-                    value.cityLatitude,
-                    value.cityLongitude
-            )
-        ) {
-            origin = document.location.origin;
-            document.location.href = origin + "/";
-        }
+    const handleSearchBarTreatment = (value) => {
+        searchBarTreatment(value);
     }
 
     useEffect(() => {
@@ -109,10 +95,10 @@ const Locate = () => {
                 <div className={styles.form}>
                     <div className={formClass}>
                         <div className={styles.defaultForm}>
-                            <SearchBar placeholder={t('locate.searchBarPlaceholder')} returnValue={searchBarTreatment} />
+                            <SearchBar placeholder={t('locate.searchBarPlaceholder')} returnValue={handleSearchBarTreatment} />
                         </div>
                         <div className={styles.secondaryForm}>
-                            <Button onClickReturn={handdleLocateButton}>{t('locate.locateMeButton')}</Button>
+                            <Button onClickReturn={handleLocateButton}>{t('locate.locateMeButton')}</Button>
                             <p className={styles.preventMessage}>{t('locate.locateMePreventMessage')}</p>
                         </div>
                     </div>
