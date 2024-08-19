@@ -51,12 +51,19 @@ const SearchBar = props => {
 
     return (
         <div className={styles.root}>
-            <input
-                type='search'
-                className={styles.inputSearch}
-                onChange={(e) => requestCityData(e.target.value)}
-                placeholder={placeholder}
-            />
+            <label className={styles.inputSearchContainer} for='search-bar'>
+                <div className={styles.iconContainer}>
+                    <img className={styles.icon} src='/favicon.ico' />
+                </div>
+                <input
+                    id='search-bar'
+                    type='search'
+                    className={styles.inputSearch}
+                    onChange={(e) => requestCityData(e.target.value)}
+                    placeholder={placeholder}
+                />
+            </label>
+            
             <div className={styles.modalContainer}>
                 <SearchBarModal
                     displayModal={displayModal}
