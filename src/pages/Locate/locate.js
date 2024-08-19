@@ -1,8 +1,9 @@
 import React, { useState, useEffect }  from 'react';
 import { Helmet } from "react-helmet";
 
-import { searchBarTreatment, getLocation } from './useLocate';
+import { locationTreatment } from './useLocate';
 import { useTranslation } from 'react-i18next';
+import { getDeviceLanguage } from "../../components/LocalStorage/useGetter";
 
 import BooleanSlider from "../../components/BooleanSlider";
 import Button from "../../components/Button";
@@ -22,49 +23,72 @@ const Locate = () => {
     const [booleanSliderValueSelected, setBooleanSliderValueSelected] = useState("Manually");
     const [formClass, setFormClass] = useState(styles.defaultFormContainer);
     const [isLoading, setIsLoading] = useState(styles.loaderOff);
+    const [locateMeButtonErrorMessage, setLocateMeButtonErrorMessage] = useState("");
 
     const booleanSliderTreatment = (value) => {
         setBooleanSliderValueSelected(value);
     }
 
     const handleLocateButton = async () => {
+        // Turn on the loader
         setIsLoading(styles.loaderOn);
 
-        getLocation((positionData) => {
-            console.log(positionData)
-        });
-        /*navigator.geolocation.getCurrentPosition(async (position) =>  {
-            const fetchUrl = "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude + "&localityLanguage=fr";
+        // Check if the geolocation is available in the navigator
+        if ("geolocation" in navigator) {
+            // Ask the user to accept to use his GPS and get the coordinates
+            navigator.geolocation.getCurrentPosition(async (position) => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
 
-            try {
-                const response = await fetch(fetchUrl);
-        
-                if (!response.ok) {
-                    throw new Error(response.statusText);
+                    // Set the API url to get the city name
+                    const fetchUrl = "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=" + latitude + "&longitude=" + longitude + "&localityLanguage=" + getDeviceLanguage();
+
+                    // Fetching data
+                    try {
+                        const response = await fetch(fetchUrl);
+                        if (!response.ok) {
+                            throw new Error(response.statusText);
+                        }
+                        const jsonResponse = await response.json();
+
+                        locationTreatment({
+                            "cityName": jsonResponse.locality,
+                            "cityLatitude": latitude,
+                            "cityLongitude": longitude
+                        })
+                    } catch (error) {
+                        // TODO error from fetch API WIP
+                        setIsLoading(styles.loaderOff);
+                        console.log(error);
+                    }
+                },
+                (error) => {
+                    // TODO error from navigator.geolocation WIP
+                    setIsLoading(styles.loaderOff);
+                    switch (error.code) {
+                        case 1:
+                            setLocateMeButtonErrorMessage("permissionDenied");
+                            break;
+                        case 2:
+                            setLocateMeButtonErrorMessage("positionUnavailable");
+                            break;
+                        case 3:
+                            setLocateMeButtonErrorMessage("timeout");
+                            break;
+                        default:
+                            setLocateMeButtonErrorMessage("");
+                    }
                 }
-        
-                const jsonResponse = await response.json();
-
-                console.log(jsonResponse.locality)
-
-                if (
-                    setCityName(jsonResponse.locality) &&
-                    setCoordinate(
-                        position.coords.latitude,
-                        position.coords.longitude
-                    )
-                ) {
-                    origin = document.location.origin;
-                    document.location.href = origin + "/";
-                }
-            } catch (error) {
-                throw new Error(error);
-            }
-        })*/
+            );
+        } else {
+            // Geolocation not supported by the browser
+            setIsLoading(styles.loaderOff);
+            setLocateMeButtonErrorMessage("Geolocation is not supported by this browser.");
+        }
     }
 
     const handleSearchBarTreatment = (value) => {
-        searchBarTreatment(value);
+        locationTreatment(value);
     }
 
     useEffect(() => {
