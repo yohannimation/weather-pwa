@@ -1,0 +1,209 @@
+.headerTop {
+    position: sticky;
+    top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 190px;
+    z-index: 2;
+}
+
+.backgroundHeader {
+    position: absolute;
+    top: -20px;
+    right: -6rem;
+    left: -6rem;
+    height: 210px;
+    background-color: rgba(0, 0, 0, .05);
+    border-radius: 0 0 var(--normal-border-radius) var(--normal-border-radius);
+    backdrop-filter: blur(5px);
+    animation: beackgroundHeaderAnimation linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 120px; 
+}
+@keyframes beackgroundHeaderAnimation {
+    to {
+        height: 90px;
+    }
+}
+@media (max-width: 1200px) {
+    .backgroundHeader {
+        right: -4rem;
+        left: -4rem;
+    }
+}
+@media (max-width: 600px) {
+    .backgroundHeader {
+        right: -2rem;
+        left: -2rem;
+    }
+}
+@media (max-width: 500px) {
+    .backgroundHeader {
+        right: -1rem;
+        left: -1rem;
+    }
+}
+
+
+/* ------------------------------------------ */
+
+.searchBarContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border-radius: var(--litle-border-radius);
+    z-index: 5;
+    animation: searchBarContainerAnimation linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 120px; 
+}
+@keyframes searchBarContainerAnimation {
+    to {
+        top: 0;
+        left: 0;
+        right: calc(40% + 10px);
+    }
+}
+
+/* ------------------------------------------ */
+
+.currentWeatherContainer {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 50%;
+    margin: 0 10px 5px 0;
+    padding: 10px 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 1fr;
+    height: 100px;
+    border-radius: var(--litle-border-radius);
+    background-color: var(--default-light-color);
+    animation: currentWeatherContainerAnimation linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 120px;
+}
+@keyframes currentWeatherContainerAnimation {
+    to {
+        top: 0;
+        left: calc(60% + 10px);
+        right: 0%;
+        padding: 5px 10px 010px;
+        height: 40px;
+        grid-template-rows: 1fr 0fr;
+    }
+}
+
+.temperature {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 2.3em;
+    font-weight: 900;
+    animation: temperatureContainerAnimation linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 120px;
+}
+@keyframes temperatureContainerAnimation {
+    to {
+        font-size: 1.5em;
+        font-weight: 500;
+    }
+}
+
+.secondaryData {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    animation: secondaryDataContainerAnimation linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 120px;
+}
+@keyframes secondaryDataContainerAnimation {
+    to {
+        height: 0%;
+        opacity: 0;
+    }
+}
+@media (max-width: 500px) {
+    .secondaryData {
+        align-items: start;
+        flex-direction: column;
+    }
+}
+
+.precipitationIcon {
+    margin-right: 5px;
+    width: 15px;
+}
+
+/* ------------------------------------------ */
+
+.gifContainer {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    right: 0;
+    margin: 0 0 5px 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    border-radius: var(--litle-border-radius);
+    background-color: var(--default-light-color);
+    opacity: 1;
+    overflow: hidden;
+    animation: gifContainerAnimation linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 120px;
+}
+@keyframes gifContainerAnimation {
+    to {
+        top: 0;
+        left: 100%;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        height: 40px;
+        opacity: 0;
+    }
+}
+
+.img {
+    height: 100%;
+    aspect-ratio: 5 / 3;
+}
+
+/* ------------------------------------------ */
+
+.lastUpdateContainer {
+    display: block;
+    position: absolute;
+    top: 165px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    animation: lastUpdateContainerAnimation linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 120px;
+}
+@keyframes lastUpdateContainerAnimation {
+    to {
+        top: 45px;
+        left: 0;
+        right: 0;
+    }
+}
