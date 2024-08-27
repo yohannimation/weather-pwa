@@ -1,0 +1,104 @@
+.root {
+    position: relative;
+    padding: 0 6rem;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    transition: var(--transition-time);
+}
+
+.loaderOn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 5;
+}
+
+.loaderOff {
+    display: none;
+}
+
+.weatherContent {
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin-top: 20px;
+}
+
+.mainWithoutData {
+    position: relative;
+    visibility: hidden;
+    min-height: 70.55vh; /* float value to prevent error for scroll() animation function of weatherHeader component */
+    margin-top: 20px;
+}
+
+.mainDataSet {
+    position: relative;
+    width: 100%;
+    min-height: 70.55vh; /* float value to prevent error for scroll() animation function of weatherHeader component */
+    visibility: unset;
+    animation: 1s cubic-bezier(.17,.84,.44,1) 0s fadeInUp;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate(0, 50px);
+    }
+    75% {
+        transform: translate(0, 0px);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+.test {
+    position: relative;
+    margin: 20px 0;
+    width: 100%;
+    height: 200px;
+    background-color: lightblue;
+    border-radius: var(--normal-border-radius);
+    overflow: hidden;
+}
+
+.testHeader {
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: 50px;
+    color: white;
+    background-color: cadetblue;
+}
+
+
+
+@media (max-width: 1200px) {
+    .root {
+        padding: 0 4rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .root {
+        padding: 0 2rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .root {
+        padding: 0 1rem;
+    }
+}
