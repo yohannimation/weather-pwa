@@ -11,6 +11,7 @@ const App = () => {
 
     return (
         <BrowserRouter>
+            {/*<ErrorModal /> TODO create a component with a timer who check every 2sec if a cookie "error" is set if true, it will read the cookie "errorMsg" and display it*/}
             <Router />
             <CookieModal />
         </BrowserRouter>
