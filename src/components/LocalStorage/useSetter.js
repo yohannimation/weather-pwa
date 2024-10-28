@@ -82,3 +82,33 @@ export const setLastRequestTime = (lastRequestTime) => {
     localStorage.setItem('lastRequestTime', lastRequestTime);
     return true;
 }
+
+/**
+ * Define if an error exist
+ * @param {Boolean} error
+ * @returns boolean
+ */
+export const setError = (error) => {
+    localStorage.setItem('error', error);
+    return true;
+}
+
+/**
+ * Define an error title
+ * @param {String} errorTitle
+ * @returns boolean
+ */
+export const setErrorTitle = (errorTitle) => {
+    localStorage.setItem('errorTitle', errorTitle);
+    return true;
+}
+
+/**
+ * Define an error message
+ * @param {Boolean} errorMessage
+ * @returns boolean
+ */
+export const setErrorMessage = (errorMessage) => {
+    localStorage.setItem('errorMessage', errorMessage);
+    return true;
+}

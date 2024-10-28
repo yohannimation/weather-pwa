@@ -32,3 +32,27 @@ export const getCityName = () => {
 export const getDeviceLanguage = () => {
     return localStorage.getItem('i18nextLng');
 }
+
+/**
+ * Get if an error exist
+ * @returns bool
+ */
+export const getError = () => {
+    return localStorage.getItem('error');
+}
+
+/**
+ * Get error title
+ * @returns string
+ */
+export const getErrorTitle = () => {
+    return localStorage.getItem('errorTitle');
+}
+
+/**
+ * Get error message
+ * @returns string
+ */
+export const getErrorMessage = () => {
+    return localStorage.getItem('errorMessage');
+}
