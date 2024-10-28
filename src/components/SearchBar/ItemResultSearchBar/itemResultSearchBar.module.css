@@ -1,0 +1,37 @@
+.root {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: var(--margin) 0;
+    width: 100%;
+    height: 50px;
+    background-color: var(--light-color);
+    border-radius: var(--full-border-radius);
+    cursor: pointer;
+}
+
+.imgContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: var(--full-border-radius);
+    border: var(--border-white-color);
+    overflow: hidden;
+}
+
+.img {
+    height: 80px;
+}
+
+.cityName {
+    margin-left: 15px;
+    color: var(--text-color);
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.countryCode {
+    font-size: .8em;
+}

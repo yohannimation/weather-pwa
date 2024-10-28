@@ -1,0 +1,42 @@
+.root {
+    position: absolute;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 20px var(--padding) 0 var(--padding);
+    width: 100%;
+    height: 340px;
+    background-color: var(--grey-color);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition-time);
+    transition-timing-function: var(--transition-timing-fuction);
+}
+
+.rootUnactive {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px var(--padding) 0 var(--padding);
+    width: 100%;
+    height: 0;
+    background-color: var(--grey-color);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition-time);
+    transition-timing-function: var(--transition-timing-fuction);
+}
+
+.listContainer {
+    position: relative;
+    inset: 0;
+    width: 100%;
+}
+
+.noResult {
+    color: var(--light-color);
+    font-size: 1.2em;
+    font-weight: 600;
+    text-align: center;
+}
