@@ -5,15 +5,16 @@ import { useTranslation } from 'react-i18next';
 
 import Router from './components/Router';
 import CookieModal from './components/CookieModal';
+import ErrorPopup from './components/ErrorPopup';
 
 const App = () => {
     const { t, i18n } = useTranslation();
 
     return (
         <BrowserRouter>
-            {/*<ErrorModal /> TODO create a component with a timer who check every 2sec if a cookie "error" is set if true, it will read the cookie "errorMsg" and display it*/}
-            <Router />
+            <ErrorPopup />
             <CookieModal />
+            {/* <Router /> */}
         </BrowserRouter>
     );
 };
