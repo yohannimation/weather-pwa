@@ -1,0 +1,71 @@
+.root {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    overflow: hidden;
+    z-index: 10;
+    animation: .1s linear forwards rootAnimation;
+}
+
+.unactive {
+    display: none;
+}
+
+.background {
+    position: absolute;
+    inset: -5px;
+    background-color: var(--dark-transparent-color);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    z-index: 11;
+    animation: .2s linear forwards backgroundAnimation;
+    animation-delay: .1s;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    background-color: var(--light-color);
+    padding: var(--padding);
+    border-radius: var(--border-radius);
+    z-index: 12;
+    transform: scale(0);
+    animation: var(--transition-time) var(--transition-timing-fuction) forwards containerAnimation;
+    animation-delay: .1s;
+}
+
+.message {
+    margin: var(--margin) 0;
+}
+
+@keyframes rootAnimation {
+    from {
+        display: none;
+    }
+    to {
+        display: block;
+    }
+}
+
+@keyframes backgroundAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes containerAnimation {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
