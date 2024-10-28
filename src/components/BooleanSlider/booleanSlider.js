@@ -3,7 +3,11 @@ import React, { useState, useEffect } from 'react';
 import styles from './booleanSlider.module.css'
 
 const BooleanSlider = props => {
-    const { values, returnValue } = props;
+    const {
+        values,
+        returnValue
+    } = props;
+
     const [selectedValue, setSelectedValue] = useState("default");
     const [sliderClass, setSliderClass] = useState(styles.defaultSelected);
     
@@ -28,13 +32,15 @@ const BooleanSlider = props => {
         values.default !== null &&
         values.secondary !== null
     ) {
-        booleanSlider = <div className={styles.slider}>
-            <p className={styles.defaultValue} onClick={setDefaultValue}>{values.default}</p>
-            <p className={styles.secondaryValue} onClick={setSecondaryValue}>{values.secondary}</p>
-            <span></span>
-        </div>
+        booleanSlider = (
+            <div className={styles.slider}>
+                <p className={styles.defaultValue} onClick={setDefaultValue}>{values.default}</p>
+                <p className={styles.secondaryValue} onClick={setSecondaryValue}>{values.secondary}</p>
+                <span></span>
+            </div>
+        );
     } else {
-        errorMsg = <p className={styles.error}>Slider value error</p>;
+        errorMsg = <p className={styles.error}>Slider values error</p>;
     }
 
     return (

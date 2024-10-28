@@ -1,9 +1,9 @@
 .root {
-    margin: 0 auto;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    margin: 0 auto;
     width: 100%;
     height: 40px;
     border-radius: var(--full-border-radius);
@@ -16,7 +16,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: var(--default-light-color);
+    background-color: var(--light-color);
     border-radius: var(--full-border-radius);
     overflow: hidden;
 }
@@ -49,7 +49,7 @@
     transition: var(--transition-time);
 }
 
-.defaultSelected .slider span, .secondarySelected .slider span {
+.slider span {
     content: '';
     position: absolute;
     width: 50%;
@@ -63,7 +63,7 @@
 }
 
 .defaultSelected .slider .defaultValue {
-    color: var(--default-light-color);
+    color: var(--light-color);
 }
 
 .defaultSelected .slider span {
@@ -72,7 +72,7 @@
 }
 
 .secondarySelected .slider .secondaryValue {
-    color: var(--default-light-color);
+    color: var(--light-color);
 }
 
 .secondarySelected .slider span {
@@ -84,4 +84,4 @@
     .root {
         width: 100%;
     }
-  }
+}
