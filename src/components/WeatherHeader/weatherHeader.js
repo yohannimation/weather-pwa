@@ -3,7 +3,7 @@ import 'https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js';
 
 import { useTranslation } from 'react-i18next';
 
-import SearchBar from '../SearchBar';
+// import SearchBar from '../SearchBar';
 
 import styles from './weatherHeader.module.css';
 
@@ -19,7 +19,7 @@ const WeatherHeader = props => {
         <header className={styles.headerTop}>
             <span className={styles.backgroundHeader}></span>
             <div className={styles.searchBarContainer}>
-                <SearchBar placeholder={t('locate.searchBarPlaceholder')} returnValue={handleSearchBarTreatment} />
+                {/* <SearchBar placeholder={t('locate.searchBarPlaceholder')} returnValue={handleSearchBarTreatment} /> */}
             </div>
             <div className={styles.currentWeatherContainer}>
                 <div className={styles.temperature}>

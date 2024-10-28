@@ -8,7 +8,7 @@ import { getDeviceLanguage } from "../../components/LocalStorage/useGetter";
 import BooleanSlider from "../../components/BooleanSlider";
 import Button from "../../components/Button";
 import Loading from '../../components/Loading';
-import SearchBar from "../../components/SearchBar";
+// import SearchBar from "../../components/SearchBar";
 import Title from '../../components/Title';
 
 import styles from './locate.module.css'
@@ -119,7 +119,7 @@ const Locate = () => {
                 <div className={styles.form}>
                     <div className={formClass}>
                         <div className={styles.defaultForm}>
-                            <SearchBar placeholder={t('locate.searchBarPlaceholder')} returnValue={handleSearchBarTreatment} />
+                            {/* <SearchBar placeholder={t('locate.searchBarPlaceholder')} returnValue={handleSearchBarTreatment} /> */}
                         </div>
                         <div className={styles.secondaryForm}>
                             <Button onClickReturn={handleLocateButton}>{t('locate.locateMeButton')}</Button>
