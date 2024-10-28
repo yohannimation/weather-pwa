@@ -1,24 +1,25 @@
 :root {
     /* Colors */
+    --light-color: #EAF0F1;
     --grey-color: #596475;
-    --dark-color: #1F2232;
+    --dark-color: #1f2232;
+    --dark-transparent-color: rgba(31, 34, 50, .4);
     
-        /* Default theme */
-        --default-light-color: #EAF0F1;
-        --default-first-color: #A0E6EF;
-        --default-second-color: #7EC6E0;
+      /* Default theme */
+      --default-first-color: #A0E6EF;
+      --default-second-color: #7EC6E0;
 
-        /* Day theme */
-        --day-light-color: #E8FBFC;
-        --day-first-color: #7EC6E0;
+      /* Day theme */
+      --day-light-color: #E8FBFC;
+      --day-first-color: #7EC6E0;
 
-        /* Night theme */
-        --night-light-color: #E9E8FC;
-        --night-first-color: #3C376D;
+      /* Night theme */
+      --night-light-color: #E9E8FC;
+      --night-first-color: #3C376D;
 
-        /* Rain theme */
-        --rain-light-color: #E8FBFC;
-        --rain-first-color: #9FB4C2;
+      /* Rain theme */
+      --rain-light-color: #E8FBFC;
+      --rain-first-color: #9FB4C2;
 
     --text-color: var(--grey-color);
   
@@ -27,12 +28,10 @@
     --font-text: "Quicksand";
   
     /* Divers */
-    --border-main-color: solid 3px var(--main-color);
-    --border-second-color: solid 3px var(--second-color);
-    --border-red-color: solid 3px var(--red-color);
-    --border-radius: 25px;
-    --transition-time: .4s;
-    --transition-timing-fuction : cubic-bezier(.36,-0.04,.18,1.47);
+    --margin: 20px;
+    --padding: 20px;
+    --border-grey-color: solid 2px var(--grey-color);
+    --border-white-color: solid 2px var(--light-color);
   
     /* Anchor */
     --anchor-color: var(--white);
@@ -40,8 +39,11 @@
   
     /* Radius */
     --full-border-radius: 999px;
-    --normal-border-radius: 30px;
-    --litle-border-radius: 20px;
+    --border-radius: 30px;
+
+    /* Transition */
+    --transition-time: .4s;
+    --transition-timing-fuction : cubic-bezier(.36,-0.04,.18,1.47);
   }
   
   @font-face {
@@ -85,7 +87,7 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  max-width: 900px;
+  max-width: 700px;
   height: 100%;
   overflow: hidden;
 }
