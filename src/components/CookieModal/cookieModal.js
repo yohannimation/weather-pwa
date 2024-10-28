@@ -1,52 +1,43 @@
 import React, { useState, useEffect } from 'react';
 
-import { setCookies } from "../../components/LocalStorage/useSetter";
-import { getCookies } from "../../components/LocalStorage/useGetter";
+import { cookiesAccepted } from "./useCookieModal";
+
+import { getCookies } from "../LocalStorage/useGetter";
+import { setError, setErrorTitle, setErrorMessage } from "../LocalStorage/useSetter";
+
 import { useTranslation } from 'react-i18next';
 
-import Button from '../Button';
-import Title from '../Title';
 
-import styles from './cookieModal.module.css'
+import Modal from '../Modal';
 
 const CookieModal = () => {
+    const [modalActive, setModalActive] = useState(false);
+
     const { t, i18n } = useTranslation();
 
-    const [cookieAccepted, setCookieAccepted] = useState(getCookies());
-    const [closeModal, setCloseModal] = useState(styles.rootClosed);
-
-    const handdleCookieAccepted = () => {
-        setCookieAccepted(true);
+    // Set cookie accepted in localStorage
+    const modalActionTrigger = () => {
+        if (cookiesAccepted()) {
+            setModalActive(false);
+        }
     }
 
-    useEffect(() => {
-        if (cookieAccepted) {
-            setCloseModal(styles.rootClosed);
-        } else {
-            setTimeout(() => {
-                setCloseModal(styles.rootOpened);
-            }, 1000);
-        }
-        setCookies(cookieAccepted)
-    }, [cookieAccepted])
-
-
-      
+    setTimeout(() => {
+        if (getCookies() !== "true")
+            setModalActive(true)
+    }, 1000);
 
     return (
-        <div className={closeModal}>
-            <div className={styles.modal}>
-                <Title size={1}>{t('cookieModal.componentTitle')}</Title>
-                <p>
-                    {t('cookieModal.modalContent.message')}<br/>
-                    {t('cookieModal.modalContent.commercialPurposes')}
-                </p>
-                <div className={styles.buttonContainer}>
-                    <Button onClickReturn={handdleCookieAccepted}>Accepter</Button>
-                </div>
-            </div>
-        </div>
-    );
+        <>
+            <Modal
+                active={modalActive}
+                title="Cookie modal"
+                message="Veuillez accepter les cookie svp"
+                buttonText="Accepter"
+                action={modalActionTrigger}
+            />
+        </>
+    )
 }
 
 export default CookieModal;
