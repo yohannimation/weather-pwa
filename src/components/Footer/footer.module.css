@@ -1,0 +1,41 @@
+.root {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 60px;
+    background-color: var(--light-color);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    
+}
+
+.cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.cta img {
+    width: 30px;
+}
+
+.parametersList {
+    display: grid;
+    grid-template-rows: 45px;
+    grid-gap: 10px;
+    margin-bottom: 30px;
+}
+
+.parameterItem {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-self: center;
+}
+
+.parameterItem p {
+    align-self: center;
+}

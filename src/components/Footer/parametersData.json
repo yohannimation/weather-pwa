@@ -1,0 +1,17 @@
+{
+    "timezone": {
+            
+    },
+    "speedUnit": {
+        "default": "km/h",
+        "secondary": "mph"
+    },
+    "temperatureUnit": {
+        "default": "°C",
+        "secondary": "°F"
+    },
+    "precipitationUnit": {
+        "default": "mm",
+        "secondary": "Inch"
+    }
+}
