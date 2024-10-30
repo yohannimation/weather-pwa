@@ -52,21 +52,41 @@ export const setTimezone = (timezone) => {
 }
 
 /**
- * Define the units
- * @param {Object} units
+ * Define precipitation unit
+ * @param {String} precipitationUnit
  * @returns boolean
  */
-export const setUnits = (units) => {
-    if (
-        typeof units === 'object' &&
-        "temperatureUnit" in units &&
-        "precipitationUnit" in units &&
-        "speedUnit" in units &&
-        units.temperatureUnit !== null &&
-        units.precipitationUnit !== null &&
-        units.speedUnit !== null
-    ) {
-        localStorage.setItem('units', units);
+export const setPrecipitationUnit = (precipitationUnit) => {
+    if (precipitationUnit !== null) {
+        localStorage.setItem('precipitationUnit', precipitationUnit);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Define speed unit
+ * @param {String} speedUnit
+ * @returns boolean
+ */
+export const setSpeedUnit = (speedUnit) => {
+    if (speedUnit !== null) {
+        localStorage.setItem('speedUnit', speedUnit);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Define temperature unit
+ * @param {String} temperatureUnit
+ * @returns boolean
+ */
+export const setTemperatureUnit = (temperatureUnit) => {
+    if (temperatureUnit !== null) {
+        localStorage.setItem('temperatureUnit', temperatureUnit);
         return true;
     } else {
         return false;
