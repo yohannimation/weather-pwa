@@ -24,6 +24,8 @@ const Modal = props => {
         }
     }, [active])
 
+    // TODO when user click on the background, the modal will be close
+
     return (
         <div className={rootClass}>
             <span className={styles.background}></span>

@@ -43,6 +43,8 @@ const BooleanSlider = props => {
         errorMsg = <p className={styles.error}>Slider values error</p>;
     }
 
+    // TODO add the possibility to put a value selected by default
+
     return (
         <div className={styles.root}>
             <div className={sliderClass}>
