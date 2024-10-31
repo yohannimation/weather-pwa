@@ -1,0 +1,1 @@
+export { default } from './headerDataContainer.js';

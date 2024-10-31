@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { checkRequiredCookies, getCurrentWeather } from './useWeather';
 
 import Loading from '../../components/Loading'
-import WeatherFooter from '../../components/WeatherFooter';
+// import WeatherFooter from '../../components/WeatherFooter';
 import WeatherHeader from '../../components/WeatherHeader';
 
 import styles from './weather.module.css';
@@ -71,7 +71,7 @@ function Weather() {
                         <p>content</p>
                     </div>
                 </main>
-                <WeatherFooter />
+                {/* <WeatherFooter /> */}
             </div>
         </div>
     );

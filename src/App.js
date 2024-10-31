@@ -7,6 +7,8 @@ import Router from './components/Router';
 import CookieModal from './components/CookieModal';
 import ErrorPopup from './components/ErrorPopup';
 
+import DataContainer from './components/DataContainer';
+
 const App = () => {
     const { t, i18n } = useTranslation();
 
@@ -15,6 +17,12 @@ const App = () => {
             <ErrorPopup />
             <CookieModal />
             {/* <Router /> */}
+            <DataContainer
+                title="Titre test from app.js"
+                infoData={null}
+                isHorizontal={true}
+                weatherData={null}
+            />
         </BrowserRouter>
     );
 };

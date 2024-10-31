@@ -1,0 +1,32 @@
+.root {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--padding);
+    width: 100%;
+    height: 50px;
+    background-color: var(--dark-transparent-color);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.headerTitle {
+    color: var(--light-color);
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.miButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+}
+
+.miButton img {
+    width: 30px;
+}
