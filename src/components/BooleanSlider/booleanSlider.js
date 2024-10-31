@@ -15,7 +15,6 @@ const BooleanSlider = props => {
         setSelectedValue("default");
         setSliderClass(styles.defaultSelected);
     }
-    
     const setSecondaryValue = () => {
         setSelectedValue("secondary");
         setSliderClass(styles.secondarySelected);
@@ -25,6 +24,7 @@ const BooleanSlider = props => {
         returnValue(selectedValue);
     }, [selectedValue]);
     
+    // if the values are not declared, error is throw
     var errorMsg, booleanSlider;
     if (
         "default" in values &&

@@ -5,15 +5,10 @@ import { cookiesAccepted } from "./useCookieModal";
 import { getCookies } from "../LocalStorage/useGetter";
 import { setError, setErrorTitle, setErrorMessage } from "../LocalStorage/useSetter";
 
-import { useTranslation } from 'react-i18next';
-
-
 import Modal from '../Modal';
 
 const CookieModal = () => {
     const [modalActive, setModalActive] = useState(false);
-
-    const { t, i18n } = useTranslation();
 
     // Set cookie accepted in localStorage
     const modalActionTrigger = () => {
@@ -22,6 +17,7 @@ const CookieModal = () => {
         }
     }
 
+    // Display cookieModal after 1sec if it is not accepted
     setTimeout(() => {
         if (getCookies() !== "true")
             setModalActive(true)

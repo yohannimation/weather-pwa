@@ -16,6 +16,7 @@ const ResultSearchBar = props => {
     const [requestedResultList, setRequestedResultList] = useState([]);
     const [modalClass, setModalClass] = useState(styles.rootUnactive);
 
+    // Set different state when the search value change
     useEffect(() => {
         setIsSearching(true);
 
@@ -35,6 +36,7 @@ const ResultSearchBar = props => {
         }
     }, [isOpen])
 
+    // Display the list of items or "nothing found"
     var htmlResultsList;
     if (requestedResultList) {
         htmlResultsList = requestedResultList.map((item) => {

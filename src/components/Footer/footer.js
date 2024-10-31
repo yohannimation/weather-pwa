@@ -21,6 +21,7 @@ const Footer = () => {
         window.location.reload();
     }
 
+    // Open parameters modal
     const parametersModalTrigger = () => {
         if (parametersModalIsOpen) {
             window.location.reload();
@@ -29,6 +30,7 @@ const Footer = () => {
         }
     }
 
+    // Different unit setter
     const triggerSetTemperatureUnit = (value) => {
         setTemperatureUnit(parametersList.temperatureUnit[value]);
     }
@@ -39,6 +41,7 @@ const Footer = () => {
         setPrecipitationUnit(parametersList.precipitationUnit[value]);
     }
 
+    // Parameters modal content
     const modalContent = (
         <ul className={styles.parametersList}>
             <li className={styles.parameterItem}>
