@@ -32,6 +32,7 @@
     flex-direction: column;
     background-color: var(--light-color);
     padding: var(--padding);
+    min-width: 200px;
     border-radius: var(--border-radius);
     z-index: 12;
     transform: scale(0);

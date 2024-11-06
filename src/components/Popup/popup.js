@@ -18,7 +18,9 @@ const Popup = props => {
 
     useEffect(() => {
         if (active) {
-            setRootClass(styles.root)
+            setRootClass(styles.root);
+        } else {
+            setRootClass(styles.unactive);
         }
     }, [active])
 
