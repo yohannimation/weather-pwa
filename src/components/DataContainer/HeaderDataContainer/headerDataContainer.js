@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+
+import InfoPopup from '../../InfoPopup';
 
 import styles from './headerDataContainer.module.css'
 
@@ -11,9 +13,11 @@ const HeaderDataContainer = props => {
     return (
         <div className={styles.root}>
             <p className={styles.headerTitle}>{title}</p>
-            {/* miButton class = More Info button */}
-            <div className={styles.miButton}>
-                <img src='/logo512.png' alt='reload button'/>
+            <div className={styles.infoButton}>
+                <InfoPopup
+                    title={title}
+                    content={infoData}
+                />
             </div>
         </div>
     );

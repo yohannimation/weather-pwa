@@ -21,8 +21,8 @@ const InfoPopup = props => {
     }
 
     return (
-        <div onClick={infoPopupTrigger}>
-            <img src='/logo192.png' alt=''/>
+        <div className={styles.root} onClick={infoPopupTrigger}>
+            <img className={styles.img} src='/logo192.png' alt=''/>
             <Popup
                 active={isOpen}
                 title={title}
