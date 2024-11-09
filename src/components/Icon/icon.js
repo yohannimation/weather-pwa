@@ -44,6 +44,10 @@ const Icon = props => {
             case 40:
                 setIconClass(styles.xl);
                 break;
+
+            case 60:
+                setIconClass(styles.big);
+                break;
     
             default:
                 break;

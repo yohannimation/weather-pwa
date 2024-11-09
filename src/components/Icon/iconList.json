@@ -1,3 +1,6 @@
 {
-    
+    "info": {
+        "alt": "Info bubble",
+        "path": "/info.svg"
+    }
 }

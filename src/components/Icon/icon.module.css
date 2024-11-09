@@ -23,6 +23,11 @@
     height: 40px;
 }
 
+.big {
+    width: 60px;
+    height: 60px;
+}
+
 .img {
     width: 100%;
 }
