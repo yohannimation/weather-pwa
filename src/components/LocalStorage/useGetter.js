@@ -1,4 +1,12 @@
 /**
+ * Get city name selected by user
+ * @returns string
+ */
+export const getCityName = () => {
+    return localStorage.getItem('cityName');
+}
+
+/**
  * Get if cookies are accept or not
  * @returns boolean
  */
@@ -9,7 +17,7 @@ export const getCookies = () => {
 /**
  * Get coordinates of the city selected
  * @returns object {latitude, longitude}
- */
+*/
 export const getCoordinates = () => {
     return {
         "latitude": localStorage.getItem('cityLatitude'),
@@ -18,17 +26,9 @@ export const getCoordinates = () => {
 }
 
 /**
- * Get city name selected by user
- * @returns string
- */
-export const getCityName = () => {
-    return localStorage.getItem('cityName');
-}
-
-/**
  * Get device language
  * @returns string
- */
+*/
 export const getDeviceLanguage = () => {
     return localStorage.getItem('i18nextLng');
 }
@@ -55,4 +55,36 @@ export const getErrorTitle = () => {
  */
 export const getErrorMessage = () => {
     return localStorage.getItem('errorMessage');
+}
+
+/**
+ * Get the user precipitation unit
+ * @returns string
+ */
+export const getPrecipitationUnit = () => {
+    return localStorage.getItem('precipitationUnit');
+}
+
+/**
+ * Get the user speed unit
+ * @returns string
+ */
+export const getSpeedUnit = () => {
+    return localStorage.getItem('speedUnit');
+}
+
+/**
+ * Get the user temperature unit
+ * @returns string
+ */
+export const getTemperatureUnit = () => {
+    return localStorage.getItem('temperatureUnit');
+}
+
+/**
+ * Get the timezone used by the user
+ * @returns string
+ */
+export const getTimezone = () => {
+    return localStorage.getItem('timezone');
 }
