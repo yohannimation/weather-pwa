@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+// Setter - Getter
 import {
     setTimezone,
     setPrecipitationUnit,
@@ -7,11 +8,14 @@ import {
     setTemperatureUnit
 } from "../LocalStorage/useSetter";
 
+// Data
 import parametersList from "./parametersData.json";
 
+// Components
 import Modal from '../Modal';
 import BooleanSlider from '../BooleanSlider';
 
+// CSS
 import styles from './footer.module.css'
 
 const Footer = () => {
@@ -24,22 +28,18 @@ const Footer = () => {
     // Open parameters modal
     const parametersModalTrigger = () => {
         if (parametersModalIsOpen) {
-            window.location.reload();
+            // Reload page to save data
+            reloadPage();
         } else {
+            // Open modal
             setParametersModalIsOpen(true);
         }
     }
 
     // Different unit setter
-    const triggerSetTemperatureUnit = (value) => {
-        setTemperatureUnit(parametersList.temperatureUnit[value]);
-    }
-    const triggerSetSpeedUnit = (value) => {
-        setSpeedUnit(parametersList.speedUnit[value]);
-    }
-    const triggerSetPrecipitationUnit = (value) => {
-        setPrecipitationUnit(parametersList.precipitationUnit[value]);
-    }
+    const triggerSetTemperatureUnit = (value) => { setTemperatureUnit(value); }
+    const triggerSetSpeedUnit = (value) => { setSpeedUnit(value); }
+    const triggerSetPrecipitationUnit = (value) => { setPrecipitationUnit(value); }
 
     // Parameters modal content
     const modalContent = (
