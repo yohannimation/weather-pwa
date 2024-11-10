@@ -41,7 +41,7 @@ const LocationForm = () => {
 
     return (
         <div className={styles.root}>
-            {isLoading ? <Loading /> : null}
+            <Loading isLoading={isLoading} />
             <div className={styles.booleanSliderContainer}>
                 <BooleanSlider
                     values={booleanSlider}
