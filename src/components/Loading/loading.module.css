@@ -1,9 +1,17 @@
 .root {
+    position: absolute;
+    inset: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    padding: 0 40px;
+    overflow: hidden;
+    z-index: 10;
+    animation: .1s linear forwards rootAnimation;
+}
+
+.unactive {
+    display: none;
 }
 
 .spinner {
@@ -11,13 +19,39 @@
     height: 50px;
     background-color: yellow;
     animation: 2s linear 0s infinite rotate;
+    z-index: 11;
+}
+
+.background {
+    position: absolute;
+    inset: -5px;
+    background-color: var(--dark-transparent-color);
+    backdrop-filter: blur(4px);
+    z-index: 10;
+    animation: .2s linear forwards backgroundAnimation;
+    animation-delay: .1s;
+}
+
+@keyframes rootAnimation {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+    1% {
+        display: block;
+        opacity: 0;
+    }
+    to {
+        display: block;
+        opacity: 1;
+    }
 }
 
 @keyframes rotate {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
         transform: rotate(360deg);
     }
-  }
+}
