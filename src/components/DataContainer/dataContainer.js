@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-import styles from './dataContainer.module.css'
-
+// Components
 import HeaderDataContainer from './HeaderDataContainer';
 import VerticalItemData from './ItemData/VerticalItemData';
 import HorizontalItemData from './ItemData/HorizontalItemData';
+
+// CSS
+import styles from './dataContainer.module.css';
 
 const DataContainer = props => {
     const {

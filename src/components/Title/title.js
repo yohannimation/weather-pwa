@@ -1,5 +1,6 @@
 import React from 'react';
 
+// CSS
 import styles from './title.module.css'
 
 const Title = props => {

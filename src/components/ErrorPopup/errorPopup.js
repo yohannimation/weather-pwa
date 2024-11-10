@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
+// Setter - Getter
 import { getError, getErrorTitle, getErrorMessage } from '../LocalStorage/useGetter';
 import { setError } from '../LocalStorage/useSetter';
+
+// Component use
 import { checkError, reloadTrigger } from './useErrorPopup';
 
+// Components
 import Popup from '../Popup';
 
 const ErrorPopup = () => {

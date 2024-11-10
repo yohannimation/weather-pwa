@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
+// Component
 import Popup from '../Popup';
 
+// CSS
 import styles from './infoPopup.module.css'
 
 const InfoPopup = props => {

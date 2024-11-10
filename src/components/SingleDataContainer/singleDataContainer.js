@@ -1,7 +1,9 @@
 import React from 'react';
 
+// Components
 import ItemSingleData from './ItemSingleData'
 
+// CSS
 import styles from './singleDataContainer.module.css';
 
 const SingleDataContainer = props => {

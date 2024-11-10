@@ -1,7 +1,9 @@
 import React from 'react';
 
+// Components
 import InfoPopup from '../../InfoPopup';
 
+// CSS
 import styles from './headerDataContainer.module.css'
 
 const HeaderDataContainer = props => {

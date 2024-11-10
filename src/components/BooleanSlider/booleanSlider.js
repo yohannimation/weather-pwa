@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+// CSS
 import styles from './booleanSlider.module.css'
 
 const BooleanSlider = props => {

@@ -1,5 +1,6 @@
 import React from 'react';
 
+// CSS
 import styles from './itemResultSearchBar.module.css';
 
 const ItemResultSearchBar = props => {

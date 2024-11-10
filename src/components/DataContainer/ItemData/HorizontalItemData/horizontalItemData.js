@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
+// Components
 import Icon from '../../../Icon';
 
+// CSS
 import styles from './horizontalItemData.module.css'
 
 const HorizontalItemData = props => {

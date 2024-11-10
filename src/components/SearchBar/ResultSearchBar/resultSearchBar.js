@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
+// Component use
 import { requester, saveSearch } from './useResultSearchBar';
 
+// Components
 import ItemResultSearchBar from '../ItemResultSearchBar';
 
+// CSS
 import styles from './resultSearchBar.module.css';
 
 const ResultSearchBar = props => {

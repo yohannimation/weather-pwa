@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
+// Setter - Getter
+import { getCookies } from "../LocalStorage/useGetter";
+
+// Component use
 import { cookiesAccepted } from "./useCookieModal";
 
-import { getCookies } from "../LocalStorage/useGetter";
-import { setError, setErrorTitle, setErrorMessage } from "../LocalStorage/useSetter";
-
+// Components
 import Modal from '../Modal';
 
 const CookieModal = () => {

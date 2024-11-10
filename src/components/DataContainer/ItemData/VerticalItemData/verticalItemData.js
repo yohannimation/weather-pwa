@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
+// Component
 import Icon from '../../../Icon';
 
+// CSS
 import styles from './verticalItemData.module.css'
 
 

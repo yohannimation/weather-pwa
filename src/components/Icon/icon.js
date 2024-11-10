@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-import styles from './icon.module.css';
-
+// Data
 import iconList from './iconList.json';
+
+// CSS
+import styles from './icon.module.css';
 
 const Icon = props => {
     const {

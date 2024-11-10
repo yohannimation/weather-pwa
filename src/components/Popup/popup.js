@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-import styles from './popup.module.css'
-
+// Components
 import Button from '../Button';
 import Title from '../Title';
+
+// CSS
+import styles from './popup.module.css'
 
 const Popup = props => {
     const {
