@@ -1,5 +1,5 @@
 import { getDeviceLanguage } from "../../LocalStorage/useGetter";
-import { setCityName, setCoordinates } from "../../LocalStorage/useSetter";
+import { setCityName, setCoordinates, setTimezone } from "../../LocalStorage/useSetter";
 
 export const requester = async (inputValue) => {
     const fetchUrl = "https://geocoding-api.open-meteo.com/v1/search?name=" + inputValue + "&count=4&language=" + getDeviceLanguage() + "&format=json";
@@ -39,6 +39,7 @@ const processData = (jsonResponse) => {
 export const saveSearch = (data) => {
     setCityName(data.name_city);
     setCoordinates(data.latitude, data.longitude);
+    setTimezone(data.timezone)
 
     window.location.replace("/");
 }

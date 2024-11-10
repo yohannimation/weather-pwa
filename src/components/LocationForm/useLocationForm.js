@@ -1,6 +1,7 @@
 import {
     setCityName,
     setCoordinates,
+    setTimezone,
     setError,
     setErrorMessage,
     setErrorTitle
@@ -23,7 +24,7 @@ export const locateMeTreatment = async () => {
                 const latitude = position.coords.latitude;
                 const longitude = position.coords.longitude;
                 const deviceLanguage = getDeviceLanguage();
-                var cityName;
+                var cityName, timezone;
 
                 // Set the API url to get the city name
                 const fetchUrl = "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=" + latitude + "&longitude=" + longitude + "&localityLanguage=" + deviceLanguage;
@@ -37,9 +38,11 @@ export const locateMeTreatment = async () => {
                     const jsonResponse = await response.json();
 
                     cityName = jsonResponse.locality;
+                    timezone = jsonResponse.localityInfo.informative[1].name;
 
                     setCityName(cityName);
                     setCoordinates(latitude, longitude);
+                    setTimezone(timezone)
                 } catch (error) {
                     setError(true);
                     setErrorTitle("Fetch city data from coordinates");
