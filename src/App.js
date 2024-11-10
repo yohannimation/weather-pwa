@@ -1,13 +1,15 @@
 import React from 'react';
 
+// Router
 import { BrowserRouter } from "react-router-dom";
+
+// Translation
 import { useTranslation } from 'react-i18next';
 
+// Components
 import Router from './components/Router';
 import CookieModal from './components/CookieModal';
 import ErrorPopup from './components/ErrorPopup';
-
-import DataContainer from './components/DataContainer';
 
 const App = () => {
     const { t, i18n } = useTranslation();
@@ -16,13 +18,7 @@ const App = () => {
         <BrowserRouter>
             <ErrorPopup />
             <CookieModal />
-            {/* <Router /> */}
-            <DataContainer
-                title="Titre test from app.js"
-                infoData={null}
-                isHorizontal={true}
-                weatherData={null}
-            />
+            <Router />
         </BrowserRouter>
     );
 };
