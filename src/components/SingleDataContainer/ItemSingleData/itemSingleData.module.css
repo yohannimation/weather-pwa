@@ -10,7 +10,7 @@
     width: 100%;
     height: 140px;
     margin: 10px 20px;
-    background-color: grey;
+    background-color: var(--dark-transparent-color);
     color: var(--light-color);
     border-radius: var(--border-radius);
 }
