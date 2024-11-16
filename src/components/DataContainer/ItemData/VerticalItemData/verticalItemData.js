@@ -32,11 +32,13 @@ const VerticalItemData = props => {
     // Check if minimum 4 data and maximum 7 data are declared and valid
     if (
         "day" in data[0] && data[0].day !== null &&
-        "icon" in data[0] && data[0].icon !== null &&
+        "icon" in data[0] /*&& data[0].icon !== null */&&
         "temperature" in data[0] &&
-        "maxDaily" in data[0].temperature && data[0].temperature.variation !== null &&
-        "minDaily" in data[0].temperature && data[0].temperature.value !== null &&
-        "precipitation" in data[0] && data[0].precipitation !== null &&
+        "max" in data[0].temperature && data[0].temperature.max !== null &&
+        "min" in data[0].temperature && data[0].temperature.min !== null &&
+        "precipitation" in data[0] &&
+        "probability" in data[0].precipitation /*&& data[0].precipitation.probability !== null*/ &&
+        "maximumValue" in data[0].precipitation /*&& data[0].precipitation.maximumValue !== null*/ &&
         data.length >= 4 &&
         data.length <= 7
     ) {
@@ -57,8 +59,7 @@ const VerticalItemData = props => {
                             name={item.icon}
                             code={14}
                         />
-                        {item.precipitation}
-                        mm
+                        {item.precipitation.maximumValue}
                     </div>
                     <div className={styles.temperatureContainer}>
                         <div className={styles.temperature}>
@@ -67,8 +68,7 @@ const VerticalItemData = props => {
                                 name={item.icon}
                                 code={14}
                             />
-                            {item.temperature.maxDaily}
-                            °C
+                            {item.temperature.max}
                         </div>
                         <div className={styles.temperature}>
                             <Icon
@@ -76,8 +76,7 @@ const VerticalItemData = props => {
                                 name={item.icon}
                                 code={14}
                             />
-                            {item.temperature.minDaily}
-                            °C
+                            {item.temperature.min}
                         </div>
                     </div>
                 </li>

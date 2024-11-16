@@ -54,7 +54,6 @@ const HorizontalItemData = props => {
                             code={14}
                         />
                         {item.temperature.value}
-                        °C
                     </div>
                     <div className={styles.precipitation}>
                         <Icon
@@ -63,7 +62,6 @@ const HorizontalItemData = props => {
                             code={14}
                         />
                         {item.precipitation}
-                        mm
                     </div>
                 </li>
             );
