@@ -12,9 +12,10 @@
     align-items: center;
     flex-direction: row;
     width: 100%;
-    height: calc(100% - 50px);
+    height: 200px;
     list-style: none;
     overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .verticalClass {
@@ -26,4 +27,6 @@
     width: 100%;
     height: calc(100% - 50px);
     list-style: none;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }

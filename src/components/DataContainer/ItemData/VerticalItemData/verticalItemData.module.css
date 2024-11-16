@@ -5,9 +5,22 @@
     text-align: center;
 }
 
+/*
+    140px 58px 87px 175px (min)
+    245px 58px 140px 132px (max)
+
+
+    
+minmax(140px, 245px)
+58px
+minmax(87px, 140px)
+minmax(175px, 132px)
+*/
+
+
 .item {
     display: grid;
-    grid-template-columns: 3fr .5fr 2fr 1fr;
+    grid-template-columns: minmax(140px, 245px) 58px minmax(87px, 140px) minmax(175px, 132px);
     gap: 15px;
     padding: 0 var(--padding);
     width: 100%;
@@ -15,6 +28,7 @@
     flex-basis: 60px;
     flex-grow: 0;
     flex-shrink: 0;
+    color: var(--light-color);
     border-bottom: var(--border-grey-color);
 }
 
@@ -27,6 +41,7 @@
     justify-content: start;
     align-items: center;
     text-overflow: ellipsis;
+    text-transform: capitalize;
     font-size: 1.2em;
     font-weight: 600;
 }
@@ -39,7 +54,7 @@
 
 .temperatureContainer {
     display: flex;
-    justify-content: end;
+    justify-content: start;
     align-items: center;
     gap: 10px;
 }
