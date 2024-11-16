@@ -3,15 +3,15 @@
             
     },
     "speedUnit": {
-        "default": "km/h",
+        "default": "kmh",
         "secondary": "mph"
     },
     "temperatureUnit": {
-        "default": "°C",
-        "secondary": "°F"
+        "default": "celsius",
+        "secondary": "fahrenheit"
     },
     "precipitationUnit": {
         "default": "mm",
-        "secondary": "Inch"
+        "secondary": "inch"
     }
 }
