@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-import { checkRequiredCookies, getCurrentWeather } from './useWeather';
+import {
+    checkRequiredCookies,
+    defaultBackgroundColorTreatment,
+    getWeatherData
+} from './useWeather';
 
-import Loading from '../../components/Loading'
-// import WeatherFooter from '../../components/WeatherFooter';
+// Components
+import DataContainer from '../../components/DataContainer';
+import Footer from '../../components/Footer';
+import Loading from '../../components/Loading';
+import SingleDataContainer from '../../components/SingleDataContainer';
 import WeatherHeader from '../../components/WeatherHeader';
 
 import styles from './weather.module.css';
@@ -11,68 +18,55 @@ import styles from './weather.module.css';
 function Weather() {
     checkRequiredCookies();
 
-    const [isLoading, setIsLoading] = useState(styles.loaderOn);
-    const [mainClass, setMainClass] = useState(styles.mainWithoutData);
+    const [isLoading, setIsLoading] = useState(true);
     const [mainBackgroundColor, setMainBackgroundColor] = useState({backgroundColor: "var(--default-light-color)"});
-    const [currentWeather, setCurrentWeather] = useState();
+    const [mainClass, setMainClass] = useState(styles.mainDataLoading);
+    const [weatherData, setWeatherData] = useState();
 
     // Fetch current data
-    useEffect( () => {
-        async function fetchCurrentWeather() {
-            if (!currentWeather) {
-                try {
-                    setCurrentWeather(await getCurrentWeather());
-                } catch (error) {
-                    console.log(error);
-                }
-            }
+    useEffect(() => {
+        const getWeather = async () => {
+            setWeatherData(await getWeatherData());
         }
-        fetchCurrentWeather();
 
-        // Check if the current weather data are set
-        if (
-            currentWeather !== undefined &&
-            Object.keys(currentWeather).length
-        ) {
-            // Set the background color of the app
-            if (currentWeather.weatherCode.value > 3) {
-                // Weather code for raining
-                setMainBackgroundColor({backgroundColor: "var(--rain-first-color)"});
-            } else {
-                if (currentWeather.isDay.value) {
-                    // Weather code for day and clear sky
-                    setMainBackgroundColor({backgroundColor: "var(--day-first-color)"});
-                } else {
-                    // Weather code for night and clear sky
-                    setMainBackgroundColor({backgroundColor: "var(--night-first-color)"});
-                }
-            }
+        if (!weatherData) {
+            getWeather();
+        } else {
+            setMainBackgroundColor(
+                defaultBackgroundColorTreatment(
+                    weatherData[0].weatherCode,
+                    weatherData[0].isDay
+                )
+            )
+            setIsLoading(false);
+            setMainClass(styles.mainDataLoaded);
         }
-    }, [currentWeather])
-
-    setTimeout(() => {
-        setIsLoading(styles.loaderOff)
-        setMainClass(styles.mainDataSet)
-    }, 1000)
+    }, [weatherData])
 
     return (
         <div className={styles.root} style={mainBackgroundColor}>
-            <div className={isLoading}>
-                <Loading />
-            </div>
-            <div className={styles.weatherContent}>
-                <WeatherHeader currentWeather={currentWeather} />
+            <Loading isLoading={isLoading}/>
+            <div className={styles.content}>
+                <WeatherHeader currentWeather={weatherData ? weatherData[0] : [{}]} />
                 <main className={mainClass}>
-                    <div className={styles.test}>
-                        <div className={styles.testHeader}>
-                            <p>~27°C</p>
-                            <p>header</p>
-                        </div>
-                        <p>content</p>
-                    </div>
+                    <DataContainer
+                        title="First data container"
+                        infoData={null}
+                        isHorizontal={true}
+                        weatherData={weatherData ? weatherData[1] : [{}]}
+                    />
+                    <SingleDataContainer
+                        data={weatherData ? weatherData[2] : [{}]}
+                    />
+                    <DataContainer
+                        title="First data container"
+                        infoData={null}
+                        isHorizontal={false}
+                        weatherData={weatherData ? weatherData[3] : [{}]}
+                    />
                 </main>
-                {/* <WeatherFooter /> */}
             </div>
+            <Footer />
         </div>
     );
 }
