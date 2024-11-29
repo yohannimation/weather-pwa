@@ -47,10 +47,12 @@ function Weather() {
         <div className={styles.root} style={mainBackgroundColor}>
             <Loading isLoading={isLoading}/>
             <div className={styles.content}>
-                <WeatherHeader currentWeather={weatherData ? weatherData[0] : [{}]} />
+                <div className={styles.headerContainer}>
+                    <WeatherHeader currentWeather={weatherData ? weatherData[0] : [{}]} />
+                </div>
                 <main className={mainClass}>
                     <DataContainer
-                        title="First data container"
+                        title="Dans la journée"
                         infoData={null}
                         isHorizontal={true}
                         weatherData={weatherData ? weatherData[1] : [{}]}
@@ -59,7 +61,7 @@ function Weather() {
                         data={weatherData ? weatherData[2] : [{}]}
                     />
                     <DataContainer
-                        title="First data container"
+                        title="Les prochain jours"
                         infoData={null}
                         isHorizontal={false}
                         weatherData={weatherData ? weatherData[3] : [{}]}

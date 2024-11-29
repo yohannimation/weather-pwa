@@ -1,6 +1,7 @@
 .root {
     position: absolute;
     inset: 0;
+    top: -1000px;
     padding: 0;
     /* overflow: hidden; */
     z-index: 10;

@@ -365,7 +365,7 @@ const getWeeklyWeather = async () => {
 const getIconPath = (code, isDay = true, isStatic = true) => {
     const animateOrStaticPath = isStatic ? "" : "animate/";
     const dayOrNightPath = isDay ? "day/" : "night/";
-    const iconPath = "/iconc/" + animateOrStaticPath + dayOrNightPath;
+    const iconPath = "/icon/" + animateOrStaticPath + dayOrNightPath;
 
     if (Number.isInteger(code)) {
         switch(code) {

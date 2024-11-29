@@ -9,22 +9,15 @@ import styles from './icon.module.css';
 const Icon = props => {
     const {
         size,
-        name,
+        path,
         code
     } = props;
 
     const [iconClass, setIconClass] = useState();
     const [iconName, setIconName] = useState();
 
-    useEffect(() => {    
-        if (name === "weather") {
-            switch (code) {
-                
-            }
-        } else {
-            // setIconName("/icons/" + name);
-            setIconName("/" + name);
-        }
+    useEffect(() => {
+        setIconName(path + ".png");
     
         switch (size) {
             case 24:
@@ -54,11 +47,11 @@ const Icon = props => {
             default:
                 break;
         }
-    }, [name]);
+    }, [path]);
 
     return (
         <div className={iconClass}>
-            <img className={styles.img} src={iconName} alt={name} />
+            <img className={styles.img} src={iconName} alt={path} />
         </div>
     );
 }

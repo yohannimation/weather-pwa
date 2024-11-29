@@ -5,22 +5,9 @@
     text-align: center;
 }
 
-/*
-    140px 58px 87px 175px (min)
-    245px 58px 140px 132px (max)
-
-
-    
-minmax(140px, 245px)
-58px
-minmax(87px, 140px)
-minmax(175px, 132px)
-*/
-
-
 .item {
     display: grid;
-    grid-template-columns: minmax(140px, 245px) 58px minmax(87px, 140px) minmax(175px, 132px);
+    grid-template-columns: minmax(90px, 245px) 58px 100px minmax(170px, 175px);
     gap: 15px;
     padding: 0 var(--padding);
     width: 100%;
@@ -61,14 +48,14 @@ minmax(175px, 132px)
 
 .temperature {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
 }
 
 .precipitation {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap: 10px;
 }

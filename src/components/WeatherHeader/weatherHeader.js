@@ -3,40 +3,60 @@ import 'https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js';
 
 import { useTranslation } from 'react-i18next';
 
-// import SearchBar from '../SearchBar';
+import InputSearchBar from '../SearchBar/InputSearchBar';
+import Icon from '../Icon';
 
 import styles from './weatherHeader.module.css';
 
 const WeatherHeader = props => {
-    const { currentWeatherData, userUnit, lastUpdate } = props;
-    const { t, i18n } = useTranslation();
-
-    const handleSearchBarTreatment = () => {
-
-    }
+    const {
+        apparentTemperature,
+        icon,
+        isDay,
+        precipitation,
+        temperature,
+        time,
+        weatherCode,
+    } = props.currentWeather;
 
     return (
-        <header className={styles.headerTop}>
+        <header className={styles.header}>
             <span className={styles.backgroundHeader}></span>
             <div className={styles.searchBarContainer}>
-                {/* <SearchBar placeholder={t('locate.searchBarPlaceholder')} returnValue={handleSearchBarTreatment} /> */}
+                <InputSearchBar />
             </div>
-            <div className={styles.currentWeatherContainer}>
-                <div className={styles.temperature}>
-                    <span>24.4</span>&nbsp;<span>C°</span></div>
+            <div className={styles.dataContainer}>
+                <div className={styles.mainData}>
+                    <span>{temperature}</span>
+                </div>
                 <div className={styles.secondaryData}>
-                    <div className={styles.feeling}>
-                        Ressenti <span>27</span>&nbsp;<span>°C</span>
+                    <div className={styles.secondaryDataItem}>
+                        <Icon
+                            size={24}
+                            name={icon}
+                            code={14}
+                        />
+                        Ressenti {apparentTemperature}
                     </div>
-                    <div className={styles.precipitation}>
-                        <img src='/favicon.ico' className={styles.precipitationIcon} /><span>0</span><span>mm</span>
+                    <div className={styles.secondaryDataItem}>
+                        <Icon
+                            size={24}
+                            name="/icon/day/clear"
+                            code={14}
+                        />
+                        precipitation {precipitation}
                     </div>
                 </div>
             </div>
             <div className={styles.gifContainer}>
-                <img src='/favicon.ico' className={styles.img} />
+                <Icon
+                    size={60}
+                    name="/icon/day/clear"
+                    code={14}
+                />
+                Ensoleillé
             </div>
-            <div className={styles.lastUpdateContainer}><span>26/08/2024 - 20:27</span></div>
+            <div className={styles.lastUpdateContainer}><span>{time}</span></div>
         </header>
     );
 }

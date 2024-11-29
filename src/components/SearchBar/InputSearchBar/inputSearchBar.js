@@ -21,7 +21,11 @@ const ItemResultSearchBar = props => {
                 <input
                     value={searchValue}
                     onChange={e => setSearchValue(e.target.value)}
-                    onFocus={e => setModalIsOpen(true)}
+                    onFocus={e => {
+                        console.log("test")
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                        setModalIsOpen(true);
+                    }}
                     onBlur={e => setModalIsOpen(false)}
                     className={styles.input}
                 />

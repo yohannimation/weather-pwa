@@ -14,9 +14,17 @@
     padding: 0 var(--padding);
 }
 
+.headerContainer {
+    position: sticky;
+    top: 20px;
+    width: 100%;
+    color: var(--light-color);
+    z-index: 1;
+}
+
 .mainDataLoading {
     visibility: hidden;
-    min-height: 70.55vh; /* float value to prevent error for scroll() animation function of weatherHeader component */
+    min-height: 100vh;
     margin-top: 20px;
 }
 
@@ -27,7 +35,8 @@
     flex-direction: column;
     gap: 20px;
     width: 100%;
-    min-height: 70.55vh; /* float value to prevent error for scroll() animation function of weatherHeader component */
+    min-height: 100vh;
+    padding-top: 260px;
     visibility: unset;
     animation: 1s cubic-bezier(.17,.84,.44,1) 0s fadeInUp;
 }
