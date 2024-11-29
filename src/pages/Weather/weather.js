@@ -44,7 +44,7 @@ function Weather() {
     }, [weatherData])
 
     return (
-        <div className={styles.root} style={mainBackgroundColor}>
+        <div id="weather-root-id" className={styles.root} style={mainBackgroundColor}>
             <Loading isLoading={isLoading}/>
             <div className={styles.content}>
                 <div className={styles.headerContainer}>

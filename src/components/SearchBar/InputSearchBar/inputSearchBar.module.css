@@ -14,8 +14,7 @@
 }
 
 .icon {
-    width: 45px;
-    height: 45px;
+    flex-shrink: 0;
     background-color: var(--dark-color);
     border-radius: var(--full-border-radius);
     border: var(--border-white-color);
@@ -33,6 +32,11 @@
     font-size: 1.2em;
     font-weight: 500;
     outline: none;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .resultSearchBarContainer {

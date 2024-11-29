@@ -1,31 +1,34 @@
 import React, { useState } from 'react';
 
+// Setter - Getter
+import { getCityName } from '../../LocalStorage/useGetter';
+
 // Components
 import ResultSearchBar from '../ResultSearchBar';
+import Icon from '../../Icon';
 
 // CSS
 import styles from './inputSearchBar.module.css';
 
-const ItemResultSearchBar = props => {
-    const {
-        initialSearchValue
-    } = props;
+const ItemResultSearchBar = () => {
 
-    const [searchValue, setSearchValue] = useState(initialSearchValue ?? "");
+    const [searchValue, setSearchValue] = useState(getCityName() ?? "");
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     return (
         <div className={styles.root}>
             <div className={styles.inputContainer}>
-                <img className={styles.icon} src="/logo512.png" alt='' />
+                <div className={styles.icon}>
+                    <Icon
+                        size={45}
+                        name={'gre'}
+                        code={14}
+                    />
+                </div>
                 <input
                     value={searchValue}
                     onChange={e => setSearchValue(e.target.value)}
-                    onFocus={e => {
-                        console.log("test")
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                        setModalIsOpen(true);
-                    }}
+                    onFocus={e => setModalIsOpen(true)}
                     onBlur={e => setModalIsOpen(false)}
                     className={styles.input}
                 />

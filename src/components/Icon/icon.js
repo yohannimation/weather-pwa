@@ -40,6 +40,10 @@ const Icon = props => {
                 setIconClass(styles.xl);
                 break;
 
+            case 45:
+                setIconClass(styles.searchBarSize);
+                break;
+
             case 60:
                 setIconClass(styles.big);
                 break;
