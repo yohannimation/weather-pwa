@@ -1,0 +1,56 @@
+/
+| app-logo.svg
+| arrow-down.svg
+| arrow-up.svg
+| big-logo.svg
+| equal.svg
+| feeling.svg
+| info.svg
+| precipitation.svg
+| reload.svg
+| search.svg
+| setting.svg
+|
+| loading.gif
+|
+| day/
+|    | animate/
+|    |        | clear.gif
+|    |        | cloudly.gif
+|    |        | fogy.gif
+|    |        | rainy.gif
+|    |        | snowy.gif
+|    |        | thunderstorm.gif
+|    | 
+|    | clear.svg
+|    | cloudly.svg
+|    | fogy.svg
+|    | rainy.svg
+|    | snowy.svg
+|    | thunderstorm.svg
+|
+| night
+|    | animate/
+|    |        | clear.gif
+|    |        | cloudly.gif
+|    |        | fogy.gif
+|    |        | rainy.gif
+|    |        | snowy.gif
+|    |        | thunderstorm.gif
+|    | 
+|    | clear.svg
+|    | cloudly.svg
+|    | fogy.svg
+|    | rainy.svg
+|    | snowy.svg
+|    | thunderstorm.svg
+|
+| single-data/
+|            | max-temp.svg
+|            | min-temp.svg
+|            | sunset.svg
+|            | sunrise.svg
+|            | uv-index.svg
+|            | precipitation-probability.svg
+|            | wind-speed.svg
+|            | wind-direction.svg
