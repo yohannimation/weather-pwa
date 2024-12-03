@@ -38,9 +38,9 @@ const HorizontalItemData = props => {
         "precipitation" in data[0] && data[0].precipitation !== null &&
         data.length >= 7
     ) {
-        listData = data.map((item) => {
+        listData = data.map((item, index) => {
             return (
-                <li key={item.time} className={styles.item}>
+                <li key={index} className={styles.item}>
                     <p className={styles.hour}>{item.time}</p>
                     <Icon
                         size={40}

@@ -47,10 +47,10 @@ const ResultSearchBar = props => {
     // Display the list of items or "nothing found"
     var htmlResultsList;
     if (requestedResultList) {
-        htmlResultsList = requestedResultList.map((item) => {
+        htmlResultsList = requestedResultList.map((item, index) => {
             return (
                 // Use "onMouseDown" because "onClick" is not enough fast. The result modal close before the value is selected
-                <li key={item.id} onMouseDown={() => {
+                <li key={index} onMouseDown={() => {
                     saveSearch(
                         {
                             "name_city": item.name_city,

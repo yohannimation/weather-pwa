@@ -42,9 +42,9 @@ const VerticalItemData = props => {
         data.length >= 4 &&
         data.length <= 7
     ) {
-        listData = data.map((item) => {
+        listData = data.map((item, index) => {
             return (
-                <li key={item.time} className={styles.item}>
+                <li key={index} className={styles.item}>
                     <p className={styles.day}>{item.day}</p>
                     <div className={styles.weatherIconContainer}>
                         <Icon

@@ -21,9 +21,9 @@ const SingleDataContainer = props => {
         "left" in data[0] && data[0].left !== null &&
         "right" in data[0] && data[0].right !== null
     ) {
-        listData = data.map((item) => {
+        listData = data.map((item, index) => {
             return (
-                <ItemSingleData data={item}/>
+                <ItemSingleData key={index} data={item}/>
             );
         })
     } else {
