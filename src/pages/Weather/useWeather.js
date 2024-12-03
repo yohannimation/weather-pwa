@@ -254,44 +254,52 @@ const getTodayWeather = async () => {
 
             return [
                 {
-                    "name": "temperature_2m_max",
-                    "icon": getIconPath("temperature_2m_max"),
-                    "value": dailyData.temperature_2m_max[0] + " " + dailyUnit.temperature_2m_max
+                    "left": {
+                        "name": "temperature_2m_min",
+                        "icon": getIconPath("temperature_2m_min"),
+                        "value": dailyData.temperature_2m_min[0] + " " + dailyUnit.temperature_2m_min
+                    },
+                    "right": {
+                        "name": "temperature_2m_max",
+                        "icon": getIconPath("temperature_2m_max"),
+                        "value": dailyData.temperature_2m_max[0] + " " + dailyUnit.temperature_2m_max
+                    }
                 },
                 {
-                    "name": "temperature_2m_min",
-                    "icon": getIconPath("temperature_2m_min"),
-                    "value": dailyData.temperature_2m_min[0] + " " + dailyUnit.temperature_2m_min
+                    "left": {
+                        "name": "sunrise",
+                        "icon": getIconPath("sunrise"),
+                        "value": dailyData.sunrise[0].split("T")[1]
+                    },
+                    "right": {
+                        "name": "sunset",
+                        "icon": getIconPath("sunset"),
+                        "value": dailyData.sunset[0].split("T")[1]
+                    }
                 },
                 {
-                    "name": "precipitation_probability_max",
+                    "left": {
+                        "name": "uv_index_max",
+                        "icon": getIconPath("uv_index_max"),
+                        "value": dailyData.uv_index_max[0] ?? 0
+                    },
+                    "right": {
+                        "name": "precipitation_probability_max",
                     "icon": getIconPath("precipitation_probability_max"),
                     "value": dailyData.precipitation_probability_max[0] + " " + dailyUnit.precipitation_probability_max
+                    }
                 },
                 {
-                    "name": "sunrise",
-                    "icon": getIconPath("sunrise"),
-                    "value": dailyData.sunrise[0].split("T")[1]
-                },
-                {
-                    "name": "sunset",
-                    "icon": getIconPath("sunset"),
-                    "value": dailyData.sunset[0].split("T")[1]
-                },
-                {
-                    "name": "uv_index_max",
-                    "icon": getIconPath("uv_index_max"),
-                    "value": dailyData.uv_index_max[0] ? dailyData.uv_index_max[0] : null
-                },
-                {
-                    "name": "wind_speed_10m_max",
-                    "icon": getIconPath("wind_speed_10m_max"),
-                    "value": dailyData.wind_speed_10m_max[0] + " " + dailyUnit.wind_speed_10m_max
-                },
-                {
-                    "name": "wind_direction_10m_dominant",
-                    "icon": getIconPath("wind_direction_10m_dominant"),
-                    "value": dailyData.wind_direction_10m_dominant[0] + " " + dailyUnit.wind_direction_10m_dominant
+                    "left": {
+                        "name": "wind_speed_10m_max",
+                        "icon": getIconPath("wind_speed_10m_max"),
+                        "value": dailyData.wind_speed_10m_max[0] + " " + dailyUnit.wind_speed_10m_max
+                    },
+                    "right": {
+                        "name": "wind_direction_10m_dominant",
+                        "icon": getIconPath("wind_direction_10m_dominant"),
+                        "value": dailyData.wind_direction_10m_dominant[0] + " " + dailyUnit.wind_direction_10m_dominant
+                    }
                 }
             ]
         } else {

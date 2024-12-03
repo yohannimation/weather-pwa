@@ -18,9 +18,8 @@ const SingleDataContainer = props => {
 
     var listData, errorMsg;
     if (
-        "name" in data[0] && data[0].name !== null &&
-        "icon" in data[0] && data[0].icon !== null &&
-        "value" in data[0] && data[0].value !== null
+        "left" in data[0] && data[0].left !== null &&
+        "right" in data[0] && data[0].right !== null
     ) {
         listData = data.map((item) => {
             return (

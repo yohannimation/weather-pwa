@@ -16,16 +16,24 @@ const ItemSingleData = props => {
         data
     } = props;
 
-    const name = t("components-singleDataContainer-itemSingleData-" + data.name)
-
     return (
         <li className={styles.root}>
-            <Icon
-                size={60}
-                name={data.icon}
-            />
-            <p className={styles.itemName}>{name}</p>
-            <p className={styles.itemValue}>{data.value}</p>
+            <div className={styles.item}>
+                <Icon
+                    size={60}
+                    name={data.left.icon}
+                />
+                <p className={styles.itemName}>{t("components-singleDataContainer-itemSingleData-" + data.left.name)}</p>
+                <p className={styles.itemValue}>{data.left.value ?? 0}</p>
+            </div>
+            <div className={styles.item}>
+                <Icon
+                    size={60}
+                    name={data.right.icon}
+                />
+                <p className={styles.itemName}>{t("components-singleDataContainer-itemSingleData-" + data.right.name)}</p>
+                <p className={styles.itemValue}>{data.right.value ?? 0}</p>
+            </div>
         </li>
     );
 }
