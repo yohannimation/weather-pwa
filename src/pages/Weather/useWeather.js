@@ -181,8 +181,20 @@ const getHourlyWeather = async () => {
             const hourlyUnit = jsonResponse.hourly_units;
             var lastTemperature;
 
+            // An iterable variable. If its count is > 24 it return null
+            var indexWithLimit = 0;
+
+            // The item is the hour
             const hourlyDataToReturn = hourlyData.time.map((item, index) => {
-                if (index >= currentHour && index <= 49 - currentHour) {
+
+                // If the index >= to the current hour, the data will be display
+                if (index >= currentHour) {
+
+                    indexWithLimit++;
+                    if (indexWithLimit > 24) {
+                        return null
+                    }
+
                     // Define the temperature variation (rise, equal, down)
                     var temperatureVariation;
                     if (lastTemperature < hourlyData.temperature_2m[index]) {
@@ -230,7 +242,7 @@ const getTodayWeather = async () => {
     todayWeatherUrl.searchParams.append("latitude", latitude);
     todayWeatherUrl.searchParams.append("longitude", longitude);
     todayWeatherUrl.searchParams.append("timezone", timezone);
-    todayWeatherUrl.searchParams.append("daily", "temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant");
+    todayWeatherUrl.searchParams.append("daily", "temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max,precipitation_probability_mean,wind_speed_10m_max,wind_direction_10m_dominant");
     todayWeatherUrl.searchParams.append("temperature_unit", temperatureUnit);
     todayWeatherUrl.searchParams.append("wind_speed_unit", speedUnit);
     todayWeatherUrl.searchParams.append("precipitation_unit", precipitationUnit);
@@ -284,9 +296,9 @@ const getTodayWeather = async () => {
                         "value": dailyData.uv_index_max[0] ?? 0
                     },
                     "right": {
-                        "name": "precipitation_probability_max",
-                    "icon": getIconPath("precipitation_probability_max"),
-                    "value": dailyData.precipitation_probability_max[0] + " " + dailyUnit.precipitation_probability_max
+                        "name": "precipitation_probability_mean",
+                    "icon": getIconPath("precipitation_probability_mean"),
+                    "value": dailyData.precipitation_probability_mean[0] + " " + dailyUnit.precipitation_probability_mean
                     }
                 },
                 {

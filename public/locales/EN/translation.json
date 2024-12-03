@@ -27,7 +27,7 @@
   "components-singleDataContainer-errorMessage": "Single data : An error has occurred",
   "components-singleDataContainer-itemSingleData-temperature_2m_max": "Max. temperature",
   "components-singleDataContainer-itemSingleData-temperature_2m_min": "Min. temperature",
-  "components-singleDataContainer-itemSingleData-precipitation_probability_max": "Precipitation probability",
+  "components-singleDataContainer-itemSingleData-precipitation_probability_mean": "Precipitation probability",
   "components-singleDataContainer-itemSingleData-sunrise": "Sunrise",
   "components-singleDataContainer-itemSingleData-sunset": "Sunset",
   "components-singleDataContainer-itemSingleData-uv_index_max": "UV index",
