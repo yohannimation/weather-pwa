@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+// Translation
+import { useTranslation } from 'react-i18next';
+
 // Setter - Getter
 import { getError, getErrorTitle, getErrorMessage } from '../LocalStorage/useGetter';
 import { setError } from '../LocalStorage/useSetter';
@@ -11,6 +14,8 @@ import { checkError, reloadTrigger } from './useErrorPopup';
 import Popup from '../Popup';
 
 const ErrorPopup = () => {
+    const { t, i18n } = useTranslation();
+
     const [popupActive, setPopupActive] = useState(false);
     const [popupTitle, setPopupTitle] = useState("");
     const [popupMessage, setPopupMessage] = useState("");
@@ -39,7 +44,7 @@ const ErrorPopup = () => {
                 active={popupActive}
                 title={popupTitle}
                 message={popupMessage}
-                buttonText="Recharger"
+                buttonText={t("components-errorPopup-buttonText")}
                 action={reloadTrigger}
             />
         </>

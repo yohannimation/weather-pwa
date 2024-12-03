@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+// Translation
+import { useTranslation } from 'react-i18next';
+
 // Component
 import Popup from '../Popup';
 
@@ -7,6 +10,8 @@ import Popup from '../Popup';
 import styles from './infoPopup.module.css'
 
 const InfoPopup = props => {
+    const { t, i18n } = useTranslation();
+
     const {
         title,
         content,
@@ -29,7 +34,7 @@ const InfoPopup = props => {
                 active={isOpen}
                 title={title}
                 message={content}
-                buttonText="Close"
+                buttonText={t("components-infoPopup-buttonText")}
                 action={infoPopupTrigger}
             />
         </div>

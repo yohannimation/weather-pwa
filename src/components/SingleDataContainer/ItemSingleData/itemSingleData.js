@@ -1,5 +1,8 @@
 import React from 'react';
 
+// Translation
+import { useTranslation } from 'react-i18next';
+
 // Components
 import Icon from '../../Icon';
 
@@ -7,9 +10,13 @@ import Icon from '../../Icon';
 import styles from './itemSingleData.module.css';
 
 const ItemSingleData = props => {
+    const { t, i18n } = useTranslation();
+
     const {
         data
     } = props;
+
+    const name = t("components-singleDataContainer-itemSingleData-" + data.name)
 
     return (
         <li className={styles.root}>
@@ -17,7 +24,7 @@ const ItemSingleData = props => {
                 size={60}
                 name={data.icon}
             />
-            <p className={styles.itemName}>{data.name}</p>
+            <p className={styles.itemName}>{name}</p>
             <p className={styles.itemValue}>{data.value}</p>
         </li>
     );

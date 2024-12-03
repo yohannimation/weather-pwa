@@ -1,5 +1,8 @@
 import React from 'react';
 
+// Translation
+import { useTranslation } from 'react-i18next';
+
 // Components
 import ItemSingleData from './ItemSingleData'
 
@@ -7,6 +10,8 @@ import ItemSingleData from './ItemSingleData'
 import styles from './singleDataContainer.module.css';
 
 const SingleDataContainer = props => {
+    const { t, i18n } = useTranslation();
+
     const {
         data
     } = props;
@@ -23,7 +28,7 @@ const SingleDataContainer = props => {
             );
         })
     } else {
-        errorMsg = <li className={styles.error}>Single data error</li>;
+        errorMsg = <li className={styles.error}>{t("components-singleDataContainer-errorMessage")}</li>;
     }
 
     return (

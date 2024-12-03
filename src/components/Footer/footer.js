@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+// Translation
+import { useTranslation } from 'react-i18next';
+
 // Setter - Getter
 import {
     setTimezone,
@@ -19,6 +22,8 @@ import BooleanSlider from '../BooleanSlider';
 import styles from './footer.module.css'
 
 const Footer = () => {
+    const { t, i18n } = useTranslation();
+
     const [parametersModalIsOpen, setParametersModalIsOpen] = useState(false); 
 
     const reloadPage = () => {
@@ -45,28 +50,28 @@ const Footer = () => {
     const modalContent = (
         <ul className={styles.parametersList}>
             <li className={styles.parameterItem}>
-                <p>Timezone</p>
+                <p>{t("components-footer-settingsModal-timezone")}</p>
                 <select>
                     <option>Test1</option>
                     <option>Test2</option>
                 </select>
             </li>
             <li className={styles.parameterItem}>
-                <p>Unité de température</p>
+                <p>{t("components-footer-settingsModal-temperatureUnit")}</p>
                 <BooleanSlider
                     values={parametersList.temperatureUnit}
                     returnValue={triggerSetTemperatureUnit}
                 />
             </li>
             <li className={styles.parameterItem}>
-                <p>Unité de vitesse</p>
+                <p>{t("components-footer-settingsModal-speedUnit")}</p>
                 <BooleanSlider
                     values={parametersList.speedUnit}
                     returnValue={triggerSetSpeedUnit}
                 />
             </li>
             <li className={styles.parameterItem}>
-                <p>Unité de precipitation</p>
+                <p>{t("components-footer-settingsModal-precipitationUnit")}</p>
                 <BooleanSlider
                     values={parametersList.precipitationUnit}
                     returnValue={triggerSetPrecipitationUnit}
@@ -80,17 +85,17 @@ const Footer = () => {
 
     return (
         <footer className={styles.root}>
-            <div className={styles.cta} title='Reload' onClick={reloadPage}>
+            <div className={styles.cta} title={t("components-footer-iconAlt-reload")} onClick={reloadPage}>
                 <img src='/logo512.png' alt='reload button'/>
             </div>
-            <div className={styles.cta} title='Parameters' onClick={parametersModalTrigger}>
+            <div className={styles.cta} title={t("components-footer-iconAlt-settings")} onClick={parametersModalTrigger}>
                 <img src='/logo512.png' alt='parameters button'/>
             </div>
             <Modal
                 active={parametersModalIsOpen}
-                title="Parameters"
+                title={t("components-footer-settingsModal-title")}
                 message={modalContent}
-                buttonText="Done"
+                buttonText={t("components-footer-settingsModal-buttonText")}
                 action={parametersModalTrigger}
             />
         </footer>

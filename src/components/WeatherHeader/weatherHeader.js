@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js';
 
+// Translation
 import { useTranslation } from 'react-i18next';
 
 import InputSearchBar from '../SearchBar/InputSearchBar';
@@ -9,6 +10,8 @@ import Icon from '../Icon';
 import styles from './weatherHeader.module.css';
 
 const WeatherHeader = props => {
+    const { t, i18n } = useTranslation();
+
     const {
         apparentTemperature,
         icon,
@@ -36,7 +39,7 @@ const WeatherHeader = props => {
                             name={icon}
                             code={14}
                         />
-                        Ressenti {apparentTemperature}
+                        {t("components-weatherHeader-feeling")} {apparentTemperature}
                     </div>
                     <div className={styles.secondaryDataItem}>
                         <Icon
@@ -44,7 +47,7 @@ const WeatherHeader = props => {
                             name="/icon/day/clear"
                             code={14}
                         />
-                        precipitation {precipitation}
+                        {t("components-weatherHeader-precipitation")} {precipitation}
                     </div>
                 </div>
             </div>
@@ -54,7 +57,7 @@ const WeatherHeader = props => {
                     name="/icon/day/clear"
                     code={14}
                 />
-                Ensoleillé
+                XXXXXXXX
             </div>
             <div className={styles.lastUpdateContainer}><span>{time}</span></div>
         </header>

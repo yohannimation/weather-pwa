@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+// Translation
+import { useTranslation } from 'react-i18next';
+
 import {
     checkRequiredCookies,
     defaultBackgroundColorTreatment,
@@ -16,6 +19,8 @@ import WeatherHeader from '../../components/WeatherHeader';
 import styles from './weather.module.css';
 
 function Weather() {
+    const { t, i18n } = useTranslation();
+
     checkRequiredCookies();
 
     const [isLoading, setIsLoading] = useState(true);
@@ -52,7 +57,7 @@ function Weather() {
                 </div>
                 <main className={mainClass}>
                     <DataContainer
-                        title="Dans la journée"
+                        title={t("pages-weather-duringTheDay")}
                         infoData={null}
                         isHorizontal={true}
                         weatherData={weatherData ? weatherData[1] : [{}]}
@@ -61,7 +66,7 @@ function Weather() {
                         data={weatherData ? weatherData[2] : [{}]}
                     />
                     <DataContainer
-                        title="Les prochain jours"
+                        title={t("pages-weather-nextDays")}
                         infoData={null}
                         isHorizontal={false}
                         weatherData={weatherData ? weatherData[3] : [{}]}

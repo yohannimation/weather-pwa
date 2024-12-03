@@ -1,17 +1,43 @@
 {
-  "cookieModal": {
-    "componentTitle": "Accept cookies ?",
-    "modalContent": ""
-  },
-  "locate": {
-    "headerTitle": "Location",
-    "pageTitle": "Enter a location",
-    "booleanSliderValues": {
-      "default": "Manually",
-      "secondary": "Automaticaly"
-    },
-    "searchBarPlaceholder": "City name",
-    "locateMeButton": "Locate me",
-    "locateMePreventMessage": "This app will ask you to allow the use of your device GPS"
-  }
+  "language": "English",
+  "components-cookieModal-title": "Accept cookies",
+  "components-cookieModal-message": "Please accept cookies.",
+  "components-cookieModal-buttonText": "Accept",
+
+  "components-errorPopup-buttonText": "Refresh",
+
+  "components-footer-settingsModal-title": "Settings",
+  "components-footer-settingsModal-buttonText": "Save",
+  "components-footer-settingsModal-timezone": "Timezone",
+  "components-footer-settingsModal-temperatureUnit": "Temperature unit",
+  "components-footer-settingsModal-speedUnit": "Speed unit",
+  "components-footer-settingsModal-precipitationUnit": "Precipitation unit",
+  "components-footer-iconAlt-reload": "Refresh",
+  "components-footer-iconAlt-settings": "Settings",
+
+  "components-infoPopup-buttonText": "Close",
+  
+  "components-locationForm-booleanSlider-default": "Manually",
+  "components-locationForm-booleanSlider-secondary": "Automatically",
+  "components-locationForm-locateMePart-buttonText": "Locate me",
+  "components-locationForm-locateMePart-preventMessage": "A prevention message for the user",
+  
+  "components-searchBar-resultSearchBar-noResult": "No result",
+  
+  "components-singleDataContainer-errorMessage": "Single data : An error has occurred",
+  "components-singleDataContainer-itemSingleData-temperature_2m_max": "Max. temperature",
+  "components-singleDataContainer-itemSingleData-temperature_2m_min": "Min. temperature",
+  "components-singleDataContainer-itemSingleData-precipitation_probability_max": "Precipitation probability",
+  "components-singleDataContainer-itemSingleData-sunrise": "Sunrise",
+  "components-singleDataContainer-itemSingleData-sunset": "Sunset",
+  "components-singleDataContainer-itemSingleData-uv_index_max": "UV index",
+  "components-singleDataContainer-itemSingleData-wind_speed_10m_max": "Max. wind speed",
+  "components-singleDataContainer-itemSingleData-wind_direction_10m_dominant": "Wind direction",
+  
+  "components-weatherHeader-feeling": "Felling",
+  "components-weatherHeader-precipitation": "Precipitation",
+  "components-weatherHeader-gifContainer": "",
+
+  "pages-weather-duringTheDay": "During the day",
+  "pages-weather-nextDays": "Next days"
 }

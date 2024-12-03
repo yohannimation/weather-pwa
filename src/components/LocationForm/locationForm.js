@@ -1,5 +1,8 @@
 import React, { useState, useEffect }  from 'react';
 
+// Translation
+import { useTranslation } from 'react-i18next';
+
 // Component use
 import { locateMeTreatment } from './useLocationForm';
 
@@ -13,12 +16,14 @@ import Loading from '../Loading';
 import styles from './locationForm.module.css';
 
 const LocationForm = () => {
+    const { t, i18n } = useTranslation();
+
     const [isLoading, setIsLoading] = useState(false);
     const [sliderContainer, setSliderContainer] = useState(styles.leftSliderContainer);
 
     const booleanSlider = {
-        "default": "Manually",
-        "secondary": "Automatically"
+        "default": t("components-locationForm-booleanSlider-default"),
+        "secondary": t("components-locationForm-booleanSlider-secondary")
     };
 
     const booleanSliderTrigger = (value) => {
@@ -54,9 +59,9 @@ const LocationForm = () => {
                 </div>
                 <div className={styles.automaticallyContainer}>
                     <Button triggerAction={locateMeTrigger}>
-                        Locate me
+                        {t("components-locationForm-locateMePart-buttonText")}
                     </Button>
-                    <p>Prevent message to user</p>
+                    <p>{t("components-locationForm-locateMePart-preventMessage")}</p>
                 </div>
             </div>
         </div>

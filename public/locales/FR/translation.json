@@ -1,20 +1,43 @@
 {
-  "cookieModal": {
-    "componentTitle": "Accepter les cookies ?",
-    "modalContent": {
-      "message": "Les cookies sont essentiel au bon fonctionnement de l'application. Il est donc nécessaire de les accepter pour continuer.",
-      "commercialPurposes": "Aucune données ne sera utilisé à des fins commercial."
-    }
-  },  
-  "locate": {
-    "headerTitle": "Localisation",
-    "pageTitle": "Selectionner une ville ou un village",
-    "booleanSliderValues": {
-      "default": "Manuellement",
-      "secondary": "Automatiquement"
-    },
-    "searchBarPlaceholder": "Nom de la ville ou le village",
-    "locateMeButton": "Me localiser",
-    "locateMePreventMessage": "Cette application va vous demander d'autoriser l'utilisation du GPS de votre appareil."
-  }
+  "language": "Français",
+  "components-cookieModal-title": "Accepter les cookies",
+  "components-cookieModal-message": "Veuillez accepter les cookies s'il vous plaît.",
+  "components-cookieModal-buttonText": "Accepter",
+
+  "components-errorPopup-buttonText": "Rafraichir",
+
+  "components-footer-settingsModal-title": "Paramètres",
+  "components-footer-settingsModal-buttonText": "Sauvegarder",
+  "components-footer-settingsModal-timezone": "Timezone",
+  "components-footer-settingsModal-temperatureUnit": "Unité de température",
+  "components-footer-settingsModal-speedUnit": "Unité de vitesse",
+  "components-footer-settingsModal-precipitationUnit": "Unité de précipitation",
+  "components-footer-iconAlt-reload": "Rafraichir",
+  "components-footer-iconAlt-settings": "Paramètres",
+
+  "components-infoPopup-buttonText": "Fermer",
+  
+  "components-locationForm-booleanSlider-default": "Manuellement",
+  "components-locationForm-booleanSlider-secondary": "Automatiquement",
+  "components-locationForm-locateMePart-buttonText": "Me localiser",
+  "components-locationForm-locateMePart-preventMessage": "Un message de prévention pour l'utilisateur",
+  
+  "components-searchBar-resultSearchBar-noResult": "Aucun résultat n'a été trouvé",
+  
+  "components-singleDataContainer-errorMessage": "Single data : Une erreur est survenue",
+  "components-singleDataContainer-itemSingleData-temperature_2m_max": "Température max.",
+  "components-singleDataContainer-itemSingleData-temperature_2m_min": "Température min.",
+  "components-singleDataContainer-itemSingleData-precipitation_probability_max": "Probabilité de précipitation",
+  "components-singleDataContainer-itemSingleData-sunrise": "Levé du soleil",
+  "components-singleDataContainer-itemSingleData-sunset": "Couché du soleil",
+  "components-singleDataContainer-itemSingleData-uv_index_max": "Index UV",
+  "components-singleDataContainer-itemSingleData-wind_speed_10m_max": "Vitesse max. du vent",
+  "components-singleDataContainer-itemSingleData-wind_direction_10m_dominant": "Orientation du vent",
+
+  "components-weatherHeader-feeling": "Ressenti",
+  "components-weatherHeader-precipitation": "Précipitation",
+  "components-weatherHeader-gifContainer": "",
+
+  "pages-weather-duringTheDay": "Dans la journée",
+  "pages-weather-nextDays": "Les prochain jours"
 }

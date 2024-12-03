@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+// Translation
+import { useTranslation } from 'react-i18next';
+
 // Component use
 import { requester, saveSearch } from './useResultSearchBar';
 
@@ -10,6 +13,8 @@ import ItemResultSearchBar from '../ItemResultSearchBar';
 import styles from './resultSearchBar.module.css';
 
 const ResultSearchBar = props => {
+    const { t, i18n } = useTranslation();
+
     const {
         inputValue,
         isOpen
@@ -67,7 +72,7 @@ const ResultSearchBar = props => {
         })
     } else {
         htmlResultsList = <p className={styles.noResult}>
-            Aucun résultat n'a été trouvé
+            {t("components-searchBar-resultSearchBar-noResult")}
         </p>
     }
 

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+// Translation
+import { useTranslation } from 'react-i18next';
+
 // Setter - Getter
 import { getCookies } from "../LocalStorage/useGetter";
 
@@ -10,6 +13,8 @@ import { cookiesAccepted } from "./useCookieModal";
 import Modal from '../Modal';
 
 const CookieModal = () => {
+    const { t, i18n } = useTranslation();
+
     const [modalActive, setModalActive] = useState(false);
 
     // Set cookie accepted in localStorage
@@ -29,9 +34,9 @@ const CookieModal = () => {
         <>
             <Modal
                 active={modalActive}
-                title="Cookie modal"
-                message="Veuillez accepter les cookie svp"
-                buttonText="Accepter"
+                title={t("components-cookieModal-title")}
+                message={t("components-cookieModal-message")}
+                buttonText={t("components-cookieModal-buttonText")}
                 action={modalActionTrigger}
             />
         </>
