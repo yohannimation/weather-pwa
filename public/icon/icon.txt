@@ -16,14 +16,14 @@
 | day/
 |    | animate/
 |    |        | clear.gif
-|    |        | cloudly.gif
+|    |        | cloudy.gif
 |    |        | fogy.gif
 |    |        | rainy.gif
 |    |        | snowy.gif
 |    |        | thunderstorm.gif
 |    | 
 |    | clear.svg
-|    | cloudly.svg
+|    | cloudy.svg
 |    | fogy.svg
 |    | rainy.svg
 |    | snowy.svg
@@ -32,14 +32,14 @@
 | night
 |    | animate/
 |    |        | clear.gif
-|    |        | cloudly.gif
+|    |        | cloudy.gif
 |    |        | fogy.gif
 |    |        | rainy.gif
 |    |        | snowy.gif
 |    |        | thunderstorm.gif
 |    | 
 |    | clear.svg
-|    | cloudly.svg
+|    | cloudy.svg
 |    | fogy.svg
 |    | rainy.svg
 |    | snowy.svg

@@ -50,14 +50,12 @@ const VerticalItemData = props => {
                         <Icon
                             size={40}
                             name={item.icon}
-                            code={14}
                         />
                     </div>
                     <div className={styles.precipitation}>
                         <Icon
                             size={24}
-                            name={item.icon}
-                            code={14}
+                            name="precipitation"
                         />
                         {item.precipitation.maximumValue}
                     </div>
@@ -65,18 +63,16 @@ const VerticalItemData = props => {
                         <div className={styles.temperature}>
                             <Icon
                                 size={24}
-                                name={item.icon}
-                                code={14}
+                                name="min-temp"
                             />
-                            {item.temperature.max}
+                            {item.temperature.min}
                         </div>
                         <div className={styles.temperature}>
                             <Icon
                                 size={24}
-                                name={item.icon}
-                                code={14}
+                                name="max-temp"
                             />
-                            {item.temperature.min}
+                            {item.temperature.max}
                         </div>
                     </div>
                 </li>

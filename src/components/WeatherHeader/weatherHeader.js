@@ -15,11 +15,9 @@ const WeatherHeader = props => {
     const {
         apparentTemperature,
         icon,
-        isDay,
         precipitation,
         temperature,
         time,
-        weatherCode,
     } = props.currentWeather;
 
     return (
@@ -36,7 +34,7 @@ const WeatherHeader = props => {
                     <div className={styles.secondaryDataItem}>
                         <Icon
                             size={24}
-                            name={icon}
+                            name="feeling"
                             code={14}
                         />
                         {t("components-weatherHeader-feeling")} {apparentTemperature}
@@ -44,7 +42,7 @@ const WeatherHeader = props => {
                     <div className={styles.secondaryDataItem}>
                         <Icon
                             size={24}
-                            name="/icon/day/clear"
+                            name="precipitation"
                             code={14}
                         />
                         {t("components-weatherHeader-precipitation")} {precipitation}
@@ -54,7 +52,7 @@ const WeatherHeader = props => {
             <div className={styles.gifContainer}>
                 <Icon
                     size={60}
-                    name="/icon/day/clear"
+                    name={icon}
                     code={14}
                 />
                 XXXXXXXX

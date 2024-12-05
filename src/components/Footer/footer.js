@@ -17,6 +17,7 @@ import parametersList from "./parametersData.json";
 // Components
 import Modal from '../Modal';
 import BooleanSlider from '../BooleanSlider';
+import Icon from '../Icon';
 
 // CSS
 import styles from './footer.module.css'
@@ -86,10 +87,16 @@ const Footer = () => {
     return (
         <footer className={styles.root}>
             <div className={styles.cta} title={t("components-footer-iconAlt-reload")} onClick={reloadPage}>
-                <img src='/logo512.png' alt='reload button'/>
+                <Icon
+                    size={40}
+                    name="reload"
+                />
             </div>
             <div className={styles.cta} title={t("components-footer-iconAlt-settings")} onClick={parametersModalTrigger}>
-                <img src='/logo512.png' alt='parameters button'/>
+                <Icon
+                    size={40}
+                    name="setting"
+                />
             </div>
             <Modal
                 active={parametersModalIsOpen}

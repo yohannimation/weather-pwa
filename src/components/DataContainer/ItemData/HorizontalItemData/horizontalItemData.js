@@ -45,21 +45,18 @@ const HorizontalItemData = props => {
                     <Icon
                         size={40}
                         name={item.icon}
-                        code={14}
                     />
                     <div className={styles.temperature}>
                         <Icon
                             size={24}
-                            name={item.icon}
-                            code={14}
+                            name={item.temperature.variation}
                         />
                         {item.temperature.value}
                     </div>
                     <div className={styles.precipitation}>
                         <Icon
                             size={24}
-                            name={item.icon}
-                            code={14}
+                            name="precipitation"
                         />
                         {item.precipitation}
                     </div>

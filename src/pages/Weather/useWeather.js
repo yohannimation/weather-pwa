@@ -135,7 +135,7 @@ const getCurrentWeather = async () => {
                 "temperature": currentData.temperature_2m + " " + currentUnit.temperature_2m,
                 "apparentTemperature": currentData.apparent_temperature + " " + currentUnit.apparent_temperature,
                 "precipitation": currentData.precipitation + " " + currentUnit.precipitation,
-                "icon": getIconPath(currentData.weather_code, currentData.is_day, true),
+                "icon": "weatherIcon=" + currentData.weather_code + "_isDay=" + currentData.is_day + "_isAnimate=true",
                 "weatherCode": currentData.weather_code,
                 "isDay": currentData.is_day
             }
@@ -211,7 +211,7 @@ const getHourlyWeather = async () => {
                     return (
                         {
                             "time": item.split("T")[1],
-                            "icon": getIconPath(hourlyData.weather_code[index]),
+                            "icon": "weatherIcon=" + hourlyData.weather_code[index] + "_isDay=" +  hourlyData.is_day[index] + "_isAnimate=false",
                             "temperature": {
                                 "variation": temperatureVariation,
                                 "value": hourlyData.temperature_2m[index] + " " + hourlyUnit.temperature_2m
@@ -268,48 +268,48 @@ const getTodayWeather = async () => {
                 {
                     "left": {
                         "name": "temperature_2m_min",
-                        "icon": getIconPath("temperature_2m_min"),
+                        "icon": "minTemp",
                         "value": dailyData.temperature_2m_min[0] + " " + dailyUnit.temperature_2m_min
                     },
                     "right": {
                         "name": "temperature_2m_max",
-                        "icon": getIconPath("temperature_2m_max"),
+                        "icon": "maxTemp",
                         "value": dailyData.temperature_2m_max[0] + " " + dailyUnit.temperature_2m_max
                     }
                 },
                 {
                     "left": {
                         "name": "sunrise",
-                        "icon": getIconPath("sunrise"),
+                        "icon": "sunrise",
                         "value": dailyData.sunrise[0].split("T")[1]
                     },
                     "right": {
                         "name": "sunset",
-                        "icon": getIconPath("sunset"),
+                        "icon": "sunset",
                         "value": dailyData.sunset[0].split("T")[1]
                     }
                 },
                 {
                     "left": {
                         "name": "uv_index_max",
-                        "icon": getIconPath("uv_index_max"),
+                        "icon": "uvIndex",
                         "value": dailyData.uv_index_max[0] ?? 0
                     },
                     "right": {
                         "name": "precipitation_probability_mean",
-                    "icon": getIconPath("precipitation_probability_mean"),
-                    "value": dailyData.precipitation_probability_mean[0] + " " + dailyUnit.precipitation_probability_mean
+                        "icon": "precipitationProbability",
+                        "value": dailyData.precipitation_probability_mean[0] + " " + dailyUnit.precipitation_probability_mean
                     }
                 },
                 {
                     "left": {
                         "name": "wind_speed_10m_max",
-                        "icon": getIconPath("wind_speed_10m_max"),
+                        "icon": "windSpeed",
                         "value": dailyData.wind_speed_10m_max[0] + " " + dailyUnit.wind_speed_10m_max
                     },
                     "right": {
                         "name": "wind_direction_10m_dominant",
-                        "icon": getIconPath("wind_direction_10m_dominant"),
+                        "icon": "windDirection",
                         "value": dailyData.wind_direction_10m_dominant[0] + " " + dailyUnit.wind_direction_10m_dominant
                     }
                 }
@@ -360,7 +360,7 @@ const getWeeklyWeather = async () => {
                 return (
                     {
                         "day": getWeekdayName(item),
-                        "icon": getIconPath(weeklyData.weather_code[index]),
+                        "icon": "weatherIcon=" + weeklyData.weather_code[index] + "_isDay=true_isAnimate=false",
                         "temperature": {
                             "max": weeklyData.temperature_2m_max[index] + " " + weeklyUnit.temperature_2m_max,
                             "min": weeklyData.temperature_2m_min[index] + " " + weeklyUnit.temperature_2m_min
@@ -379,61 +379,6 @@ const getWeeklyWeather = async () => {
         }
     } catch (error) {
         throw new Error(error);
-    }
-}
-
-const getIconPath = (code, isDay = true, isStatic = true) => {
-    const animateOrStaticPath = isStatic ? "" : "animate/";
-    const dayOrNightPath = isDay ? "day/" : "night/";
-    const iconPath = "/icon/" + animateOrStaticPath + dayOrNightPath;
-
-    if (Number.isInteger(code)) {
-        switch(code) {
-            case 0 :
-                return iconPath + "clear";
-
-            case 1 :
-            case 2 :
-            case 3 :
-                return iconPath + "cloudly";
-
-            case 45 :
-            case 48 :
-                return iconPath + "fogy";
-            
-            case 51 :
-            case 53 :
-            case 55 :
-            case 56 :
-            case 57 :
-            case 61 :
-            case 63 :
-            case 65 :
-            case 66 :
-            case 67 :
-            case 80 :
-            case 81 :
-            case 82 :
-                return iconPath + "rainy";
-            
-            case 71 :
-            case 73 :
-            case 75 :
-            case 77 :
-            case 85 :
-            case 86 :
-                return iconPath + "snowy";
-
-            case 95 :
-            case 96 :
-            case 99 :
-                return iconPath + "thunderstorm";
-            
-            default :
-                return iconPath + "unknown";
-        }
-    } else {
-        return iconPath + code;
     }
 }
 
