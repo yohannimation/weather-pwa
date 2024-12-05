@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 // Component
 import Popup from '../Popup';
+import Icon from '../Icon';
 
 // CSS
 import styles from './infoPopup.module.css'
@@ -29,7 +30,12 @@ const InfoPopup = props => {
 
     return (
         <div className={styles.root} onClick={infoPopupTrigger}>
-            <img className={styles.img} src='/logo192.png' alt=''/>
+            <div className={styles.iconContainer}>
+                <Icon
+                    size={30}
+                    name="info"
+                />
+            </div>
             <Popup
                 active={isOpen}
                 title={title}
