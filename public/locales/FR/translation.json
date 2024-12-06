@@ -1,7 +1,7 @@
 {
   "language": "Français",
-  "components-cookieModal-title": "Accepter les cookies",
-  "components-cookieModal-message": "Veuillez accepter les cookies s'il vous plaît.",
+  "components-cookieModal-title": "Les cookies sont requis",
+  "components-cookieModal-message": "Les cookies sont nécessaires au fonctionnement de l'application web et ne peuvent pas être désactivés. Ces cookies sont définis qu'en réponse à des actions que vous avez effectuées, telles que la langue, la localisation choisie et les préférences d'utilisation. Aucun cookie ne sera utilisé à des fins commerciales. Vous pouvez configurer votre navigateur pour bloquer ces cookies, mais cela pourrait affecter le fonctionnement de l'application.",
   "components-cookieModal-buttonText": "Accepter",
 
   "components-errorPopup-buttonText": "Rafraichir",
@@ -46,7 +46,7 @@
   "components-locationForm-booleanSlider-default": "Manuellement",
   "components-locationForm-booleanSlider-secondary": "Automatiquement",
   "components-locationForm-locateMePart-buttonText": "Me localiser",
-  "components-locationForm-locateMePart-preventMessage": "Un message de prévention pour l'utilisateur",
+  "components-locationForm-locateMePart-preventMessage": "Cette application va vous demander d'accepter l'utilisation du GPS de votre appareil.",
   
   "components-searchBar-resultSearchBar-noResult": "Aucun résultat n'a été trouvé",
   

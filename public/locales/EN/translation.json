@@ -1,7 +1,7 @@
 {
   "language": "English",
-  "components-cookieModal-title": "Accept cookies",
-  "components-cookieModal-message": "Please accept cookies.",
+  "components-cookieModal-title": "Cookies are required",
+  "components-cookieModal-message": "Cookies are essential for the functioning of the web application and cannot be disabled. These cookies are set only in response to actions you have taken, such as selecting a language, location, or usage preferences. No cookies will be used for commercial purposes. You can configure your browser to block these cookies, but this may impact the functionality of the application.",
   "components-cookieModal-buttonText": "Accept",
 
   "components-errorPopup-buttonText": "Refresh",
@@ -46,9 +46,9 @@
   "components-locationForm-booleanSlider-default": "Manually",
   "components-locationForm-booleanSlider-secondary": "Automatically",
   "components-locationForm-locateMePart-buttonText": "Locate me",
-  "components-locationForm-locateMePart-preventMessage": "A prevention message for the user",
+  "components-locationForm-locateMePart-preventMessage": "This app will ask you to allow the use of your device GPS",
   
-  "components-searchBar-resultSearchBar-noResult": "No result",
+  "components-searchBar-resultSearchBar-noResult": "No result found",
   
   "components-singleDataContainer-errorMessage": "Single data : An error has occurred",
   "components-singleDataContainer-itemSingleData-temperature_2m_max": "Max. temperature",
