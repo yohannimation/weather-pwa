@@ -6,7 +6,7 @@
 
   "components-errorPopup-buttonText": "Rafraichir",
 
-  "components-footer-settingsModal-title": "Paramètres",
+  "components-footer-settingsModal-title": "Parametres",
   "components-footer-settingsModal-buttonText": "Sauvegarder",
   "components-footer-settingsModal-timezone": "Timezone",
   "components-footer-settingsModal-temperatureUnit": "Unité de température",
@@ -64,6 +64,8 @@
   "components-weatherHeader-precipitation": "Précipitation",
   "components-weatherHeader-gifContainer": "",
 
-  "pages-weather-duringTheDay": "Dans la journée",
-  "pages-weather-nextDays": "Les prochain jours"
+  "pages-weather-today": "Aujourd'hui",
+  "pages-weather-today-content": "<p>Ce visualiseur de données, vous permet de connaitre les informations météorologique de l'heure actuelle jusqu'à l'heure actuelle + 23</p><br /><p>Les données affichés sont :</p><ul style='margin-left: 5%;'><li>L'heure</li><li>Un visualiseur météorologique</li><li>La température</li><li>La quantité de pluie</li></ul><br /><p>Ces données restent des estimations</p>",
+  "pages-weather-nextDays": "Les prochain jours",
+  "pages-weather-nextDays-content": "<p>Ce visualiseur de données, vous permet de connaitre les informations météorologique du lendemain jusqu'à la semaine prochaine</p><br /><p>Les données affichés sont :</p><ul style='margin-left: 5%;'><li>Le jour de la semaine</li><li>Un visualiseur météorologique</li><li>La quantité de pluie maximale</li><li>La température minimale</li><li>La température maximale</li></ul><br /><p>Ces données restent des estimations</p>"
 }

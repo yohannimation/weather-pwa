@@ -28,6 +28,10 @@ function Weather() {
     const [mainClass, setMainClass] = useState(styles.mainDataLoading);
     const [weatherData, setWeatherData] = useState();
 
+    const duringTheDayInfo = <div dangerouslySetInnerHTML={{ __html: t("pages-weather-today-content") }} ></div>;
+
+    const nextDaysInfo = <div dangerouslySetInnerHTML={{ __html: t("pages-weather-nextDays-content") }} ></div>;
+
     // Fetch current data
     useEffect(() => {
         const getWeather = async () => {
@@ -57,8 +61,8 @@ function Weather() {
                 </div>
                 <main className={mainClass}>
                     <DataContainer
-                        title={t("pages-weather-duringTheDay")}
-                        infoData={null}
+                        title={t("pages-weather-today")}
+                        infoData={duringTheDayInfo}
                         isHorizontal={true}
                         weatherData={weatherData ? weatherData[1] : [{}]}
                     />
@@ -67,7 +71,7 @@ function Weather() {
                     />
                     <DataContainer
                         title={t("pages-weather-nextDays")}
-                        infoData={null}
+                        infoData={nextDaysInfo}
                         isHorizontal={false}
                         weatherData={weatherData ? weatherData[3] : [{}]}
                     />

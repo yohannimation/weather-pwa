@@ -64,6 +64,8 @@
   "components-weatherHeader-precipitation": "Precipitation",
   "components-weatherHeader-gifContainer": "",
 
-  "pages-weather-duringTheDay": "During the day",
-  "pages-weather-nextDays": "Next days"
+  "pages-weather-today": "Today",
+  "pages-weather-today-content": "<p>This data visualizer, permite you to know the weather information from current time to time + 23</p><br /><p>Data displayed are :</p><ul style='margin-left: 5%;'><li>Time</li><li>Weather viewer</li><li>Temperature</li><li>Rain quantity</li></ul><br /><p>These data remain estimates</p>",
+  "pages-weather-nextDays": "Next days",
+  "pages-weather-nextDays-content": "<p>This data visualizer, permite you to know the weather information from tomorrow until next week</p><br /><p>Data displayed are :</p><ul style='margin-left: 5%;'><li>Week day</li><li>Weather viewer</li><li>Maximal rain quantity</li><li>Minimal temperature</li><li>Maximal temperature</li></ul><br /><p>These data remain estimates</p>"
 }

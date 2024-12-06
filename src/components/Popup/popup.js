@@ -31,7 +31,7 @@ const Popup = props => {
             <span className={styles.background}></span>
             <div className={styles.container}>
                 <Title size={2}>{title}</Title>
-                <p className={styles.message}>{message}</p>
+                <span className={styles.message}>{message}</span>
                 <Button triggerAction={action}>{buttonText}</Button>
             </div>
         </div>
