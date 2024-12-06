@@ -18,6 +18,7 @@ const WeatherHeader = props => {
         precipitation,
         temperature,
         time,
+        codeName
     } = props.currentWeather;
 
     return (
@@ -55,7 +56,7 @@ const WeatherHeader = props => {
                     name={icon}
                     code={14}
                 />
-                XXXXXXXX
+                {t("components-weatherHeader-weatherName-" + codeName)}
             </div>
             <div className={styles.lastUpdateContainer}><span>{time}</span></div>
         </header>

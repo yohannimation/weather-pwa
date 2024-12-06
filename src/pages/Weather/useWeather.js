@@ -130,6 +130,33 @@ const getCurrentWeather = async () => {
             const currentData = jsonResponse.current;
             const currentUnit = jsonResponse.current_units;
 
+
+            const cloudyCodeArray = [1, 2, 3];
+            const fogyCodeArray = [45, 48];
+            const rainyCodeArray = [51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82];
+            const snowyCodeArray = [71, 73, 75, 77, 85, 86];
+            const thunderstormCodeArray = [95, 96, 99];
+            var codeName;
+            if (currentData.weather_code === 0)
+                codeName = "clear";
+    
+            if (cloudyCodeArray.includes(currentData.weather_code))
+                codeName = "cloudy";
+    
+            if (fogyCodeArray.includes(currentData.weather_code))
+                codeName = "fogy";
+    
+            if (rainyCodeArray.includes(currentData.weather_code))
+                codeName = "rainy";
+    
+            if (snowyCodeArray.includes(currentData.weather_code))
+                codeName = "snowy";
+    
+            if (thunderstormCodeArray.includes(currentData.weather_code))
+                codeName = "thunderstorm";
+
+            console.log(codeName)
+
             return {
                 "time": getDateFormate(currentData.time),
                 "temperature": currentData.temperature_2m + " " + currentUnit.temperature_2m,
@@ -137,6 +164,7 @@ const getCurrentWeather = async () => {
                 "precipitation": currentData.precipitation + " " + currentUnit.precipitation,
                 "icon": "weatherIcon=" + currentData.weather_code + "_isDay=" + currentData.is_day + "_isAnimate=true",
                 "weatherCode": currentData.weather_code,
+                "codeName": codeName,
                 "isDay": currentData.is_day
             }
         } else {

@@ -62,7 +62,12 @@
   
   "components-weatherHeader-feeling": "Felling",
   "components-weatherHeader-precipitation": "Precipitation",
-  "components-weatherHeader-gifContainer": "",
+  "components-weatherHeader-weatherName-clear": "Sunny",
+  "components-weatherHeader-weatherName-cloudy": "Cloudy",
+  "components-weatherHeader-weatherName-fogy": "Fogy",
+  "components-weatherHeader-weatherName-rainy": "Rainy",
+  "components-weatherHeader-weatherName-snowy": "Snowy",
+  "components-weatherHeader-weatherName-thunderstorm": "Thunderstorm",
 
   "pages-weather-today": "Today",
   "pages-weather-today-content": "<p>This data visualizer, permite you to know the weather information from current time to time + 23</p><br /><p>Data displayed are :</p><ul style='margin-left: 5%;'><li>Time</li><li>Weather viewer</li><li>Temperature</li><li>Rain quantity</li></ul><br /><p>These data remain estimates</p>",

@@ -62,7 +62,12 @@
 
   "components-weatherHeader-feeling": "Ressenti",
   "components-weatherHeader-precipitation": "Précipitation",
-  "components-weatherHeader-gifContainer": "",
+  "components-weatherHeader-weatherName-clear": "Ensoleillé",
+  "components-weatherHeader-weatherName-cloudy": "Nuageux",
+  "components-weatherHeader-weatherName-fogy": "Brouillard",
+  "components-weatherHeader-weatherName-rainy": "Pluie",
+  "components-weatherHeader-weatherName-snowy": "Neige",
+  "components-weatherHeader-weatherName-thunderstorm": "Orage",
 
   "pages-weather-today": "Aujourd'hui",
   "pages-weather-today-content": "<p>Ce visualiseur de données, vous permet de connaitre les informations météorologique de l'heure actuelle jusqu'à l'heure actuelle + 23</p><br /><p>Les données affichés sont :</p><ul style='margin-left: 5%;'><li>L'heure</li><li>Un visualiseur météorologique</li><li>La température</li><li>La quantité de pluie</li></ul><br /><p>Ces données restent des estimations</p>",
