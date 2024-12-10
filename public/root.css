@@ -10,15 +10,12 @@
       --default-second-color: #7EC6E0;
 
       /* Day theme */
-      --day-light-color: #E8FBFC;
       --day-first-color: #7EC6E0;
 
       /* Night theme */
-      --night-light-color: #E9E8FC;
       --night-first-color: #3C376D;
 
       /* Rain theme */
-      --rain-light-color: #E8FBFC;
       --rain-first-color: #9FB4C2;
 
     --text-color: var(--grey-color);
