@@ -18,18 +18,15 @@ root.render(
 reportWebVitals();
 
 
-if ('serviceWorker' in navigator) {
-  // Register a service worker hosted at the root of the
-  // site using the default scope.
-
-  navigator.serviceWorker.register(`${process.env.PUBLIC_URL}/sw.js`).then(
-    registration => {
-      console.log('Service worker registration succeeded:', registration);
-    },
-    /*catch*/ error => {
-      console.error(`Service worker registration failed: ${error}`);
-    }
-  );
-} else {
-  console.error('Service workers are not supported.');
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then((registration) => {
+        console.log("Service Worker enregistré avec succès:", registration);
+      })
+      .catch((error) => {
+        console.error("Erreur lors de l'enregistrement du Service Worker:", error);
+      });
+  });
 }

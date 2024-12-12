@@ -3,17 +3,12 @@
   "name": "Weather PWA",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
+      "src": "app-icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "app-icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
@@ -21,5 +16,19 @@
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#A0E6EF",
-  "background_color": "#A0E6EF"
+  "background_color": "#A0E6EF",
+  "screenshots": [
+    {
+      "src": "screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "screenshot-mobile.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ]
 }
