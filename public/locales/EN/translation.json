@@ -62,7 +62,7 @@
   
   "components-weatherHeader-feeling": "Felling",
   "components-weatherHeader-precipitation": "Precipitation",
-  "components-weatherHeader-weatherName-clear": "Sunny",
+  "components-weatherHeader-weatherName-clear": "Clear sky",
   "components-weatherHeader-weatherName-cloudy": "Cloudy",
   "components-weatherHeader-weatherName-fogy": "Fogy",
   "components-weatherHeader-weatherName-rainy": "Rainy",

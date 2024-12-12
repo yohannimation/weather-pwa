@@ -62,7 +62,7 @@
 
   "components-weatherHeader-feeling": "Ressenti",
   "components-weatherHeader-precipitation": "Précipitation",
-  "components-weatherHeader-weatherName-clear": "Ensoleillé",
+  "components-weatherHeader-weatherName-clear": "Ciel dégagé",
   "components-weatherHeader-weatherName-cloudy": "Nuageux",
   "components-weatherHeader-weatherName-fogy": "Brouillard",
   "components-weatherHeader-weatherName-rainy": "Pluie",
