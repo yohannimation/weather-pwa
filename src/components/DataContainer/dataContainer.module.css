@@ -16,6 +16,8 @@
     list-style: none;
     overflow-x: scroll;
     overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: lightgrey transparent;
 }
 
 .verticalClass {
@@ -29,4 +31,6 @@
     list-style: none;
     overflow-x: scroll;
     overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: lightgrey transparent;
 }
