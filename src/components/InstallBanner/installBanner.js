@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef  } from 'react';
 
 // Translation
 import { useTranslation } from 'react-i18next';
@@ -12,44 +12,48 @@ import styles from './installBanner.module.css'
 const InstallBanner = props => {
     const { t, i18n } = useTranslation();
 
-    const [supportsPWA, setSupportsPWA] = useState(false);
-    const [promptInstall, setPromptInstall] = useState(null);
+    const [installBannerOpen, setInstallBannerOpen] = useState(false);
+    const deferredPrompt = useRef(null)
 
     useEffect(() => {
-        const handler = e => {
+        const handlePrompt = (e) => {
+            // Prevent the mini-infobar from appearing on mobile
             e.preventDefault();
-            setSupportsPWA(true);
-            setPromptInstall(e);
-        };
-        window.addEventListener("beforeinstallprompt", handler);
+            // Stash the event so it can be triggered later.
+            deferredPrompt.current = e;
 
-        return () => window.removeEventListener("transitionend", handler);
-    }, [])
-
-    const onClick = evt => {
-        evt.preventDefault();
-        if (!promptInstall) {
-            return;
+            setInstallBannerOpen(e);
         }
-        promptInstall.prompt();
-    }
 
-    if (!supportsPWA) {
-        console.log("don't support PWA")
+        window.addEventListener('beforeinstallprompt', handlePrompt);
+        return () => window.removeEventListener('beforeinstallprompt', handlePrompt);
+    })
 
-        return null;
+    const installPWA = () => {
+        if (!deferredPrompt.current) {
+            setInstallBannerOpen(false);
+            return
+        }
+
+        deferredPrompt.current.prompt();
+
+        // Wait for the user to respond to the prompt
+        deferredPrompt.current.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                setInstallBannerOpen(false);
+                localStorage.setItem("pwa-is-installed", 'true');
+            }
+        })
     }
 
     return (
-        <div className={styles.root}>
-            <Button
-                id="setup_button"
-                onClick={onClick}
-            >
-                Installer la PWA
+        <div className={installBannerOpen ? styles.root : styles.rootClosed}>
+            <p>{t("components-installBanner-cta")}</p>
+            <Button triggerAction={installPWA}>
+                {t("components-installBanner-installButton")}
             </Button>
         </div>
-    );
+    )
 }
 
 export default InstallBanner;

@@ -42,6 +42,9 @@
   "components-icon-iconAlt-windDirection": "Wind direction icon",
 
   "components-infoPopup-buttonText": "Close",
+
+  "components-installBanner-cta": "This web app is downloadable in your device.",
+  "components-installBanner-installButton": "Install",
   
   "components-locationForm-booleanSlider-default": "Manually",
   "components-locationForm-booleanSlider-secondary": "Automatically",

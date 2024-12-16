@@ -42,6 +42,9 @@
   "components-icon-iconAlt-windDirection": "Icon de la direction du vent",
 
   "components-infoPopup-buttonText": "Fermer",
+
+  "components-installBanner-cta": "Cette application est installable sur votre appareil.",
+  "components-installBanner-installButton": "Installer",
   
   "components-locationForm-booleanSlider-default": "Manuellement",
   "components-locationForm-booleanSlider-secondary": "Automatiquement",
