@@ -6,22 +6,27 @@ import styles from './booleanSlider.module.css'
 const BooleanSlider = props => {
     const {
         values,
+        defaultValue,
         returnValue
     } = props;
 
-    const [selectedValue, setSelectedValue] = useState("default");
+    const [selectedValue, setSelectedValue] = useState(defaultValue ? defaultValue : "default");
     const [sliderClass, setSliderClass] = useState(styles.defaultSelected);
     
     const setDefaultValue = () => {
         setSelectedValue("default");
-        setSliderClass(styles.defaultSelected);
     }
     const setSecondaryValue = () => {
         setSelectedValue("secondary");
-        setSliderClass(styles.secondarySelected);
     }
 
     useEffect(() => {
+        if (selectedValue) {
+            if (selectedValue === "default")
+                setSliderClass(styles.defaultSelected);
+            else
+            setSliderClass(styles.secondarySelected);
+        }
         returnValue(selectedValue);
     }, [selectedValue]);
     

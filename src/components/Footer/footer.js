@@ -5,6 +5,12 @@ import { useTranslation } from 'react-i18next';
 
 // Setter - Getter
 import {
+    getTimezone,
+    getPrecipitationUnit,
+    getSpeedUnit,
+    getTemperatureUnit
+} from "../LocalStorage/useGetter";
+import {
     setTimezone,
     setPrecipitationUnit,
     setSpeedUnit,
@@ -61,6 +67,7 @@ const Footer = () => {
                 <p>{t("components-footer-settingsModal-temperatureUnit")}</p>
                 <BooleanSlider
                     values={parametersList.temperatureUnit}
+                    defaultValue={getTemperatureUnit()}
                     returnValue={triggerSetTemperatureUnit}
                 />
             </li>
@@ -68,6 +75,7 @@ const Footer = () => {
                 <p>{t("components-footer-settingsModal-speedUnit")}</p>
                 <BooleanSlider
                     values={parametersList.speedUnit}
+                    defaultValue={getSpeedUnit()}
                     returnValue={triggerSetSpeedUnit}
                 />
             </li>
@@ -75,6 +83,7 @@ const Footer = () => {
                 <p>{t("components-footer-settingsModal-precipitationUnit")}</p>
                 <BooleanSlider
                     values={parametersList.precipitationUnit}
+                    defaultValue={getPrecipitationUnit()}
                     returnValue={triggerSetPrecipitationUnit}
                 />
             </li>
