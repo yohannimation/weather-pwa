@@ -20,7 +20,7 @@ const ItemResultSearchBar = () => {
             <div className={styles.inputContainer}>
                 <div className={styles.icon}>
                     <Icon
-                        size={45}
+                        size={30}
                         name={'search'}
                     />
                 </div>

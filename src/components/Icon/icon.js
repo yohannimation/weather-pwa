@@ -3,9 +3,6 @@ import React, { useState, useEffect } from 'react';
 // Translation
 import { useTranslation } from 'react-i18next';
 
-// Data
-import iconList from './iconList.json';
-
 // CSS
 import styles from './icon.module.css';
 
@@ -116,7 +113,7 @@ const Icon = props => {
             setIconAlt(codeName);
         } else {
             setIconAlt(name);
-            setIconPath("/icon/" + name + ".svg");
+            setIconPath("/icon/" + name + ".png");
         }
     }
 

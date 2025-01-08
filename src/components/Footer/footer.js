@@ -58,10 +58,11 @@ const Footer = () => {
         <ul className={styles.parametersList}>
             <li className={styles.parameterItem}>
                 <p>{t("components-footer-settingsModal-timezone")}</p>
-                <select>
-                    <option>Test1</option>
-                    <option>Test2</option>
-                </select>
+                <p>{getTimezone()}</p>
+                <Icon
+                    size={40}
+                    name="change"
+                />
             </li>
             <li className={styles.parameterItem}>
                 <p>{t("components-footer-settingsModal-temperatureUnit")}</p>

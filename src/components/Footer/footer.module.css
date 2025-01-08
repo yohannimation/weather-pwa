@@ -19,10 +19,6 @@
     cursor: pointer;
 }
 
-.cta img {
-    width: 30px;
-}
-
 .parametersList {
     display: grid;
     grid-template-rows: 45px;

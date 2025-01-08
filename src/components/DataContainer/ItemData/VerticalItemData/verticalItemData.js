@@ -63,14 +63,14 @@ const VerticalItemData = props => {
                         <div className={styles.temperature}>
                             <Icon
                                 size={24}
-                                name="min-temp"
+                                name="minTemp"
                             />
                             {item.temperature.min}
                         </div>
                         <div className={styles.temperature}>
                             <Icon
                                 size={24}
-                                name="max-temp"
+                                name="maxTemp"
                             />
                             {item.temperature.max}
                         </div>

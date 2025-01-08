@@ -33,19 +33,9 @@ const WeatherHeader = props => {
                 </div>
                 <div className={styles.secondaryData}>
                     <div className={styles.secondaryDataItem}>
-                        <Icon
-                            size={24}
-                            name="feeling"
-                            code={14}
-                        />
                         {t("components-weatherHeader-feeling")} {apparentTemperature}
                     </div>
                     <div className={styles.secondaryDataItem}>
-                        <Icon
-                            size={24}
-                            name="precipitation"
-                            code={14}
-                        />
                         {t("components-weatherHeader-precipitation")} {precipitation}
                     </div>
                 </div>

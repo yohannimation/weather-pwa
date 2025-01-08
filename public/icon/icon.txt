@@ -3,8 +3,9 @@
 | arrow-down.svg
 | arrow-up.svg
 | big-logo.svg
+| change.svg
 | equal.svg
-| feeling.svg
+| feeling.svg============================== cancel
 | info.svg
 | precipitation.svg
 | reload.svg
@@ -46,11 +47,11 @@
 |    | thunderstorm.svg
 |
 | single-data/
-|            | max-temp.svg
-|            | min-temp.svg
+|            | max-temp.svg ==============================
+|            | min-temp.svg ==============================
 |            | sunset.svg
 |            | sunrise.svg
 |            | uv-index.svg
 |            | precipitation-probability.svg
-|            | wind-speed.svg
-|            | wind-direction.svg
+|            | wind-speed.svg ============================
+|            | wind-direction.svg ========================
