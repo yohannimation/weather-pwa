@@ -154,9 +154,7 @@ const getCurrentWeather = async () => {
     
             if (thunderstormCodeArray.includes(currentData.weather_code))
                 codeName = "thunderstorm";
-
-            console.log(codeName)
-
+            
             return {
                 "time": getDateFormate(currentData.time),
                 "temperature": currentData.temperature_2m + " " + currentUnit.temperature_2m,
