@@ -46,14 +46,14 @@
 
 .temperature {
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 
 .precipitation {
     display: flex;
     justify-content: start;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
