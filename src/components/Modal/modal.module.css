@@ -41,6 +41,15 @@
     animation-delay: .1s;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.closeButton {
+    cursor: pointer;
+}
+
 .message {
     margin: var(--margin) 0;
 }
@@ -70,7 +79,7 @@
 
 @keyframes containerAnimation {
     from {
-        bottom: -30vh;
+        bottom: -40vh;
     }
     to {
         bottom: -10vh;
