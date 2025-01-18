@@ -1,16 +1,23 @@
 /
 | app-logo.svg
-| arrow-down.svg
-| arrow-up.svg
+| arrow-down.svg                  done
+| arrow-up.svg                    done
 | big-logo.svg
-| change.svg
-| equal.svg
-| feeling.svg============================== cancel
-| info.svg
-| precipitation.svg
-| reload.svg
-| search.svg
-| setting.svg
+| change.svg                      done
+| equal.svg                       done
+| info.svg                        done
+| maxTemp.svg                     done
+| minTemp.svg                     done
+| precipitation.svg               done
+| precipitationProbability.svg    done
+| reload.svg                      done
+| search.svg                      done
+| setting.svg                     done
+| sunrise.svg                     done
+| sunset.svg                      done
+| uvIndex.svg                     done
+| windDirection.svg               done
+| windSpeed.svg                   done
 |
 | loading.gif
 |
@@ -45,13 +52,3 @@
 |    | rainy.svg
 |    | snowy.svg
 |    | thunderstorm.svg
-|
-| single-data/
-|            | max-temp.svg ==============================
-|            | min-temp.svg ==============================
-|            | sunset.svg
-|            | sunrise.svg
-|            | uv-index.svg
-|            | precipitation-probability.svg
-|            | wind-speed.svg ============================
-|            | wind-direction.svg ========================
