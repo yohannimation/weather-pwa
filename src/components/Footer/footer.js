@@ -31,20 +31,19 @@ import styles from './footer.module.css'
 const Footer = () => {
     const { t, i18n } = useTranslation();
 
-    const [parametersModalIsOpen, setParametersModalIsOpen] = useState(false); 
+    const [settingsModalIsOpen, setSettingsModalIsOpen] = useState(false); 
 
     const reloadPage = () => {
         window.location.reload();
     }
-
-    // Open parameters modal
-    const parametersModalTrigger = () => {
-        if (parametersModalIsOpen) {
-            // Reload page to save data
-            reloadPage();
+    
+    const modalState = () => {
+        if (settingsModalIsOpen) {
+            // Close modal
+            setSettingsModalIsOpen(false);
         } else {
             // Open modal
-            setParametersModalIsOpen(true);
+            setSettingsModalIsOpen(true);
         }
     }
 
@@ -91,7 +90,6 @@ const Footer = () => {
         </ul>
     )
 
-    // TODO change the footer icons
     // TODO create a select input and call the API to get all timezone available to set it
 
     return (
@@ -102,18 +100,19 @@ const Footer = () => {
                     name="reload"
                 />
             </div>
-            <div className={styles.cta} title={t("components-footer-iconAlt-settings")} onClick={parametersModalTrigger}>
+            <div className={styles.cta} title={t("components-footer-iconAlt-settings")} onClick={modalState}>
                 <Icon
                     size={40}
                     name="setting"
                 />
             </div>
             <Modal
-                active={parametersModalIsOpen}
+                active={settingsModalIsOpen}
                 title={t("components-footer-settingsModal-title")}
                 message={modalContent}
                 buttonText={t("components-footer-settingsModal-buttonText")}
-                action={parametersModalTrigger}
+                action={reloadPage}
+                closeCallback={modalState}
             />
         </footer>
     );
