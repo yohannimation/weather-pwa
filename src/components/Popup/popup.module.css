@@ -35,7 +35,7 @@
     background-color: var(--light-color);
     padding: var(--padding);
     min-width: 200px;
-    max-width: calc(100% - var(--padding));
+    max-width: calc(700px - var(--padding));
     border-radius: var(--border-radius);
     z-index: 12;
     transform: scale(0);
