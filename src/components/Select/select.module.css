@@ -1,0 +1,115 @@
+.root {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: 40px;
+}
+
+.selectClosed {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 15px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-color);
+    border-radius: var(--full-border-radius);
+    border: var(--border-grey-color);
+    cursor: text;
+    outline: none;
+    z-index: 0;
+    font-family: var(--font-text);
+}
+
+.selectOpened {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 15px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-color);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    border: var(--border-grey-color);
+    border-bottom: 0px solid var(--grey-color);
+    cursor: text;
+    outline: none;
+    z-index: 0;
+    font-family: var(--font-text);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 38px;
+    cursor: pointer;
+}
+
+.selectClosed .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(0deg);
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+    -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+    user-select: none; /* Propriété standard */
+    transition: var(--transition-time);
+}
+
+.selectOpened .icon {
+    transform: rotate(180deg);
+    transition: var(--transition-time);
+}
+
+.selectClosed ~ .list {
+    position: relative;
+    top: -2px;
+    left: 10%;
+    right: 0;
+    height: 0;
+    max-height: calc(35px * 4);
+    width: 80%;
+    background-color: var(--grey-color);
+    border-radius: var(--border-radius);
+    border: 0px solid var(--grey-color);
+    overflow: hidden;
+    z-index: 2;
+    transition: var(--transition-time);
+}
+
+.selectOpened ~ .list {
+    position: relative;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: calc(35px * var(--i));
+    max-height: calc(35px * 4);
+    width: 100%;
+    background-color: var(--grey-color);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    border: var(--border-grey-color);
+    overflow: scroll;
+    z-index: 2;
+    transition: height var(--transition-time) var(--transition-timing-fuction);
+}
+
+.item {
+    margin: 10px;
+    padding: 0 15px;
+    height: 35px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: var(--light-color);
+    border-radius: var(--full-border-radius);
+    cursor: pointer;
+    list-style: none;
+    transition: var(--transition-time);
+}
