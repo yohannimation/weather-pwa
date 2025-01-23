@@ -24,6 +24,7 @@ import parametersList from "./parametersData.json";
 import Modal from '../Modal';
 import BooleanSlider from '../BooleanSlider';
 import Icon from '../Icon';
+import TimezoneSelector from '../TimezoneSelector';
 
 // CSS
 import styles from './footer.module.css'
@@ -57,11 +58,7 @@ const Footer = () => {
         <ul className={styles.parametersList}>
             <li className={styles.parameterItem}>
                 <p>{t("components-footer-settingsModal-timezone")}</p>
-                <p>{getTimezone()}</p>
-                <Icon
-                    size={40}
-                    name="change"
-                />
+                <TimezoneSelector />
             </li>
             <li className={styles.parameterItem}>
                 <p>{t("components-footer-settingsModal-temperatureUnit")}</p>
