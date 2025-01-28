@@ -55,14 +55,14 @@ const Footer = () => {
     // Parameters modal content
     const modalContent = (
         <ul className={styles.parametersList}>
-            <li className={styles.parameterItem}>
+            {/* <li className={styles.parameterItem}>
                 <p>{t("components-footer-settingsModal-timezone")}</p>
                 <p>{getTimezone()}</p>
                 <Icon
                     size={40}
                     name="change"
                 />
-            </li>
+            </li> */}
             <li className={styles.parameterItem}>
                 <p>{t("components-footer-settingsModal-temperatureUnit")}</p>
                 <BooleanSlider
