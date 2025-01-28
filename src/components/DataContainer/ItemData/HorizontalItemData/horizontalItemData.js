@@ -43,7 +43,7 @@ const HorizontalItemData = props => {
                 <li key={index} className={styles.item}>
                     <p className={styles.hour}>{item.time}</p>
                     <Icon
-                        size={40}
+                        size={50}
                         name={item.icon}
                     />
                     <div className={styles.temperature}>
