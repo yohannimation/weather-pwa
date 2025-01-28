@@ -42,11 +42,9 @@ const WeatherHeader = props => {
             </div>
             <div className={styles.gifContainer}>
                 <Icon
-                    size={60}
+                    size={180}
                     name={icon}
-                    code={14}
                 />
-                {t("components-weatherHeader-weatherName-" + codeName)}
             </div>
             <div className={styles.lastUpdateContainer}><span>{time}</span></div>
         </header>
