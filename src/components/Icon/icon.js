@@ -24,28 +24,24 @@ const Icon = props => {
                 setIconClass(styles.xs);
                 break;
     
-            case 26:
+            case 30:
                 setIconClass(styles.s);
                 break;
     
-            case 28:
-                setIconClass(styles.m);
-                break;
-    
-            case 30:
+            case 40:
                 setIconClass(styles.l);
                 break;
-    
-            case 40:
-                setIconClass(styles.xl);
-                break;
 
-            case 45:
-                setIconClass(styles.searchBarSize);
+            case 50:
+                setIconClass(styles.xl);
                 break;
 
             case 60:
                 setIconClass(styles.big);
+                break;
+
+            case 180:
+                setIconClass(styles.animatedIcon);
                 break;
     
             default:
@@ -80,14 +76,17 @@ const Icon = props => {
             }
 
             // is animate treatment
-            var isAnimatePath;
+            var isAnimatePath,
+                fileExtension;
             if (
                 attributes[2].split("=")[1] === "true" ||
                 attributes[2].split("=")[1] === "1"
             ) {
                 isAnimatePath = "animate/";
+                fileExtension = ".gif";
             } else {
                 isAnimatePath = "";
+                fileExtension = ".png";
             }
 
             var codeName;
@@ -109,7 +108,7 @@ const Icon = props => {
             if (thunderstormCodeArray.includes(weatherCode))
                 codeName = "thunderstorm";
 
-            setIconPath("/icon/" + dayOrNightPath + isAnimatePath + codeName + ".gif");
+            setIconPath("/icon/" + dayOrNightPath + isAnimatePath + codeName + fileExtension);
             setIconAlt(codeName);
         } else {
             setIconAlt(name);
@@ -124,7 +123,12 @@ const Icon = props => {
 
     return (
         <div className={iconClass}>
-            <img className={styles.img} src={iconPath} alt={t("components-icon-iconAlt-" + iconAlt)} />
+            <img
+                className={styles.img}
+                src={iconPath}
+                alt={t("components-icon-iconAlt-" + iconAlt)}
+                loading="lazy"
+            />
         </div>
     );
 }
