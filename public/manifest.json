@@ -19,13 +19,13 @@
   "background_color": "#A0E6EF",
   "screenshots": [
     {
-      "src": "screenshot-wide.png",
+      "src": "desktop-app-image.png",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide"
     },
     {
-      "src": "screenshot-mobile.png",
+      "src": "mobile-app-image.png",
       "sizes": "720x1280",
       "type": "image/png",
       "form_factor": "narrow"
