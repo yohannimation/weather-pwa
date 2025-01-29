@@ -26,6 +26,11 @@
     margin-bottom: 30px;
 }
 
+.installBannerContainer {
+    width: 100%;
+    list-style: none;
+}
+
 .parameterItem {
     display: grid;
     grid-template-columns: 1fr 1fr;

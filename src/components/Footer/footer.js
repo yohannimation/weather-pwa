@@ -24,6 +24,7 @@ import parametersList from "./parametersData.json";
 import Modal from '../Modal';
 import BooleanSlider from '../BooleanSlider';
 import Icon from '../Icon';
+import InstallBanner from '../InstallBanner';
 
 // CSS
 import styles from './footer.module.css'
@@ -86,6 +87,9 @@ const Footer = () => {
                     defaultValue={getPrecipitationUnit()}
                     returnValue={triggerSetPrecipitationUnit}
                 />
+            </li>
+            <li className={styles.installBannerContainer}>
+                <InstallBanner closable={false} />
             </li>
         </ul>
     )
