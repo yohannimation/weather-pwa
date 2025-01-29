@@ -10,14 +10,12 @@ import { useTranslation } from 'react-i18next';
 import Router from './components/Router';
 import CookieModal from './components/CookieModal';
 import ErrorPopup from './components/ErrorPopup';
-import InstallBanner from './components/InstallBanner';
 
 const App = () => {
     const { t, i18n } = useTranslation();
 
     return (
         <BrowserRouter>
-            <InstallBanner />
             <ErrorPopup />
             <CookieModal />
             <Router />
