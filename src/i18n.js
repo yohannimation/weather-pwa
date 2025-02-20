@@ -8,8 +8,12 @@ i18n
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
+        resources: {
+            en: { translation: require('./locales/EN/translation.json') },
+            fr: { translation: require('./locales/FR/translation.json') },
+        },
         debug: false,
         fallbackLng: 'en',
-        });
-
+    });
+        
 export default i18n;

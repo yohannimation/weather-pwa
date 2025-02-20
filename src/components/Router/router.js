@@ -1,11 +1,10 @@
 import React from 'react';
 
 // Router
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Pages
 import Locate from '../../pages/Locate';
-import UnknownPage from '../../pages/UnknownPage';
 import Weather from '../../pages/Weather';
 
 function Router() {
@@ -13,7 +12,7 @@ function Router() {
         <Routes>
             <Route path="/" element={<Weather />} />
             <Route path="/locate" element={<Locate />} />
-            <Route path="*" element={<UnknownPage />} />
+            <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     );
 }

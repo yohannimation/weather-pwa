@@ -37,7 +37,7 @@ export const checkRequiredCookies = () => {
         !timezone
     ) {
         // Redirect to `Locate` page, required data in local-storage are missing
-        window.location.href = '/locate';
+        window.location.href = process.env.PUBLIC_URL + '/locate';
     }
 }
 
