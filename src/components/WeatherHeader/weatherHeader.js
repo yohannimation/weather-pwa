@@ -23,15 +23,15 @@ const WeatherHeader = props => {
 
     return (
         <header className={styles.header}>
-            <span className={styles.backgroundHeader}></span>
-            <div className={styles.searchBarContainer}>
+            <span className={`${styles.backgroundHeader} ${styles.scrollTimelineRange160}`}></span>
+            <div className={`${styles.searchBarContainer} ${styles.scrollTimelineRange160}`}>
                 <InputSearchBar />
             </div>
-            <div className={styles.dataContainer}>
-                <div className={styles.mainData}>
+            <div className={`${styles.dataContainer} ${styles.scrollTimelineRange160}`}>
+                <div className={`${styles.mainData} ${styles.scrollTimelineRange160}`}>
                     <span>{temperature}</span>
                 </div>
-                <div className={styles.secondaryData}>
+                <div className={`${styles.secondaryData} ${styles.scrollTimelineRange50}`}>
                     <div className={styles.secondaryDataItem}>
                         {t("components-weatherHeader-feeling")} {apparentTemperature}
                     </div>
@@ -40,13 +40,13 @@ const WeatherHeader = props => {
                     </div>
                 </div>
             </div>
-            <div className={styles.gifContainer}>
+            <div className={`${styles.gifContainer} ${styles.scrollTimelineRange160}`}>
                 <Icon
                     size={180}
                     name={icon}
                 />
             </div>
-            <div className={styles.lastUpdateContainer}><span>{time}</span></div>
+            <div className={`${styles.lastUpdateContainer} ${styles.scrollTimelineRange160}`}><span>{time}</span></div>
         </header>
     );
 }
