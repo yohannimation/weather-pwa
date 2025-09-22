@@ -1,0 +1,14 @@
+services:
+  react-app:
+    build: .
+    container_name: weather_node
+    networks:
+      - nginx-proxy-manager-stack_default
+    expose:
+      - "80"
+    environment:
+      - NODE_ENV=production
+
+networks:
+  nginx-proxy-manager-stack_default:
+    external: true
