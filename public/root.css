@@ -68,23 +68,22 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin: 0 auto;
   background-color: var(--light-color);
   color: var(--text-color);
   width: 100vw;
+  max-width: 700px;
   height: 100dvh;
+  overflow-x: hidden;
   font-family: var(--font-text);
-  overflow: hidden;
   transition: var(--transition-time);
 }
 
 #root {
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
-  max-width: 700px;
   height: 100%;
-  overflow: hidden;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 // Translation
 import { useTranslation } from 'react-i18next';
@@ -20,6 +20,7 @@ import styles from './weather.module.css';
 
 function Weather() {
     const { t, i18n } = useTranslation();
+    const weatherRef = useRef(null);
 
     checkRequiredCookies();
 
@@ -53,12 +54,12 @@ function Weather() {
     }, [weatherData])
 
     return (
-        <div id="weather-root-id" className={styles.root} style={mainBackgroundColor}>
+        <div id="weather-root-id" ref={weatherRef} className={styles.root} style={mainBackgroundColor}>
             <Loading isLoading={isLoading}/>
+            <WeatherHeader
+                currentWeather={weatherData ? weatherData[0] : [{}]}
+            />
             <div className={styles.content}>
-                <div className={styles.headerContainer}>
-                    <WeatherHeader currentWeather={weatherData ? weatherData[0] : [{}]} />
-                </div>
                 <main className={mainClass}>
                     <DataContainer
                         title={t("pages-weather-today")}

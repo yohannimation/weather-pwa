@@ -12,6 +12,8 @@
         farthest-corner at 0 0, var(--default-second-color) 25%, var(--default-first-color) 60%
     );
     border-radius: var(--border-radius);
+    overflow-x: clip;
+    overflow-y: visible;
 }
 
 .booleanSliderContainer {

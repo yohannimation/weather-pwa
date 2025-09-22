@@ -1,28 +1,25 @@
-.scrollTimelineRange160 {
-    animation-timeline: scroll();
-    animation-range: 0px 160px; 
+.header {
+    position: sticky;
+    top: 20px;
+    margin: 0 auto;
+    width: 100%;
+    color: var(--light-color);
+    z-index: 1;
+    overflow-x: clip;
+    overflow-y: visible;
 }
 
-.scrollTimelineRange50 {
-    animation-timeline: scroll();
-    animation-range: 0px 50px; 
-}
 
 .backgroundHeader {
     position: absolute;
     top: -20px;
-    right: -20px;
-    left: -20px;
+    right: 0;
+    left: 0;
     height: 240px;
     background-color: var(--dark-transparent-color);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     backdrop-filter: blur(5px);
     animation: beackgroundHeaderAnimation linear both;
-}
-@keyframes beackgroundHeaderAnimation {
-    to {
-        height: 90px;
-    }
 }
 
 /* ------------------------------------------ */
@@ -30,22 +27,15 @@
 .searchBarContainer {
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 40px;
+    width: 90%;
     border-radius: var(--litle-border-radius);
     z-index: 2;
     animation: searchBarContainerAnimation linear both;
-}
-@keyframes searchBarContainerAnimation {
-    to {
-        top: 0;
-        left: 0;
-        right: calc(40% + 10px);
-    }
 }
 
 /* ------------------------------------------ */
@@ -64,22 +54,6 @@
     background-color: var(--default-light-color);
     animation: currentWeatherContainer linear both;
 }
-@keyframes currentWeatherContainer {
-    to {
-        top: 0;
-        left: calc(60% + 10px);
-        right: 0%;
-        padding: 5px 0 0 0;
-        height: 40px;
-        grid-template-rows: 1fr 0fr;
-    }
-}
-
-@media (width <= 450px) {
-    .dataContainer {
-        right: 35%;
-    }
-}
 
 
 .mainData {
@@ -91,12 +65,6 @@
     font-size: 2.3em;
     font-weight: 900;
     animation: temperatureContainer linear both;
-}
-@keyframes temperatureContainer {
-    to {
-        font-size: 1.5em;
-        font-weight: 500;
-    }
 }
 
 .secondaryData {
@@ -110,12 +78,6 @@
     height: 100%;
     opacity: 1;
     animation: secondaryDataContainer linear both;
-}
-@keyframes secondaryDataContainer {
-    to {
-        height: 0%;
-        opacity: 0;
-    }
 }
 
 .secondaryDataItem {
@@ -131,6 +93,7 @@
     left: 50%;
     right: 0;
     margin: 0 0 5px 10px;
+    padding: 0 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,17 +105,6 @@
     opacity: 1;
     overflow: hidden;
     animation: weatherGifContainer linear both;
-}
-@keyframes weatherGifContainer {
-    to {
-        top: 0;
-        left: 120%;
-        right: -65%;
-        margin: 0;
-        padding: 0;
-        height: 80px;
-        opacity: 0;
-    }
 }
 
 @media (width <= 450px) {
@@ -167,15 +119,8 @@
     display: block;
     position: absolute;
     top: 190px;
-    left: 0;
+    left: 20px;
     right: 0;
     height: 20px;
     animation: lastUpdateContainerAnimation linear both;
-}
-@keyframes lastUpdateContainerAnimation {
-    to {
-        top: 45px;
-        left: 0;
-        right: 0;
-    }
 }
