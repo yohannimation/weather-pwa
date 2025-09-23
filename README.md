@@ -1,6 +1,6 @@
 # Weather PWA 🌦️
 
-A modern Progressive Web App that provides accurate and up-to-date weather forecasts using ReactJS and the Open-Meteo API.
+A modern Progressive Web App that provides accurate and up-to-date weather forecasts using ReactJS and the [Open-Meteo API](https://open-meteo.com).
 
 All visuals were custom-made in **Blender** and the application is built as a fully functional, installable weather dashboard.
 
