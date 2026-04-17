@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-// Setter - Getter
-import { getCityName } from '../../LocalStorage/useGetter';
+// User Context
+import { useUser } from '../../../contexts/UserContext';
 
 // Components
 import ResultSearchBar from '../ResultSearchBar';
@@ -11,7 +11,8 @@ import Icon from '../../Icon';
 import styles from './inputSearchBar.module.css';
 
 const InputSearchBar: React.FC = () => {
-    const [searchValue, setSearchValue] = useState(getCityName() ?? "");
+    const { user } = useUser();
+    const [searchValue, setSearchValue] = useState(user.cityName ?? "");
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     return (

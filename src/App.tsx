@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 // Contexts
 import { ErrorProvider } from './contexts/ErrorContext';
+import { UserProvider } from './contexts/UserContext';
 
 // Components
 import Router from './components/Router';
@@ -18,13 +19,15 @@ const App: React.FC = () => {
     const { t, i18n } = useTranslation();
 
     return (
-        <ErrorProvider>
-            <BrowserRouter>
-                <ErrorPopup />
-                <CookieModal />
-                <Router />
-            </BrowserRouter>
-        </ErrorProvider>
+        <UserProvider>
+            <ErrorProvider>
+                <BrowserRouter>
+                    <ErrorPopup />
+                    <CookieModal />
+                    <Router />
+                </BrowserRouter>
+            </ErrorProvider>
+        </UserProvider>
     );
 };
 

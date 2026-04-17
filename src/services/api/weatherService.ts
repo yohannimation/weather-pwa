@@ -4,13 +4,7 @@ import {
     WeeklyWeather,
     TodayWeatherPair
 } from "../../types";
-import {
-    getCoordinates,
-    getTemperatureUnit,
-    getSpeedUnit,
-    getPrecipitationUnit,
-    getTimezone
-} from "../../components/LocalStorage/useGetter";
+import { loadUser } from "../../services/storageService";
 import { getDateFormate, getWeekdayName } from "../../utils/dateUtils";
 
 const BASE_URL = "https://api.open-meteo.com/v1/forecast";
@@ -30,8 +24,8 @@ export const getWeatherData = async (): Promise<[CurrentWeather, HourlyWeather[]
 }
 
 const getWeatherSettings = () => {
-    const { latitude, longitude } = getCoordinates();
-    const timezone = getTimezone();
+    const user = loadUser();
+    const { cityLatitude: latitude, cityLongitude: longitude, timezone } = user;
 
     if (!latitude || !longitude || !timezone) {
         window.location.href = '/locate';
@@ -42,9 +36,9 @@ const getWeatherSettings = () => {
         latitude,
         longitude,
         timezone,
-        tempUnit: getTemperatureUnit() === "default" ? "celsius" : "fahrenheit",
-        speedUnit: getSpeedUnit() === "default" ? "kmh" : "mph",
-        precipitationUnit: getPrecipitationUnit() === "default" ? "mm" : "inch",
+        tempUnit: user.temperatureUnit === "default" ? "celsius" : "fahrenheit",
+        speedUnit: user.speedUnit === "default" ? "kmh" : "mph",
+        precipitationUnit: user.precipitationUnit === "default" ? "mm" : "inch",
     };
 };
 

@@ -1,4 +1,4 @@
-import { getDeviceLanguage } from "../components/LocalStorage/useGetter";
+import { loadUser } from "../services/storageService";
 
 /**
  * Format the date and hour in a format defined by the device language
@@ -17,7 +17,7 @@ export const getDateFormate = (input: string): string => {
         hour12: false // Utilise le format 24 heures
     };
 
-    return new Intl.DateTimeFormat(getDeviceLanguage() || 'en-US', options).format(date);
+    return new Intl.DateTimeFormat(loadUser().i18nextLng || 'en-US', options).format(date);
 }
 
 /**
@@ -29,5 +29,5 @@ export const getWeekdayName = (input: string): string => {
     const date = new Date(input);
 
     const options: Intl.DateTimeFormatOptions = { weekday: 'long' };
-    return new Intl.DateTimeFormat(getDeviceLanguage() || 'en-US', options).format(date);
+    return new Intl.DateTimeFormat(loadUser().i18nextLng || 'en-US', options).format(date);
 }

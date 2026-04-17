@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 // Translation
 import { useTranslation } from 'react-i18next';
 
-// Setter - Getter
-import { getCookies } from "../LocalStorage/useGetter";
+// User Context
+import { useUser } from '../../contexts/UserContext';
 
 // Component logic
 import { cookiesAccepted } from "./useCookieModal";
@@ -14,6 +14,7 @@ import Modal from '../Modal';
 
 const CookieModal: React.FC = () => {
     const { t } = useTranslation();
+    const { user } = useUser();
     const [modalActive, setModalActive] = useState(false);
 
     const modalActionTrigger = () => {
@@ -24,9 +25,9 @@ const CookieModal: React.FC = () => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            if (getCookies() !== "true")
+            if (!user.cookies)
                 setModalActive(true);
-        }, 1000);
+        }, 500);
         return () => clearTimeout(timer);
     }, []);
 

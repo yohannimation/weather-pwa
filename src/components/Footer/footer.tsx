@@ -3,19 +3,8 @@ import React, { useState } from 'react';
 // Translation
 import { useTranslation } from 'react-i18next';
 
-// Setter - Getter
-import {
-    getTimezone,
-    getPrecipitationUnit,
-    getSpeedUnit,
-    getTemperatureUnit
-} from "../LocalStorage/useGetter";
-import {
-    setTimezone,
-    setPrecipitationUnit,
-    setSpeedUnit,
-    setTemperatureUnit
-} from "../LocalStorage/useSetter";
+// User Context
+import { useUser } from '../../contexts/UserContext';
 
 // Data
 import parametersList from "./parametersData.json";
@@ -31,6 +20,7 @@ import styles from './footer.module.css';
 
 const Footer: React.FC = () => {
     const { t } = useTranslation();
+    const { user, updateUser } = useUser();
 
     const [settingsModalIsOpen, setSettingsModalIsOpen] = useState(false);
 
@@ -42,9 +32,9 @@ const Footer: React.FC = () => {
         setSettingsModalIsOpen((prev: boolean) => !prev);
     }
 
-    const triggerSetTemperatureUnit = (value: string) => { setTemperatureUnit(value as any); }
-    const triggerSetSpeedUnit = (value: string) => { setSpeedUnit(value as any); }
-    const triggerSetPrecipitationUnit = (value: string) => { setPrecipitationUnit(value as any); }
+    const triggerSetTemperatureUnit = (value: string) => { updateUser({ temperatureUnit: value as any }); }
+    const triggerSetSpeedUnit = (value: string) => { updateUser({ speedUnit: value as any }); }
+    const triggerSetPrecipitationUnit = (value: string) => { updateUser({ precipitationUnit: value as any }); }
 
     const modalContent = (
         <ul className={styles.parametersList}>
@@ -52,7 +42,7 @@ const Footer: React.FC = () => {
                 <p>{t("components-footer-settingsModal-temperatureUnit")}</p>
                 <BooleanSlider
                     values={parametersList.temperatureUnit}
-                    defaultValue={getTemperatureUnit() ?? 'default'}
+                    defaultValue={user.temperatureUnit ?? 'default'}
                     returnValue={triggerSetTemperatureUnit}
                 />
             </li>
@@ -60,7 +50,7 @@ const Footer: React.FC = () => {
                 <p>{t("components-footer-settingsModal-speedUnit")}</p>
                 <BooleanSlider
                     values={parametersList.speedUnit}
-                    defaultValue={getSpeedUnit() ?? 'default'}
+                    defaultValue={user.speedUnit ?? 'default'}
                     returnValue={triggerSetSpeedUnit}
                 />
             </li>
@@ -68,7 +58,7 @@ const Footer: React.FC = () => {
                 <p>{t("components-footer-settingsModal-precipitationUnit")}</p>
                 <BooleanSlider
                     values={parametersList.precipitationUnit}
-                    defaultValue={getPrecipitationUnit() ?? 'default'}
+                    defaultValue={user.precipitationUnit ?? 'default'}
                     returnValue={triggerSetPrecipitationUnit}
                 />
             </li>

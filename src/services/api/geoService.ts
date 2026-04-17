@@ -1,6 +1,5 @@
 import { City } from "../../types";
-import { getDeviceLanguage } from "../../components/LocalStorage/useGetter";
-import { setCityName, setCoordinates, setTimezone } from "../../components/LocalStorage/useSetter";
+import { loadUser, saveUser } from "../../services/storageService";
 
 /**
  * Fetch cities based on an input string from Open-Meteo Geocoding API
@@ -8,7 +7,7 @@ import { setCityName, setCoordinates, setTimezone } from "../../components/Local
  * @returns Promise<City[] | null>
  */
 export const searchCities = async (inputValue: string): Promise<City[] | null> => {
-    const language = getDeviceLanguage() || 'en';
+    const language = loadUser().i18nextLng || 'en';
     const fetchUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(inputValue)}&count=4&language=${language}&format=json`;
 
     try {
@@ -51,9 +50,12 @@ const processGeoData = (jsonResponse: any): City[] | null => {
  * @param {City} data
  */
 export const saveSearchAndRedirect = (data: City): void => {
-    setCityName(data.name_city);
-    setCoordinates(data.latitude, data.longitude);
-    setTimezone(data.timezone);
+    saveUser({
+        cityName: data.name_city,
+        cityLatitude: data.latitude.toString(),
+        cityLongitude: data.longitude.toString(),
+        timezone: data.timezone,
+    });
 
     window.location.replace("/");
 }

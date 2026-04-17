@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 // CSS
 import styles from './booleanSlider.module.css';
@@ -10,30 +10,21 @@ interface BooleanSliderProps {
 }
 
 const BooleanSlider: React.FC<BooleanSliderProps> = ({ values, defaultValue, returnValue }) => {
-    const [selectedValue, setSelectedValue] = useState(defaultValue ? defaultValue : "default");
-    const [sliderClass, setSliderClass] = useState(styles.defaultSelected);
+    const [selectedValue, setSelectedValue] = useState<string | undefined>(defaultValue);
 
-    const setDefaultValue = () => {
-        setSelectedValue("default");
-    }
-    const setSecondaryValue = () => {
-        setSelectedValue("secondary");
-    }
+    const handleSelect = (value: string) => {
+        setSelectedValue(value);
+        returnValue(value);
+    };
 
-    useEffect(() => {
-        if (selectedValue) {
-            if (selectedValue === "default")
-                setSliderClass(styles.defaultSelected);
-            else
-                setSliderClass(styles.secondarySelected);
-        }
-        returnValue(selectedValue);
-    }, [selectedValue, returnValue]);
+    const sliderClass = selectedValue === "default" 
+        ? styles.defaultSelected 
+        : styles.secondarySelected;
 
     if (!values.default || !values.secondary) {
         return (
             <div className={styles.root}>
-                <div className={sliderClass}>
+                <div className={styles.defaultSelected}>
                     <p className={styles.error}>Slider values error</p>
                 </div>
             </div>
@@ -44,8 +35,12 @@ const BooleanSlider: React.FC<BooleanSliderProps> = ({ values, defaultValue, ret
         <div className={styles.root}>
             <div className={sliderClass}>
                 <div className={styles.slider}>
-                    <p className={styles.defaultValue} onClick={setDefaultValue}>{values.default}</p>
-                    <p className={styles.secondaryValue} onClick={setSecondaryValue}>{values.secondary}</p>
+                    <p className={styles.defaultValue} onClick={() => handleSelect("default")}>
+                        {values.default}
+                    </p>
+                    <p className={styles.secondaryValue} onClick={() => handleSelect("secondary")}>
+                        {values.secondary}
+                    </p>
                     <span></span>
                 </div>
             </div>

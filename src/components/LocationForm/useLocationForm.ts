@@ -1,10 +1,4 @@
-import {
-    setCityName,
-    setCoordinates,
-    setTimezone,
-} from '../LocalStorage/useSetter';
-
-import { getDeviceLanguage } from '../LocalStorage/useGetter';
+import { saveUser, loadUser } from '../../services/storageService';
 
 /**
  * Get coordinates of the user and set different cookies
@@ -19,7 +13,7 @@ export const locateMeTreatment = async (): Promise<boolean> => {
             navigator.geolocation.getCurrentPosition(async (position) => {
                 const latitude = position.coords.latitude;
                 const longitude = position.coords.longitude;
-                const deviceLanguage = getDeviceLanguage() || 'en';
+                const deviceLanguage = loadUser().i18nextLng || 'en';
                 let cityName: string;
                 let timezone: string;
 
@@ -37,9 +31,12 @@ export const locateMeTreatment = async (): Promise<boolean> => {
                     cityName = jsonResponse.locality;
                     timezone = jsonResponse.localityInfo.informative[1].name;
 
-                    setCityName(cityName);
-                    setCoordinates(latitude, longitude);
-                    setTimezone(timezone);
+                    saveUser({
+                        cityName,
+                        cityLatitude: latitude.toString(),
+                        cityLongitude: longitude.toString(),
+                        timezone,
+                    });
                     resolve(true);
                 } catch (error) {
                     window.dispatchEvent(new CustomEvent('app-error', {
