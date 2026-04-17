@@ -6,7 +6,6 @@ import {
 } from "../../types";
 import {
     getCoordinates,
-    getDeviceLanguage,
     getTemperatureUnit,
     getSpeedUnit,
     getPrecipitationUnit,
@@ -30,21 +29,36 @@ export const getWeatherData = async (): Promise<[CurrentWeather, HourlyWeather[]
     return [current, hourly, today, weekly];
 }
 
-const getCurrentWeather = async (): Promise<CurrentWeather> => {
+const getWeatherSettings = () => {
     const { latitude, longitude } = getCoordinates();
     const timezone = getTimezone();
-    const tempUnit = getTemperatureUnit() === "default" ? "celsius" : "fahrenheit";
-    const speedUnit = getSpeedUnit() === "default" ? "kmh" : "mph";
-    const precUnit = getPrecipitationUnit() === "default" ? "mm" : "inch";
+
+    if (!latitude || !longitude || !timezone) {
+        window.location.href = '/locate';
+        throw new Error('Missing location or timezone information. Redirecting to /locate.');
+    }
+
+    return {
+        latitude,
+        longitude,
+        timezone,
+        tempUnit: getTemperatureUnit() === "default" ? "celsius" : "fahrenheit",
+        speedUnit: getSpeedUnit() === "default" ? "kmh" : "mph",
+        precipitationUnit: getPrecipitationUnit() === "default" ? "mm" : "inch",
+    };
+};
+
+const getCurrentWeather = async (): Promise<CurrentWeather> => {
+    const { latitude, longitude, timezone, tempUnit, speedUnit, precipitationUnit } = getWeatherSettings();
 
     const url = new URL(BASE_URL);
-    url.searchParams.append("latitude", latitude || "0");
-    url.searchParams.append("longitude", longitude || "0");
+    url.searchParams.append("latitude", latitude);
+    url.searchParams.append("longitude", longitude);
     url.searchParams.append("current", "temperature_2m,apparent_temperature,is_day,precipitation,weather_code");
-    url.searchParams.append("timezone", timezone || "UTC");
+    url.searchParams.append("timezone", timezone);
     url.searchParams.append("temperature_unit", tempUnit);
     url.searchParams.append("wind_speed_unit", speedUnit);
-    url.searchParams.append("precipitation_unit", precUnit);
+    url.searchParams.append("precipitation_unit", precipitationUnit);
     url.searchParams.append("models", "meteofrance_seamless");
 
     const response = await fetch(url.toString());
@@ -77,20 +91,16 @@ const getCurrentWeather = async (): Promise<CurrentWeather> => {
 }
 
 const getHourlyWeather = async (): Promise<HourlyWeather[]> => {
-    const { latitude, longitude } = getCoordinates();
-    const timezone = getTimezone();
-    const tempUnit = getTemperatureUnit() === "default" ? "celsius" : "fahrenheit";
-    const speedUnit = getSpeedUnit() === "default" ? "kmh" : "mph";
-    const precUnit = getPrecipitationUnit() === "default" ? "mm" : "inch";
+    const { latitude, longitude, timezone, tempUnit, speedUnit, precipitationUnit } = getWeatherSettings();
 
     const url = new URL(BASE_URL);
-    url.searchParams.append("latitude", latitude || "0");
-    url.searchParams.append("longitude", longitude || "0");
+    url.searchParams.append("latitude", latitude);
+    url.searchParams.append("longitude", longitude);
     url.searchParams.append("hourly", "temperature_2m,precipitation,weather_code,is_day");
-    url.searchParams.append("timezone", timezone || "UTC");
+    url.searchParams.append("timezone", timezone);
     url.searchParams.append("temperature_unit", tempUnit);
     url.searchParams.append("wind_speed_unit", speedUnit);
-    url.searchParams.append("precipitation_unit", precUnit);
+    url.searchParams.append("precipitation_unit", precipitationUnit);
     url.searchParams.append("models", "meteofrance_seamless");
     url.searchParams.append("forecast_days", "2");
 
@@ -134,20 +144,16 @@ const getHourlyWeather = async (): Promise<HourlyWeather[]> => {
 }
 
 const getTodayWeather = async (): Promise<TodayWeatherPair[]> => {
-    const { latitude, longitude } = getCoordinates();
-    const timezone = getTimezone();
-    const tempUnit = getTemperatureUnit() === "default" ? "celsius" : "fahrenheit";
-    const speedUnit = getSpeedUnit() === "default" ? "kmh" : "mph";
-    const precUnit = getPrecipitationUnit() === "default" ? "mm" : "inch";
+    const { latitude, longitude, timezone, tempUnit, speedUnit, precipitationUnit } = getWeatherSettings();
 
     const url = new URL(BASE_URL);
-    url.searchParams.append("latitude", latitude || "0");
-    url.searchParams.append("longitude", longitude || "0");
-    url.searchParams.append("timezone", timezone || "UTC");
+    url.searchParams.append("latitude", latitude);
+    url.searchParams.append("longitude", longitude);
+    url.searchParams.append("timezone", timezone);
     url.searchParams.append("daily", "temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max,precipitation_probability_mean,wind_speed_10m_max,wind_direction_10m_dominant");
     url.searchParams.append("temperature_unit", tempUnit);
     url.searchParams.append("wind_speed_unit", speedUnit);
-    url.searchParams.append("precipitation_unit", precUnit);
+    url.searchParams.append("precipitation_unit", precipitationUnit);
     url.searchParams.append("models", "meteofrance_seamless");
     url.searchParams.append("forecast_days", "1");
 
@@ -181,11 +187,7 @@ const getTodayWeather = async (): Promise<TodayWeatherPair[]> => {
 }
 
 const getWeeklyWeather = async (): Promise<WeeklyWeather[]> => {
-    const { latitude, longitude } = getCoordinates();
-    const timezone = getTimezone();
-    const tempUnit = getTemperatureUnit() === "default" ? "celsius" : "fahrenheit";
-    const speedUnit = getSpeedUnit() === "default" ? "kmh" : "mph";
-    const precUnit = getPrecipitationUnit() === "default" ? "mm" : "inch";
+    const { latitude, longitude, timezone, tempUnit, speedUnit, precipitationUnit } = getWeatherSettings();
 
     const todayDate = new Date();
     const startDate = new Date(todayDate);
@@ -194,13 +196,13 @@ const getWeeklyWeather = async (): Promise<WeeklyWeather[]> => {
     endDate.setDate(todayDate.getDate() + 7);
 
     const url = new URL(BASE_URL);
-    url.searchParams.append("latitude", latitude || "0");
-    url.searchParams.append("longitude", longitude || "0");
+    url.searchParams.append("latitude", latitude);
+    url.searchParams.append("longitude", longitude);
     url.searchParams.append("daily", "weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max");
-    url.searchParams.append("timezone", timezone || "UTC");
+    url.searchParams.append("timezone", timezone);
     url.searchParams.append("temperature_unit", tempUnit);
     url.searchParams.append("wind_speed_unit", speedUnit);
-    url.searchParams.append("precipitation_unit", precUnit);
+    url.searchParams.append("precipitation_unit", precipitationUnit);
     url.searchParams.append("models", "best_match");
     url.searchParams.append("start_date", startDate.toISOString().split("T")[0] || "");
     url.searchParams.append("end_date", endDate.toISOString().split("T")[0] || "");

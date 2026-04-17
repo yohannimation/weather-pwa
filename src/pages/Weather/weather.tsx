@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 
 // Translation
 import { useTranslation } from 'react-i18next';
@@ -14,7 +14,6 @@ import SingleDataContainer from '../../components/SingleDataContainer';
 import WeatherHeader from '../../components/WeatherHeader';
 
 import styles from './weather.module.css';
-import { CurrentWeather, HourlyWeather, TodayWeatherPair, WeeklyWeather } from '../../types';
 
 function Weather() {
     const { t } = useTranslation();
