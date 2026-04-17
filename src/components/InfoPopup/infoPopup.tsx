@@ -12,7 +12,7 @@ import styles from './infoPopup.module.css';
 
 interface InfoPopupProps {
     title: string;
-    content: React.ReactNode;
+    content: React.ReactNode | string;
 }
 
 const InfoPopup: React.FC<InfoPopupProps> = ({ title, content }) => {
@@ -24,14 +24,14 @@ const InfoPopup: React.FC<InfoPopupProps> = ({ title, content }) => {
     }
 
     return (
-        <div className={styles.root} onClick={infoPopupTrigger}>
-            <div className={styles.iconContainer}>
+        <div className={styles.root}>
+            <div className={styles.iconContainer} onClick={infoPopupTrigger}>
                 <Icon size={30} name="info" />
             </div>
             <Popup
                 active={isOpen}
                 title={title}
-                message={content as any} // Casting here because Popup.tsx still expects string for 'message'
+                message={content}
                 buttonText={t("components-infoPopup-buttonText")}
                 action={infoPopupTrigger}
             />

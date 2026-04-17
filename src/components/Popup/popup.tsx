@@ -10,7 +10,7 @@ import styles from './popup.module.css';
 interface PopupProps {
     active: boolean;
     title: string;
-    message: React.ReactNode;
+    message: React.ReactNode | string;
     buttonText: string;
     action: () => void;
 }
@@ -28,7 +28,7 @@ const Popup: React.FC<PopupProps> = ({ active, title, message, buttonText, actio
 
     return (
         <div className={rootClass}>
-            <span className={styles.background}></span>
+            <span className={styles.background} onClick={action}></span>
             <div className={styles.container}>
                 <Title size={2}>{title}</Title>
                 <span className={styles.message}>{message}</span>
