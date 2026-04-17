@@ -36,30 +36,6 @@ export const getDeviceLanguage = (): string | null => {
 }
 
 /**
- * Get if an error exist
- * @returns string | null
- */
-export const getError = (): string | null => {
-    return localStorage.getItem('error');
-}
-
-/**
- * Get error title
- * @returns string | null
- */
-export const getErrorTitle = (): string | null => {
-    return localStorage.getItem('errorTitle');
-}
-
-/**
- * Get error message
- * @returns string | null
- */
-export const getErrorMessage = (): string | null => {
-    return localStorage.getItem('errorMessage');
-}
-
-/**
  * Get the user precipitation unit
  * @returns UnitSetting | null
  */

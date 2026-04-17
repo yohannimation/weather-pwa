@@ -48,48 +48,6 @@ export const setCoordinates = (latitude: number | string, longitude: number | st
 }
 
 /**
- * Define if an error exist
- * @param {boolean} error
- * @returns boolean
- */
-export const setError = (error: boolean): boolean => {
-    if (typeof error === "boolean") {
-        localStorage.setItem('error', String(error));
-        return true;
-    } else {
-        return false;
-    }
-}
-
-/**
- * Define an error title
- * @param {string} errorTitle
- * @returns boolean
- */
-export const setErrorTitle = (errorTitle: string): boolean => {
-    if (typeof errorTitle === "string") {
-        localStorage.setItem('errorTitle', errorTitle);
-        return true;
-    } else {
-        return false;
-    }
-}
-
-/**
- * Define an error message
- * @param {string} errorMessage
- * @returns boolean
- */
-export const setErrorMessage = (errorMessage: string): boolean => {
-    if (typeof errorMessage === "string") {
-        localStorage.setItem('errorMessage', errorMessage);
-        return true;
-    } else {
-        return false;
-    }
-}
-
-/**
  * Define the user precipitation unit
  * @param {UnitSetting} precipitationUnit
  * @returns boolean

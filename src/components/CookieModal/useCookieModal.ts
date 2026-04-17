@@ -1,8 +1,5 @@
 import {
     setCookies,
-    setError,
-    setErrorTitle,
-    setErrorMessage
 } from '../LocalStorage/useSetter';
 
 /**
@@ -11,9 +8,9 @@ import {
  */
 export const cookiesAccepted = (): boolean => {
     if (!setCookies(true)) {
-        setError(true);
-        setErrorTitle("Cookie error");
-        setErrorMessage("An error appear when cookies are set");
+        window.dispatchEvent(new CustomEvent('app-error', {
+            detail: { title: "Cookie error", message: "An error appear when cookies are set" }
+        }));
         return false;
     } else {
         return true;

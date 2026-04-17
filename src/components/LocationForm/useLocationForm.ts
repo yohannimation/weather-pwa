@@ -2,9 +2,6 @@ import {
     setCityName,
     setCoordinates,
     setTimezone,
-    setError,
-    setErrorMessage,
-    setErrorTitle
 } from '../LocalStorage/useSetter';
 
 import { getDeviceLanguage } from '../LocalStorage/useGetter';
@@ -14,7 +11,6 @@ import { getDeviceLanguage } from '../LocalStorage/useGetter';
  * @returns Promise<boolean>
  */
 export const locateMeTreatment = async (): Promise<boolean> => {
-
     return new Promise((resolve) => {
 
         // Check if the geolocation is available in the navigator
@@ -46,30 +42,22 @@ export const locateMeTreatment = async (): Promise<boolean> => {
                     setTimezone(timezone);
                     resolve(true);
                 } catch (error) {
-                    setError(true);
-                    setErrorTitle("Fetch city data from coordinates");
-                    setErrorMessage(error instanceof Error ? error.message : "Unknown error");
+                    window.dispatchEvent(new CustomEvent('app-error', {
+                        detail: { title: "Fetch city data from coordinates", message: error instanceof Error ? error.message : "Unknown error" }
+                    }));
                     resolve(false);
                 }
             },
             (error) => {
-                setError(true);
-                setErrorTitle("Ask user permission to location");
-
+                let message = "Unknown error";
                 switch (error.code) {
-                    case 1:
-                        setErrorMessage("Permission denied");
-                        break;
-                    case 2:
-                        setErrorMessage("Position unavailable");
-                        break;
-                    case 3:
-                        setErrorMessage("Timeout");
-                        break;
-                    default:
-                        setErrorMessage("Unknown error");
+                    case 1: message = "Permission denied"; break;
+                    case 2: message = "Position unavailable"; break;
+                    case 3: message = "Timeout"; break;
                 }
-
+                window.dispatchEvent(new CustomEvent('app-error', {
+                    detail: { title: "Ask user permission to location", message }
+                }));
                 resolve(false);
             });
         } else {
