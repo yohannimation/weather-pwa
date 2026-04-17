@@ -1,0 +1,31 @@
+import React from 'react';
+
+// CSS
+import styles from './itemResultSearchBar.module.css';
+import { City } from '../../../types';
+
+interface ItemResultSearchBarProps {
+    countryCode: string;
+    countryName: string;
+    cityName: string;
+}
+
+const ItemResultSearchBar: React.FC<ItemResultSearchBarProps> = ({
+    countryCode,
+    countryName,
+    cityName
+}) => {
+    const imgAlt = `${countryName} flag`;
+    const imgSrc = `https://flagsapi.com/${countryCode}/flat/64.png`;
+
+    return (
+        <div className={styles.root}>
+            <div className={styles.imgContainer}>
+                <img className={styles.img} src={imgSrc} alt={imgAlt} />
+            </div>
+            <p className={styles.cityName}>{cityName} - <span className={styles.countryCode}>{countryCode}</span></p>
+        </div>
+    );
+}
+
+export default ItemResultSearchBar;
