@@ -7,7 +7,7 @@
   "components-errorPopup-buttonText": "Rafraichir",
 
   "components-footer-settingsModal-title": "Parametres",
-  "components-footer-settingsModal-buttonText": "Sauvegarder",
+  "components-footer-settingsModal-buttonText": "Actualiser",
   "components-footer-settingsModal-timezone": "Timezone",
   "components-footer-settingsModal-temperatureUnit": "Unité de température",
   "components-footer-settingsModal-speedUnit": "Unité de vitesse",

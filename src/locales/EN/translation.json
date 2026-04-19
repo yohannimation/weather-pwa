@@ -7,7 +7,7 @@
   "components-errorPopup-buttonText": "Refresh",
 
   "components-footer-settingsModal-title": "Settings",
-  "components-footer-settingsModal-buttonText": "Save",
+  "components-footer-settingsModal-buttonText": "Refresh",
   "components-footer-settingsModal-timezone": "Timezone",
   "components-footer-settingsModal-temperatureUnit": "Temperature unit",
   "components-footer-settingsModal-speedUnit": "Speed unit",

@@ -9,7 +9,7 @@ interface BooleanSliderProps {
     returnValue: (value: string) => void;
 }
 
-const BooleanSlider: React.FC<BooleanSliderProps> = ({ values, defaultValue, returnValue }) => {
+const BooleanSlider: React.FC<BooleanSliderProps> = ({ values, defaultValue = "default", returnValue }) => {
     const [selectedValue, setSelectedValue] = useState<string | undefined>(defaultValue);
 
     const handleSelect = (value: string) => {
