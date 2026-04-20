@@ -1,5 +1,5 @@
 .root {
-    position: absolute;
+    position: fixed;
     inset: 0;
     display: flex;
     justify-content: center;
@@ -15,9 +15,6 @@
 }
 
 .spinner {
-    position: fixed;
-    top: 50vh;
-    transform: translateY(-50%);
     width: 50px;
     height: 50px;
     background-color: yellow;
