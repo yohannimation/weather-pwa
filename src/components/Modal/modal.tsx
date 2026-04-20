@@ -23,7 +23,7 @@ const Modal: React.FC<ModalProps> = ({
     message,
     buttonText,
     action,
-    closeCallback = () => {}
+    closeCallback
 }) => {
     const [rootClass, setRootClass] = useState(styles.unactive);
 
