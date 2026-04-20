@@ -47,11 +47,6 @@
   "components-installBanner-cta": "Cette application est installable sur votre appareil.",
   "components-installBanner-installButton": "Installer",
   
-  "components-locationForm-booleanSlider-default": "Manuellement",
-  "components-locationForm-booleanSlider-secondary": "Automatiquement",
-  "components-locationForm-locateMePart-buttonText": "Me localiser",
-  "components-locationForm-locateMePart-preventMessage": "Cette application va vous demander d'accepter l'utilisation du GPS de votre appareil.",
-  
   "components-searchBar-resultSearchBar-noResult": "Aucun résultat n'a été trouvé",
   
   "components-singleDataContainer-errorMessage": "Single data : Une erreur est survenue",

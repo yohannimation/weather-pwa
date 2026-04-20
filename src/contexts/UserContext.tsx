@@ -4,12 +4,15 @@ import { loadUser, saveUser, UserData } from '../services/storageService';
 interface UserContextType {
     user: UserData;
     updateUser: (updates: Partial<UserData>) => void;
+    isLoading: boolean;
+    setLoading: (loading: boolean) => void;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [user, setUserState] = useState<UserData>(loadUser());
+    const [isLoading, setIsLoading] = useState(false);
 
     const updateUser = (updates: Partial<UserData>) => {
         setUserState(prev => {
@@ -20,7 +23,7 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     };
 
     return (
-        <UserContext.Provider value={{ user, updateUser }}>
+        <UserContext.Provider value={{ user, updateUser, isLoading, setLoading: setIsLoading }}>
             {children}
         </UserContext.Provider>
     );

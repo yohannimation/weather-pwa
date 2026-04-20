@@ -47,11 +47,6 @@
   "components-installBanner-cta": "This web app is downloadable in your device.",
   "components-installBanner-installButton": "Install",
   
-  "components-locationForm-booleanSlider-default": "Manually",
-  "components-locationForm-booleanSlider-secondary": "Automatically",
-  "components-locationForm-locateMePart-buttonText": "Locate me",
-  "components-locationForm-locateMePart-preventMessage": "This app will ask you to allow the use of your device GPS",
-  
   "components-searchBar-resultSearchBar-noResult": "No result found",
   
   "components-singleDataContainer-errorMessage": "Single data : An error has occurred",

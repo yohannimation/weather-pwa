@@ -9,7 +9,6 @@ import { useWeather } from './useWeather';
 // Components
 import DataContainer from '../../components/DataContainer';
 import Footer from '../../components/Footer';
-import Loading from '../../components/Loading';
 import SingleDataContainer from '../../components/SingleDataContainer';
 import WeatherHeader from '../../components/WeatherHeader';
 
@@ -42,7 +41,6 @@ function Weather() {
 
     return (
         <div id="weather-root-id" ref={weatherRef} className={styles.root} style={bgColor}>
-            <Loading isLoading={isLoading}/>
             {current && (
                 <WeatherHeader
                     currentWeather={current}

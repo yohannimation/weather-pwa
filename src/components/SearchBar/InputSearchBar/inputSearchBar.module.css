@@ -23,13 +23,14 @@
     background-color: var(--dark-color);
     border-radius: var(--full-border-radius);
     border: var(--border-white-color);
+    cursor: pointer;
     overflow: hidden;
 }
 
 .input {
     position: relative;
     padding: 0 var(--padding);
-    width: 90%;
+    width: 100%;
     height: 45px;
     background-color: transparent;
     color: var(--text-color);

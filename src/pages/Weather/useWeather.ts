@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getWeatherData } from '../../services/api/weatherService';
 import type { CurrentWeather, HourlyWeather, TodayWeatherPair, WeeklyWeather } from '../../types';
+import { useUser } from '../../contexts/UserContext';
 
 interface WeatherState {
     current: CurrentWeather | null;
@@ -12,31 +13,36 @@ interface WeatherState {
 }
 
 export const useWeather = () => {
+    const { isLoading, setLoading } = useUser();
     const [state, setState] = useState<WeatherState>({
         current: null,
         hourly: null,
         today: null,
         weekly: null,
-        loading: true,
+        loading: isLoading,
         error: null,
     });
 
     const fetchWeather = async () => {
-        setState(prev => ({ ...prev, loading: true, error: null }));
+        setLoading(true)
+        setState(prev => ({ ...prev, loading: isLoading, error: null }));
         try {
             const [current, hourly, today, weekly] = await getWeatherData();
+            setLoading(false)
+
             setState({
                 current,
                 hourly,
                 today,
                 weekly,
-                loading: false,
+                loading: isLoading,
                 error: null,
             });
         } catch (err) {
+            setLoading(false)
             setState(prev => ({
                 ...prev,
-                loading: false,
+                loading: isLoading,
                 error: err instanceof Error ? err.message : 'An unexpected error occurred',
             }));
         }

@@ -1,64 +1,77 @@
+import { useUser } from '../../contexts/UserContext';
 import { saveUser, loadUser } from '../../services/storageService';
 
-/**
- * Get coordinates of the user and set different cookies
- * @returns Promise<boolean>
- */
-export const locateMeTreatment = async (): Promise<boolean> => {
-    return new Promise((resolve) => {
+export const useLocationForm = () => {
+    const { setLoading } = useUser();
 
-        // Check if the geolocation is available in the navigator
-        if ("geolocation" in navigator) {
-            // Ask the user to accept to use his GPS and get the coordinates
-            navigator.geolocation.getCurrentPosition(async (position) => {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
-                const deviceLanguage = loadUser().i18nextLng || 'en';
-                let cityName: string;
-                let timezone: string;
+    /**
+     * Get coordinates of the user and set different cookies
+     * @returns Promise<boolean>
+     */
+    const locateMeTreatment = async (): Promise<boolean> => {
+        setLoading(true)
 
-                // Set the API url to get the city name
-                const fetchUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=${deviceLanguage}`;
+        return new Promise((resolve) => {
+            // Check if the geolocation is available in the navigator
+            if ("geolocation" in navigator) {
+                // Ask the user to accept to use his GPS and get the coordinates
+                navigator.geolocation.getCurrentPosition(async (position) => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    const deviceLanguage = loadUser().i18nextLng || 'en';
+                    let cityName: string;
+                    let timezone: string;
 
-                // Fetching data
-                try {
-                    const response = await fetch(fetchUrl);
-                    if (!response.ok) {
-                        throw new Error(response.statusText);
+                    // Set the API url to get the city name
+                    const fetchUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=${deviceLanguage}`;
+
+                    // Fetching data
+                    try {
+                        const response = await fetch(fetchUrl);
+                        if (!response.ok) {
+                            throw new Error(response.statusText);
+                        }
+                        const jsonResponse = await response.json();
+
+                        cityName = jsonResponse.locality;
+                        timezone = jsonResponse.localityInfo.informative[1].name;
+
+                        saveUser({
+                            cityName,
+                            cityLatitude: latitude.toString(),
+                            cityLongitude: longitude.toString(),
+                            timezone,
+                        });
+                        resolve(true);
+                    } catch (error) {
+                        setLoading(false)
+                        window.dispatchEvent(new CustomEvent('app-error', {
+                            detail: { title: "Fetch city data from coordinates", message: error instanceof Error ? error.message : "Unknown error" }
+                        }));
+                        resolve(false);
                     }
-                    const jsonResponse = await response.json();
-
-                    cityName = jsonResponse.locality;
-                    timezone = jsonResponse.localityInfo.informative[1].name;
-
-                    saveUser({
-                        cityName,
-                        cityLatitude: latitude.toString(),
-                        cityLongitude: longitude.toString(),
-                        timezone,
-                    });
-                    resolve(true);
-                } catch (error) {
+                },
+                (error) => {
+                    let message = "Unknown error";
+                    switch (error.code) {
+                        case 1: message = "Permission denied"; break;
+                        case 2: message = "Position unavailable"; break;
+                        case 3: message = "Timeout"; break;
+                    }
+                    setLoading(false)
                     window.dispatchEvent(new CustomEvent('app-error', {
-                        detail: { title: "Fetch city data from coordinates", message: error instanceof Error ? error.message : "Unknown error" }
+                        detail: { title: "Ask user permission to location", message }
                     }));
                     resolve(false);
-                }
-            },
-            (error) => {
-                let message = "Unknown error";
-                switch (error.code) {
-                    case 1: message = "Permission denied"; break;
-                    case 2: message = "Position unavailable"; break;
-                    case 3: message = "Timeout"; break;
-                }
-                window.dispatchEvent(new CustomEvent('app-error', {
-                    detail: { title: "Ask user permission to location", message }
-                }));
+                });
+            } else {
+                setLoading(false)
                 resolve(false);
-            });
-        } else {
-            resolve(false);
-        }
-    });
+            }
+        })
+    };
+
+    return {
+        locateMeTreatment,
+    };
 }
