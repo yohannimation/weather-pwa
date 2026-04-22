@@ -1,5 +1,6 @@
 import { useUser } from '../../contexts/UserContext';
 import { saveUser, loadUser } from '../../services/storageService';
+import { redirectToWeather } from '../../utils/redirectUtils';
 
 export const useLocationForm = () => {
     const { setLoading } = useUser();
@@ -42,6 +43,7 @@ export const useLocationForm = () => {
                             cityLongitude: longitude.toString(),
                             timezone,
                         });
+                        redirectToWeather();
                         resolve(true);
                     } catch (error) {
                         setLoading(false)

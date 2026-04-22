@@ -6,6 +6,7 @@ import {
 } from "../../types";
 import { loadUser } from "../../services/storageService";
 import { getDateFormate, getWeekdayName } from "../../utils/dateUtils";
+import { redirectToLocate } from "../../utils/redirectUtils";
 
 const BASE_URL = "https://api.open-meteo.com/v1/forecast";
 
@@ -28,7 +29,7 @@ const getWeatherSettings = () => {
     const { cityLatitude: latitude, cityLongitude: longitude, timezone } = user;
 
     if (!latitude || !longitude || !timezone) {
-        window.location.href = '/locate';
+        redirectToLocate();
         throw new Error('Missing location or timezone information. Redirecting to /locate.');
     }
 

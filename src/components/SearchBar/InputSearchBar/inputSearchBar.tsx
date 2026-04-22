@@ -19,9 +19,7 @@ const InputSearchBar: React.FC = () => {
     const inputRef = React.useRef<HTMLInputElement>(null);
 
     const locateMeTrigger = async () => {
-        if (await locateMeTreatment()) {
-            window.location.href = '/';
-        }
+        await locateMeTreatment()
     };
 
     const focusInputTrigger = () => {
