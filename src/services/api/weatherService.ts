@@ -9,6 +9,7 @@ import { getDateFormate, getWeekdayName } from "utils/dateUtils";
 import { redirectToLocate } from "utils/redirectUtils";
 
 const BASE_URL = "https://api.open-meteo.com/v1/forecast";
+const WEATHER_MODEL = 'best_match';
 
 /**
  * Orchestrates the fetching of all weather data needed for the dashboard
@@ -54,7 +55,7 @@ const getCurrentWeather = async (): Promise<CurrentWeather> => {
     url.searchParams.append("temperature_unit", tempUnit);
     url.searchParams.append("wind_speed_unit", speedUnit);
     url.searchParams.append("precipitation_unit", precipitationUnit);
-    url.searchParams.append("models", "meteofrance_seamless");
+    url.searchParams.append("models", WEATHER_MODEL);
 
     const response = await fetch(url.toString());
     if (!response.ok) throw new Error(response.statusText);
@@ -96,7 +97,7 @@ const getHourlyWeather = async (): Promise<HourlyWeather[]> => {
     url.searchParams.append("temperature_unit", tempUnit);
     url.searchParams.append("wind_speed_unit", speedUnit);
     url.searchParams.append("precipitation_unit", precipitationUnit);
-    url.searchParams.append("models", "meteofrance_seamless");
+    url.searchParams.append("models", WEATHER_MODEL);
     url.searchParams.append("forecast_days", "2");
 
     const response = await fetch(url.toString());
@@ -149,7 +150,7 @@ const getTodayWeather = async (): Promise<TodayWeatherPair[]> => {
     url.searchParams.append("temperature_unit", tempUnit);
     url.searchParams.append("wind_speed_unit", speedUnit);
     url.searchParams.append("precipitation_unit", precipitationUnit);
-    url.searchParams.append("models", "meteofrance_seamless");
+    url.searchParams.append("models", WEATHER_MODEL);
     url.searchParams.append("forecast_days", "1");
 
     const response = await fetch(url.toString());
@@ -198,7 +199,7 @@ const getWeeklyWeather = async (): Promise<WeeklyWeather[]> => {
     url.searchParams.append("temperature_unit", tempUnit);
     url.searchParams.append("wind_speed_unit", speedUnit);
     url.searchParams.append("precipitation_unit", precipitationUnit);
-    url.searchParams.append("models", "best_match");
+    url.searchParams.append("models", WEATHER_MODEL);
     url.searchParams.append("start_date", startDate.toISOString().split("T")[0] || "");
     url.searchParams.append("end_date", endDate.toISOString().split("T")[0] || "");
 
