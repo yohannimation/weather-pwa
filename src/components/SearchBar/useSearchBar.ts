@@ -1,6 +1,9 @@
-import { useUser } from 'contexts/UserContext';
-import { saveUser, loadUser } from 'services/storageService';
+import { triggerGlobalError } from "utils/errorUtils";
 import { redirectToWeather } from 'utils/redirectUtils';
+
+import { useUser } from 'contexts/UserContext';
+
+import { saveUser, loadUser } from 'services/storageService';
 
 export const useInputSearchBar = () => {
     const { setLoading } = useUser();
@@ -47,9 +50,7 @@ export const useInputSearchBar = () => {
                         resolve(true);
                     } catch (error) {
                         setLoading(false)
-                        window.dispatchEvent(new CustomEvent('app-error', {
-                            detail: { title: "Fetch city data from coordinates", message: error instanceof Error ? error.message : "Unknown error" }
-                        }));
+                        triggerGlobalError("Fetch city data from coordinates", error instanceof Error ? error.message : "Unknown error")
                         resolve(false);
                     }
                 },
@@ -60,10 +61,9 @@ export const useInputSearchBar = () => {
                         case 2: message = "Position unavailable"; break;
                         case 3: message = "Timeout"; break;
                     }
+                    
                     setLoading(false)
-                    window.dispatchEvent(new CustomEvent('app-error', {
-                        detail: { title: "Ask user permission to location", message }
-                    }));
+                    triggerGlobalError("Ask user permission to location", message)
                     resolve(false);
                 });
             } else {

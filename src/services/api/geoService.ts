@@ -1,3 +1,4 @@
+import { triggerGlobalError } from "utils/errorUtils";
 import { City } from "types";
 import { loadUser, saveUser } from "services/storageService";
 import { redirectToWeather } from "utils/redirectUtils";
@@ -22,8 +23,13 @@ export const searchCities = async (inputValue: string, signal?: AbortSignal): Pr
 
         const jsonResponse = await response.json();
         return processGeoData(jsonResponse);
-    } catch (error) {
+    } catch (error: any) {
+        if (error.name === 'AbortError') {
+            return null;
+        }
+        
         console.error("GeoService Error:", error);
+        triggerGlobalError("Localization error", error.message || "We cannot get the city");
         throw error;
     }
 }

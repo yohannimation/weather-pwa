@@ -1,3 +1,5 @@
+import { triggerGlobalError } from "utils/errorUtils";
+
 import { UnitSetting } from "types";
 
 export interface UserData {
@@ -26,7 +28,8 @@ export const loadUser = (): UserData => {
         try {
             return JSON.parse(storedData) as UserData;
         } catch (e) {
-            console.error("Failed to parse user_data from localStorage", e);
+            triggerGlobalError("Data parsing", `Failed to parse ${STORAGE_KEY} from localStorage`)
+            console.error(`Failed to parse ${STORAGE_KEY} from localStorage`, e);
         }
     }
 

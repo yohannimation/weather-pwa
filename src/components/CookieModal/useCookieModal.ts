@@ -1,3 +1,5 @@
+import { triggerGlobalError } from "utils/errorUtils";
+
 import { useUser } from 'contexts/UserContext';
 
 /**
@@ -21,9 +23,7 @@ export const useCookieModal = () => {
         try {
             updateUser({ cookies: true });
         } catch (e) {
-            window.dispatchEvent(new CustomEvent('app-error', {
-                detail: { title: "Cookie error", message: "An error appear when cookies are set" }
-            }));
+            triggerGlobalError("Cookie error", "An error appear when cookies are set");
         }
     };
 

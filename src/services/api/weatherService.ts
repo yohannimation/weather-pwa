@@ -1,3 +1,4 @@
+import { triggerGlobalError } from "utils/errorUtils";
 import {
     CurrentWeather,
     HourlyWeather,
@@ -16,13 +17,18 @@ const WEATHER_MODEL = 'best_match';
  * @returns Promise<[CurrentWeather, HourlyWeather[], TodayWeatherPair[], WeeklyWeather[]]>
  */
 export const getWeatherData = async (): Promise<[CurrentWeather, HourlyWeather[], TodayWeatherPair[], WeeklyWeather[]]> => {
-    const [current, hourly, today, weekly] = await Promise.all([
-        getCurrentWeather(),
-        getHourlyWeather(),
-        getTodayWeather(),
-        getWeeklyWeather()
-    ]);
-    return [current, hourly, today, weekly];
+    try {
+        const [current, hourly, today, weekly] = await Promise.all([
+            getCurrentWeather(),
+            getHourlyWeather(),
+            getTodayWeather(),
+            getWeeklyWeather()
+        ]);
+        return [current, hourly, today, weekly];
+    } catch (error: any) {
+        triggerGlobalError("Weather error", error.message || "We cannot get the weather data");
+        throw error;
+    }
 }
 
 const getWeatherSettings = () => {
