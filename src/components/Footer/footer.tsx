@@ -9,9 +9,6 @@ import { useUser } from 'contexts/UserContext';
 // Data
 import parametersList from "./parametersData.json";
 
-// Component use
-import { reload } from 'utils/redirectUtils';
-
 // Components
 import BooleanSlider from 'components/BooleanSlider';
 import Icon from 'components/Icon';
@@ -26,7 +23,11 @@ import styles from './footer.module.css';
 import { UnitSetting } from 'types';
 import { SelectOption } from 'components/Select/select';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+    refetch: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ refetch }: FooterProps) => {
     const { t } = useTranslation();
     const { user, updateUser } = useUser();
 
@@ -88,7 +89,7 @@ const Footer: React.FC = () => {
 
     return (
         <footer className={styles.root}>
-            <div className={styles.cta} title={t("components-footer-iconAlt-reload")} onClick={reload}>
+            <div className={styles.cta} title={t("components-footer-iconAlt-reload")} onClick={refetch}>
                 <Icon size={40} name="reload" />
             </div>
             <div className={styles.cta} title={t("components-footer-iconAlt-settings")} onClick={toggleModal}>
@@ -99,7 +100,10 @@ const Footer: React.FC = () => {
                 title={t("components-footer-settingsModal-title")}
                 message={modalContent}
                 buttonText={t("components-footer-settingsModal-buttonText")}
-                action={reload}
+                action={() => {
+                    refetch()
+                    toggleModal()
+                }}
                 closeCallback={toggleModal}
             />
         </footer>

@@ -24,6 +24,7 @@ function Weather() {
         today,
         weekly,
         loading: isLoading,
+        refetch,
         getBackgroundColor
     } = useWeather();
 
@@ -59,7 +60,7 @@ function Weather() {
                     />
                 </main>
             </div>
-            <Footer />
+            <Footer refetch={refetch} />
         </div>
     );
 }
