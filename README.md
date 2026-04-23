@@ -76,9 +76,7 @@ npm start
 ## 🧭 Planned Features
 
 - 🌧️ Add a weather map showing precipitation/cloud movement at user's location
-- 🌐 Allow user to select time zone in settings
-- 🎨 Improve UI/UX for a more polished experience
-- 🛠️ Migrate the app to TypeScript (large task planned for later)
+- 🌡️ Add a graph showing the temperature evolution hour by hour
 
 ---
 
