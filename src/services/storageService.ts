@@ -12,7 +12,7 @@ export interface UserData {
     timezone: string | null;
 }
 
-const STORAGE_KEY = 'user_data';
+const STORAGE_KEY = 'weather.user-data';
 
 /**
  * Loads user data from localStorage.

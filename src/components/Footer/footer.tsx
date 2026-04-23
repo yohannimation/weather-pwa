@@ -17,12 +17,14 @@ import BooleanSlider from 'components/BooleanSlider';
 import Icon from 'components/Icon';
 import InstallBanner from 'components/InstallBanner';
 import Modal from 'components/Modal';
+import Select from 'components/Select/select';
 
 // CSS
 import styles from './footer.module.css';
 
 // Type
 import { UnitSetting } from 'types';
+import { SelectOption } from 'components/Select/select';
 
 const Footer: React.FC = () => {
     const { t } = useTranslation();
@@ -30,10 +32,16 @@ const Footer: React.FC = () => {
 
     const [settingsModalIsOpen, setSettingsModalIsOpen] = useState(false);
 
+    const timezoneOptions: SelectOption[] = Intl.supportedValuesOf('timeZone').map(tz => ({
+        label: tz,
+        value: tz,
+    }));
+
     const toggleModal = () => {
         setSettingsModalIsOpen((prev: boolean) => !prev);
     }
 
+    const triggerSetTimezone = (value: string) => { updateUser({ timezone: value }); }
     const triggerSetTemperatureUnit = (value: string) => { updateUser({ temperatureUnit: value as UnitSetting }); }
     const triggerSetSpeedUnit = (value: string) => { updateUser({ speedUnit: value as UnitSetting }); }
     const triggerSetPrecipitationUnit = (value: string) => { updateUser({ precipitationUnit: value as UnitSetting }); }
@@ -42,6 +50,14 @@ const Footer: React.FC = () => {
         <>
             <InstallBanner />
             <ul className={styles.parametersList}>
+                <li className={styles.parameterItem}>
+                    <p>{t("components-footer-settingsModal-timezone")}</p>
+                    <Select
+                        options={timezoneOptions}
+                        value={user.timezone ? { label: user.timezone, value: user.timezone } : null}
+                        onChange={(option) => triggerSetTimezone(option.value)}
+                    />
+                </li>
                 <li className={styles.parameterItem}>
                     <p>{t("components-footer-settingsModal-temperatureUnit")}</p>
                     <BooleanSlider

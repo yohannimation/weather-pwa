@@ -4,7 +4,7 @@
   "components-cookieModal-message": "Cookies are essential for the functioning of the web application and cannot be disabled. These cookies are set only in response to actions you have taken, such as selecting a language, location, or usage preferences. No cookies will be used for commercial purposes. You can configure your browser to block these cookies, but this may impact the functionality of the application.",
   "components-cookieModal-buttonText": "Accept",
 
-  "components-errorPopup-buttonText": "Refresh",
+  "components-errorPopup-buttonText": "Close",
 
   "components-footer-settingsModal-title": "Settings",
   "components-footer-settingsModal-buttonText": "Refresh",
