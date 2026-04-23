@@ -12,7 +12,7 @@ import verticalStyles from './Items/verticalItemData.module.css';
 import horizontalStyles from './Items/horizontalItemData.module.css';
 
 // Types
-import { HourlyWeather, WeeklyWeather } from '../../../types';
+import { HourlyWeather, WeeklyWeather } from 'types';
 
 interface WeatherTileProps {
     layout: 'vertical' | 'horizontal';

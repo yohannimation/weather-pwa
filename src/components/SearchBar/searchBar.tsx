@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
 // User Context
-import { useUser } from '../../../contexts/UserContext';
-import { useInputSearchBar } from './useInputSearchBar';
+import { useUser } from 'contexts/UserContext';
+import { useInputSearchBar } from './useSearchBar';
 
 // Components
 import ResultSearchBar from './ResultSearchBar';
-import Icon from '../../Icon';
+import Icon from 'components/Icon';
 
 // CSS
-import styles from './inputSearchBar.module.css';
+import styles from './searchBar.module.css';
 
 const InputSearchBar: React.FC = () => {
     const { locateMe } = useInputSearchBar();

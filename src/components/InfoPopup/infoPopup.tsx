@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // Components
-import Popup from '../Popup';
-import Icon from '../Icon';
+import Icon from 'components/Icon';
+import Popup from 'components/Popup';
 
 // CSS
 import styles from './infoPopup.module.css';

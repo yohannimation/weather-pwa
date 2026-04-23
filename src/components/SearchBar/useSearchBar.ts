@@ -1,6 +1,6 @@
-import { useUser } from '../../../contexts/UserContext';
-import { saveUser, loadUser } from '../../../services/storageService';
-import { redirectToWeather } from '../../../utils/redirectUtils';
+import { useUser } from 'contexts/UserContext';
+import { saveUser, loadUser } from 'services/storageService';
+import { redirectToWeather } from 'utils/redirectUtils';
 
 export const useInputSearchBar = () => {
     const { setLoading } = useUser();

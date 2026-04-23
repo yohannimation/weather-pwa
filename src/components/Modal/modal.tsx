@@ -1,9 +1,9 @@
 import React from 'react';
 
 // Components
-import Button from '../Button';
-import Icon from '../Icon';
-import Title from '../Title';
+import Button from 'components/Button';
+import Icon from 'components/Icon';
+import Title from 'components/Title';
 
 // CSS
 import styles from './modal.module.css';

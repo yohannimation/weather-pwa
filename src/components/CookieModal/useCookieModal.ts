@@ -1,4 +1,4 @@
-import { useUser } from '../../contexts/UserContext';
+import { useUser } from 'contexts/UserContext';
 
 /**
  * Hook to manage cookie acceptance

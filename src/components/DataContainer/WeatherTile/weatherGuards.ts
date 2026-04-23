@@ -1,4 +1,4 @@
-import { WeeklyWeather, HourlyWeather } from '../../../types';
+import { WeeklyWeather, HourlyWeather } from 'types';
 
 export const isWeeklyWeather = (item: unknown): item is WeeklyWeather =>
     typeof item === 'object' && item !== null && 'day' in item;

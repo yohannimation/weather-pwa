@@ -8,7 +8,7 @@ import ItemSingleData from './ItemSingleData';
 
 // CSS
 import styles from './singleDataContainer.module.css';
-import { TodayWeatherPair } from '../../types';
+import { TodayWeatherPair } from 'types';
 
 interface SingleDataContainerProps {
     data: TodayWeatherPair[];

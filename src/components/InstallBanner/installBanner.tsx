@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { useInstallBanner } from './useInstallBanner';
 
 // Components
-import Button from '../Button';
+import Button from 'components/Button';
 
 // CSS
 import styles from './installBanner.module.css';

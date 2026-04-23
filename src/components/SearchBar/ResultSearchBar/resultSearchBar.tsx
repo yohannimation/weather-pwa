@@ -13,7 +13,7 @@ import ItemResultSearchBar from './ItemResultSearchBar';
 import styles from './resultSearchBar.module.css';
 
 // Type
-import { City } from '../../../../types';
+import { City } from 'types';
 
 interface ResultSearchBarProps {
     inputValue: string;

@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { useCookieModal } from "./useCookieModal";
 
 // Components
-import Modal from '../Modal';
+import Modal from 'components/Modal';
 
 const CookieModal: React.FC = () => {
     const { t } = useTranslation();

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { searchCities, saveSearchAndRedirect } from '../../../../services/api/geoService';
-import { City } from '../../../../types';
-import useDebounce from '../../../../hooks/useDebounce';
+import { searchCities, saveSearchAndRedirect } from 'services/api/geoService';
+import { City } from 'types';
+import useDebounce from 'hooks/useDebounce';
 
 export const useResultSearchBar = (inputValue: string) => {
     const [results, setResults] = useState<City[]>([]);

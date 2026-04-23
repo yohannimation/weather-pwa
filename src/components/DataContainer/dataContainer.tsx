@@ -8,7 +8,7 @@ import WeatherTile from './WeatherTile';
 import styles from './dataContainer.module.css';
 
 // Types
-import { HourlyWeather, WeeklyWeather } from '../../types';
+import { HourlyWeather, WeeklyWeather } from 'types';
 
 interface DataContainerProps {
     title: string;

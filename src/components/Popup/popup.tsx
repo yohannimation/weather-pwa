@@ -1,8 +1,8 @@
 import React from 'react';
 
 // Components
-import Button from '../Button';
-import Title from '../Title';
+import Button from 'components/Button';
+import Title from 'components/Title';
 
 // CSS
 import styles from './popup.module.css';

@@ -4,11 +4,11 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 // Components
-import Icon from '../../Icon';
+import Icon from 'components/Icon';
 
 // CSS
 import styles from './itemSingleData.module.css';
-import { TodayWeatherPair } from '../../../types';
+import { TodayWeatherPair } from 'types';
 
 interface ItemSingleDataProps {
     data: TodayWeatherPair;

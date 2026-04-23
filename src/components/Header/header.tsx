@@ -2,11 +2,15 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, useTransform, useScroll } from "framer-motion";
 
-import InputSearchBar from '../SearchBar/InputSearchBar';
-import Icon from '../Icon';
+// Components
+import Icon from 'components/Icon';
+import InputSearchBar from 'components/SearchBar';
 
+// CSS
 import styles from './header.module.css';
-import { CurrentWeather } from '../../types';
+
+// Type
+import { CurrentWeather } from 'types';
 
 interface HeaderProps {
     currentWeather: CurrentWeather;

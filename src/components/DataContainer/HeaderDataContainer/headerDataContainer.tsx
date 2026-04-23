@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import InfoPopup from '../../InfoPopup';
+import InfoPopup from 'components/InfoPopup';
 
 // CSS
 import styles from './headerDataContainer.module.css';

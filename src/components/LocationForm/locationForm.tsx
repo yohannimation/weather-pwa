@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import InputSearchBar from '../SearchBar/InputSearchBar';
+import InputSearchBar from 'components/SearchBar';
 
 // CSS
 import styles from './locationForm.module.css';

@@ -4,10 +4,10 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 // Context
-import { useError } from '../../contexts/ErrorContext';
+import { useError } from 'contexts/ErrorContext';
 
 // Components
-import Popup from '../Popup';
+import Popup from 'components/Popup';
 
 const ErrorPopup: React.FC = () => {
     const { t } = useTranslation();

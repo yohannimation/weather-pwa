@@ -4,25 +4,25 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // User Context
-import { useUser } from '../../contexts/UserContext';
+import { useUser } from 'contexts/UserContext';
 
 // Data
 import parametersList from "./parametersData.json";
 
 // Component use
-import { reload } from '../../utils/redirectUtils';
+import { reload } from 'utils/redirectUtils';
 
 // Components
-import Modal from '../Modal';
-import BooleanSlider from '../BooleanSlider';
-import Icon from '../Icon';
-import InstallBanner from '../InstallBanner';
+import BooleanSlider from 'components/BooleanSlider';
+import Icon from 'components/Icon';
+import InstallBanner from 'components/InstallBanner';
+import Modal from 'components/Modal';
 
 // CSS
 import styles from './footer.module.css';
 
 // Type
-import { UnitSetting } from '../../types';
+import { UnitSetting } from 'types';
 
 const Footer: React.FC = () => {
     const { t } = useTranslation();
