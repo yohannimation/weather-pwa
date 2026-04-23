@@ -7,10 +7,10 @@ import { useTranslation } from 'react-i18next';
 import { useWeather } from './useWeather';
 
 // Components
-import DataContainer from '../../components/DataContainer';
-import Footer from '../../components/Footer';
-import SingleDataContainer from '../../components/SingleDataContainer';
-import Header from '../../components/Header';
+import DataContainer from 'components/DataContainer';
+import Footer from 'components/Footer';
+import SingleDataContainer from 'components/SingleDataContainer';
+import Header from 'components/Header';
 
 import styles from './weather.module.css';
 

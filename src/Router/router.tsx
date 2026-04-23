@@ -4,8 +4,8 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Pages
-import Locate from '../pages/Locate';
-import Weather from '../pages/Weather';
+import Locate from 'pages/Locate';
+import Weather from 'pages/Weather';
 
 const Router: React.FC = () => {
     return (

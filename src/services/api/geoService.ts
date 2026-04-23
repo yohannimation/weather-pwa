@@ -1,6 +1,6 @@
-import { City } from "../../types";
-import { loadUser, saveUser } from "../../services/storageService";
-import { redirectToWeather } from "../../utils/redirectUtils";
+import { City } from "types";
+import { loadUser, saveUser } from "services/storageService";
+import { redirectToWeather } from "utils/redirectUtils";
 
 /**
  * Fetch cities based on an input string from Open-Meteo Geocoding API

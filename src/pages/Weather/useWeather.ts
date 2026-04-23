@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { getWeatherData } from '../../services/api/weatherService';
-import type { CurrentWeather, HourlyWeather, TodayWeatherPair, WeeklyWeather } from '../../types';
-import { useUser } from '../../contexts/UserContext';
+import { getWeatherData } from 'services/api/weatherService';
+import type { CurrentWeather, HourlyWeather, TodayWeatherPair, WeeklyWeather } from 'types';
+import { useUser } from 'contexts/UserContext';
 
 interface WeatherState {
     current: CurrentWeather | null;

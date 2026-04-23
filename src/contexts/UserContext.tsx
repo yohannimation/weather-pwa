@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { loadUser, saveUser, UserData } from '../services/storageService';
+import { loadUser, saveUser, UserData } from 'services/storageService';
 
 interface UserContextType {
     user: UserData;

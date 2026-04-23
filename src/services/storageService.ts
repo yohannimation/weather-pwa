@@ -1,4 +1,4 @@
-import { UnitSetting } from "../types";
+import { UnitSetting } from "types";
 
 export interface UserData {
     cityName: string | null;

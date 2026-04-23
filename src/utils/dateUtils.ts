@@ -1,4 +1,4 @@
-import { loadUser } from "../services/storageService";
+import { loadUser } from "services/storageService";
 
 /**
  * Format the date and hour in a format defined by the device language

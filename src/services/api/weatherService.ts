@@ -3,10 +3,10 @@ import {
     HourlyWeather,
     WeeklyWeather,
     TodayWeatherPair
-} from "../../types";
-import { loadUser } from "../../services/storageService";
-import { getDateFormate, getWeekdayName } from "../../utils/dateUtils";
-import { redirectToLocate } from "../../utils/redirectUtils";
+} from "types";
+import { loadUser } from "services/storageService";
+import { getDateFormate, getWeekdayName } from "utils/dateUtils";
+import { redirectToLocate } from "utils/redirectUtils";
 
 const BASE_URL = "https://api.open-meteo.com/v1/forecast";
 
