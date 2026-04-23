@@ -12,6 +12,7 @@
   "components-footer-settingsModal-temperatureUnit": "Temperature unit",
   "components-footer-settingsModal-speedUnit": "Speed unit",
   "components-footer-settingsModal-precipitationUnit": "Precipitation unit",
+  "components-footer-settingsModal-language": "Language",
   "components-footer-iconAlt-reload": "Refresh",
   "components-footer-iconAlt-settings": "Settings",
 

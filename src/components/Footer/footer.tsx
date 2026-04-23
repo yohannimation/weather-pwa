@@ -46,6 +46,10 @@ const Footer: React.FC<FooterProps> = ({ refetch }: FooterProps) => {
     const triggerSetTemperatureUnit = (value: string) => { updateUser({ temperatureUnit: value as UnitSetting }); }
     const triggerSetSpeedUnit = (value: string) => { updateUser({ speedUnit: value as UnitSetting }); }
     const triggerSetPrecipitationUnit = (value: string) => { updateUser({ precipitationUnit: value as UnitSetting }); }
+    const triggerSetLanguage = (value: string) => {
+        updateUser({ i18nextLng: value === "default" ? 'fr' : 'en' });
+        import('i18next').then(i18n => i18n.changeLanguage(value === "default" ? 'fr' : 'en'));
+    }
 
     const modalContent = (
         <>
@@ -81,6 +85,14 @@ const Footer: React.FC<FooterProps> = ({ refetch }: FooterProps) => {
                         values={parametersList.precipitationUnit}
                         defaultValue={user.precipitationUnit ?? 'default'}
                         returnValue={triggerSetPrecipitationUnit}
+                    />
+                </li>
+                <li className={styles.parameterItem}>
+                    <p>{t("components-footer-settingsModal-language")}</p>
+                    <BooleanSlider
+                        values={parametersList.language}
+                        defaultValue={user.i18nextLng ?? 'default'}
+                        returnValue={triggerSetLanguage}
                     />
                 </li>
             </ul>

@@ -1,6 +1,7 @@
 {
-    "timezone": {
-            
+    "language": {
+        "default": "FR",
+        "secondary": "EN"
     },
     "speedUnit": {
         "default": "kmh",
