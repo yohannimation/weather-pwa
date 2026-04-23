@@ -22,7 +22,7 @@ interface ResultSearchBarProps {
 
 const ResultSearchBar: React.FC<ResultSearchBarProps> = ({ inputValue, isOpen }) => {
     const { t } = useTranslation();
-    const { results, loading, error, handleSelectCity } = useResultSearchBar(inputValue);
+    const { results, error, handleSelectCity } = useResultSearchBar(inputValue);
 
     const modalClass = isOpen ? styles.root : styles.rootUnactive;
 
