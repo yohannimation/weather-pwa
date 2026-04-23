@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import styles from './icon.module.css';
 
 interface IconProps {
-    size: number;
+    size: 20 | 24 | 30 | 40 | 50 | 60 | 180;
     name: string;
 }
 
@@ -18,8 +18,9 @@ const Icon: React.FC<IconProps> = ({ size, name }) => {
     const [iconPath, setIconPath] = useState<string>();
     const [iconAlt, setIconAlt] = useState<string>();
 
-    const iconSizeTreatment = (size: number) => {
+    const iconSizeTreatment = (size: 20 | 24 | 30 | 40 | 50 | 60 | 180) => {
         switch (size) {
+            case 20: setIconClass(styles.xxs); break;
             case 24: setIconClass(styles.xs); break;
             case 30: setIconClass(styles.s); break;
             case 40: setIconClass(styles.l); break;

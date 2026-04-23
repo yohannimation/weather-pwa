@@ -1,0 +1,75 @@
+.wrapper {
+    position: relative;
+    height: 40px;
+}
+
+.trigger {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 var(--padding);
+    width: 100%;
+    height: 40px;
+    background-color: var(--light-color);
+    border-radius: var(--full-border-radius);
+    border: var(--border-grey-color);
+    z-index: 3;
+    overflow: hidden;
+}
+
+.dropdownClose {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0px var(--padding) 0 var(--padding);
+    height: 0;
+    background-color: var(--grey-color);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    overflow: hidden;
+    z-index: 2;
+    transition: var(--transition-time);
+    transition-timing-function: var(--transition-timing-fuction);
+}
+
+.dropdown {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px var(--padding) var(--padding) var(--padding);
+    height: 170px;
+    background-color: var(--grey-color);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    overflow: scroll;
+    z-index: 2;
+    transition: var(--transition-time);
+    transition-timing-function: var(--transition-timing-fuction);
+}
+
+.option {
+    display: flex;
+    gap: 10px;
+    padding: 5px 20px;
+    width: 100%;
+    background-color: var(--light-color);
+    border-radius: var(--full-border-radius);
+    transition: var(--transition-time);
+    transition-timing-function: var(--transition-timing-fuction);
+}
+
+.optionFocused {
+    padding-left: 30px;
+}
