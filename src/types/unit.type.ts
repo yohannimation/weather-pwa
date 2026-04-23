@@ -1,0 +1,1 @@
+export type UnitSetting = 'default' | 'secondary';
