@@ -38,11 +38,11 @@
         opacity: 0;
     }
     1% {
-        display: block;
+        display: flex;
         opacity: 0;
     }
     to {
-        display: block;
+        display: flex;
         opacity: 1;
     }
 }
