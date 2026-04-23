@@ -7,14 +7,14 @@ import { BrowserRouter } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
 // Contexts
-import { ErrorProvider } from './contexts/ErrorContext';
-import { UserProvider, useUser } from './contexts/UserContext';
+import { ErrorProvider } from 'contexts/ErrorContext';
+import { UserProvider, useUser } from 'contexts/UserContext';
 
 // Components
-import Router from './Router';
-import CookieModal from './components/CookieModal';
-import ErrorPopup from './components/ErrorPopup';
-import Loading from './components/Loading';
+import Router from 'router';
+import CookieModal from 'components/CookieModal';
+import ErrorPopup from 'components/ErrorPopup';
+import Loading from 'components/Loading';
 
 const AppContent: React.FC = () => {
     const { t, i18n } = useTranslation();
