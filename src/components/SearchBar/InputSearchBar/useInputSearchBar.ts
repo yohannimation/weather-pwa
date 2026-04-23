@@ -1,15 +1,15 @@
-import { useUser } from '../../contexts/UserContext';
-import { saveUser, loadUser } from '../../services/storageService';
-import { redirectToWeather } from '../../utils/redirectUtils';
+import { useUser } from '../../../contexts/UserContext';
+import { saveUser, loadUser } from '../../../services/storageService';
+import { redirectToWeather } from '../../../utils/redirectUtils';
 
-export const useLocationForm = () => {
+export const useInputSearchBar = () => {
     const { setLoading } = useUser();
 
     /**
      * Get coordinates of the user and set different cookies
      * @returns Promise<boolean>
      */
-    const locateMeTreatment = async (): Promise<boolean> => {
+    const locateMe = async (): Promise<boolean> => {
         setLoading(true)
 
         return new Promise((resolve) => {
@@ -74,6 +74,6 @@ export const useLocationForm = () => {
     };
 
     return {
-        locateMeTreatment,
+        locateMe,
     };
 }

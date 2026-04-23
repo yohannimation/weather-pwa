@@ -11,7 +11,7 @@ import { ErrorProvider } from './contexts/ErrorContext';
 import { UserProvider, useUser } from './contexts/UserContext';
 
 // Components
-import Router from './components/Router';
+import Router from './Router';
 import CookieModal from './components/CookieModal';
 import ErrorPopup from './components/ErrorPopup';
 import Loading from './components/Loading';

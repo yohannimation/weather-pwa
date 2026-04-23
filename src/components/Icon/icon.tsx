@@ -18,8 +18,8 @@ const Icon: React.FC<IconProps> = ({ size, name }) => {
     const [iconPath, setIconPath] = useState<string>();
     const [iconAlt, setIconAlt] = useState<string>();
 
-    const iconSizeTreatment = (s: number) => {
-        switch (s) {
+    const iconSizeTreatment = (size: number) => {
+        switch (size) {
             case 24: setIconClass(styles.xs); break;
             case 30: setIconClass(styles.s); break;
             case 40: setIconClass(styles.l); break;
@@ -30,11 +30,11 @@ const Icon: React.FC<IconProps> = ({ size, name }) => {
         }
     }
 
-    const iconPathTreatment = (n: string) => {
+    const iconPathTreatment = (name: string) => {
         const regex = /weatherIcon/;
 
-        if (regex.test(n)) {
-            const attributes = n.split('_');
+        if (regex.test(name)) {
+            const attributes = name.split('_');
             const cloudyCodeArray = ["1", "2", "3"];
             const fogyCodeArray = ["45", "48"];
             const rainyCodeArray = ["51", "53", "55", "56", "57", "61", "63", "65", "66", "67", "80", "81", "82"];
@@ -61,8 +61,8 @@ const Icon: React.FC<IconProps> = ({ size, name }) => {
             setIconPath(`/icon/${dayOrNightPath}${isAnimatePath}${codeName}${fileExtension}`);
             setIconAlt(codeName);
         } else {
-            setIconAlt(n);
-            setIconPath(`/icon/${n}.png`);
+            setIconAlt(name);
+            setIconPath(`/icon/${name}.png`);
         }
     }
 

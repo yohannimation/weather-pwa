@@ -7,11 +7,14 @@ import WeatherTile from './WeatherTile';
 // CSS
 import styles from './dataContainer.module.css';
 
+// Types
+import { HourlyWeather, WeeklyWeather } from '../../types';
+
 interface DataContainerProps {
     title: string;
     infoData: React.ReactNode;
     isHorizontal: boolean;
-    weatherData: any[]; // Can be HourlyWeather[] or WeeklyWeather[]
+    weatherData: HourlyWeather[] | WeeklyWeather[];
 }
 
 const DataContainer: React.FC<DataContainerProps> = ({

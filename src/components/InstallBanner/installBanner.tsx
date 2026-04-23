@@ -1,7 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 
 // Translation
 import { useTranslation } from 'react-i18next';
+
+// Component use
+import { useInstallBanner } from './useInstallBanner';
 
 // Components
 import Button from '../Button';
@@ -9,50 +12,22 @@ import Button from '../Button';
 // CSS
 import styles from './installBanner.module.css';
 
-interface InstallBannerProps {
-    closable?: boolean;
-}
 
-const InstallBanner: React.FC<InstallBannerProps> = ({ closable }) => {
+const InstallBanner: React.FC = () => {
     const { t } = useTranslation();
 
-    const [installBannerOpen, setInstallBannerOpen] = useState(false);
-    const deferredPrompt = useRef<any>(null);
+    const { isPromptReady, installPWA } = useInstallBanner();
 
-    useEffect(() => {
-        const handlePrompt = (e: any) => {
-            e.preventDefault();
-            deferredPrompt.current = e;
-            setInstallBannerOpen(true);
-        }
-
-        window.addEventListener('beforeinstallprompt', handlePrompt);
-        return () => window.removeEventListener('beforeinstallprompt', handlePrompt);
-    }, []);
-
-    const installPWA = async () => {
-        if (!deferredPrompt.current) {
-            setInstallBannerOpen(false);
-            return;
-        }
-
-        deferredPrompt.current.prompt();
-
-        const { outcome } = await deferredPrompt.current.userChoice;
-        if (outcome === 'accepted') {
-            setInstallBannerOpen(false);
-            localStorage.setItem("pwa-is-installed", 'true');
-        }
-    }
+    if (!isPromptReady) return null;
 
     return (
-        <div className={installBannerOpen ? styles.root : styles.rootClosed}>
+        <div className={styles.root}>
             <p>{t("components-installBanner-cta")}</p>
             <Button triggerAction={installPWA}>
                 {t("components-installBanner-installButton")}
             </Button>
         </div>
-    )
+    );
 }
 
 export default InstallBanner;

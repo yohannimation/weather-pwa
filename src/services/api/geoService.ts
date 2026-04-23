@@ -7,12 +7,14 @@ import { redirectToWeather } from "../../utils/redirectUtils";
  * @param {string} inputValue
  * @returns Promise<City[] | null>
  */
-export const searchCities = async (inputValue: string): Promise<City[] | null> => {
+export const searchCities = async (inputValue: string, signal?: AbortSignal): Promise<City[] | null> => {
     const language = loadUser().i18nextLng || 'en';
     const fetchUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(inputValue)}&count=4&language=${language}&format=json`;
 
     try {
-        const response = await fetch(fetchUrl);
+        const response = await fetch(fetchUrl, {
+            ...(signal && { signal })
+        });
 
         if (!response.ok) {
             throw new Error(response.statusText);

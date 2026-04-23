@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 // Components
 import Button from '../Button';
@@ -25,19 +25,11 @@ const Modal: React.FC<ModalProps> = ({
     action,
     closeCallback
 }) => {
-    const [rootClass, setRootClass] = useState(styles.unactive);
-
-    useEffect(() => {
-        if (active) {
-            setRootClass(styles.root);
-        } else {
-            setRootClass(styles.unactive);
-        }
-    }, [active]);
+    if (!active) return
 
     return (
-        <div className={rootClass}>
-            <span className={styles.background}></span>
+        <div className={styles.root}>
+            <span className={styles.background} onClick={closeCallback}></span>
             <div className={styles.container}>
                 <div className={styles.header}>
                     <Title size={2}>{title}</Title>

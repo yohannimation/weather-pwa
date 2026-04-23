@@ -48,9 +48,14 @@ export const useWeather = () => {
         }
     };
 
+    const getBackgroundColor = (weatherCode: number, isDay: boolean) => {
+        if (weatherCode > 3) return { backgroundColor: "var(--rain-first-color)" };
+        return isDay ? { backgroundColor: "var(--day-first-color)" } : { backgroundColor: "var(--night-first-color)" };
+    }
+
     useEffect(() => {
         fetchWeather();
     }, []);
 
-    return { ...state, refetch: fetchWeather };
+    return { ...state, refetch: fetchWeather, getBackgroundColor };
 }

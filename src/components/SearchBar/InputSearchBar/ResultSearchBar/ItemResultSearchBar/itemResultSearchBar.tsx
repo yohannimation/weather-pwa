@@ -2,7 +2,6 @@ import React from 'react';
 
 // CSS
 import styles from './itemResultSearchBar.module.css';
-import { City } from '../../../types';
 
 interface ItemResultSearchBarProps {
     countryCode: string;

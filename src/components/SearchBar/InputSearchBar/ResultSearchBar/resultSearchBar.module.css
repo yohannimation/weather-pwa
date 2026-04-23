@@ -1,7 +1,7 @@
 .root {
     position: absolute;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     padding: 20px var(--padding) 0 var(--padding);
     width: 100%;

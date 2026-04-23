@@ -23,12 +23,13 @@
     display: grid;
     grid-template-rows: 45px;
     grid-gap: 10px;
+    margin-top: 10px;
     margin-bottom: 30px;
 }
 
 .installBannerContainer {
+    margin-bottom: 10px;
     width: 100%;
-    list-style: none;
 }
 
 .parameterItem {

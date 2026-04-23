@@ -2,29 +2,30 @@ import React, { useState } from 'react';
 
 // User Context
 import { useUser } from '../../../contexts/UserContext';
-import { useLocationForm } from '../../../components/LocationForm/useLocationForm';
+import { useInputSearchBar } from './useInputSearchBar';
 
 // Components
-import ResultSearchBar from '../ResultSearchBar';
+import ResultSearchBar from './ResultSearchBar';
 import Icon from '../../Icon';
 
 // CSS
 import styles from './inputSearchBar.module.css';
 
 const InputSearchBar: React.FC = () => {
-    const { locateMeTreatment } = useLocationForm();
+    const { locateMe } = useInputSearchBar();
     const { user } = useUser();
-    const [searchValue, setSearchValue] = useState(user.cityName ?? "");
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const inputRef = React.useRef<HTMLInputElement>(null);
 
-    const locateMeTrigger = async () => {
-        await locateMeTreatment()
-    };
+    const inputRef = React.useRef<HTMLInputElement>(null);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [searchValue, setSearchValue] = useState(user.cityName ?? "");
 
     const focusInputTrigger = () => {
         inputRef.current?.focus();
     }
+
+    const locateMeTrigger = async () => {
+        await locateMe()
+    };
 
     return (
         <div className={styles.root}>

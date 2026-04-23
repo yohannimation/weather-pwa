@@ -5,14 +5,14 @@ import { motion, useTransform, useScroll } from "framer-motion";
 import InputSearchBar from '../SearchBar/InputSearchBar';
 import Icon from '../Icon';
 
-import styles from './weatherHeader.module.css';
+import styles from './header.module.css';
 import { CurrentWeather } from '../../types';
 
-interface WeatherHeaderProps {
+interface HeaderProps {
     currentWeather: CurrentWeather;
 }
 
-const WeatherHeader: React.FC<WeatherHeaderProps> = ({ currentWeather }) => {
+const Header: React.FC<HeaderProps> = ({ currentWeather }) => {
     const { t } = useTranslation();
     const {
         apparentTemperature,
@@ -51,7 +51,7 @@ const WeatherHeader: React.FC<WeatherHeaderProps> = ({ currentWeather }) => {
             <motion.span
                 className={styles.backgroundHeader}
                 style={{ height: headerHeight }}
-            ></motion.span>
+            />
 
             <motion.div
                 className={styles.searchBarContainer}
@@ -75,10 +75,10 @@ const WeatherHeader: React.FC<WeatherHeaderProps> = ({ currentWeather }) => {
                 </motion.div>
                 <motion.div className={styles.secondaryData} style={{ opacity: secondaryOpacity }}>
                     <div className={styles.secondaryDataItem}>
-                        {t("components-weatherHeader-feeling")} {apparentTemperature}
+                        {t("components-header-feeling")} {apparentTemperature}
                     </div>
                     <div className={styles.secondaryDataItem}>
-                        {t("components-weatherHeader-precipitation")} {precipitation}
+                        {t("components-header-precipitation")} {precipitation}
                     </div>
                 </motion.div>
             </motion.div>
@@ -109,4 +109,4 @@ const WeatherHeader: React.FC<WeatherHeaderProps> = ({ currentWeather }) => {
     );
 }
 
-export default WeatherHeader;
+export default Header;

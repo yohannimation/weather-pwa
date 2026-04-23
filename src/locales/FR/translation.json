@@ -15,6 +15,15 @@
   "components-footer-iconAlt-reload": "Rafraichir",
   "components-footer-iconAlt-settings": "Paramètres",
 
+  "components-header-feeling": "Ressenti",
+  "components-header-precipitation": "Précipitation",
+  "components-header-weatherName-clear": "Ciel dégagé",
+  "components-header-weatherName-cloudy": "Nuageux",
+  "components-header-weatherName-fogy": "Brouillard",
+  "components-header-weatherName-rainy": "Pluie",
+  "components-header-weatherName-snowy": "Neige",
+  "components-header-weatherName-thunderstorm": "Orage",
+
   "components-icon-iconAlt-clear": "Icône ciel éclairci",
   "components-icon-iconAlt-cloudy": "Icône ciel nuageux",
   "components-icon-iconAlt-close": "Icône fermer",
@@ -48,6 +57,7 @@
   "components-installBanner-installButton": "Installer",
   
   "components-searchBar-resultSearchBar-noResult": "Aucun résultat n'a été trouvé",
+  "components-searchBar-resultSearchBar-error": "Une erreur est survenue",
   
   "components-singleDataContainer-errorMessage": "Single data : Une erreur est survenue",
   "components-singleDataContainer-itemSingleData-temperature_2m_max": "Température max.",
@@ -58,15 +68,6 @@
   "components-singleDataContainer-itemSingleData-uv_index_max": "Index UV",
   "components-singleDataContainer-itemSingleData-wind_speed_10m_max": "Vitesse max. du vent",
   "components-singleDataContainer-itemSingleData-wind_direction_10m_dominant": "Orientation du vent",
-
-  "components-weatherHeader-feeling": "Ressenti",
-  "components-weatherHeader-precipitation": "Précipitation",
-  "components-weatherHeader-weatherName-clear": "Ciel dégagé",
-  "components-weatherHeader-weatherName-cloudy": "Nuageux",
-  "components-weatherHeader-weatherName-fogy": "Brouillard",
-  "components-weatherHeader-weatherName-rainy": "Pluie",
-  "components-weatherHeader-weatherName-snowy": "Neige",
-  "components-weatherHeader-weatherName-thunderstorm": "Orage",
 
   "pages-weather-today": "Aujourd'hui",
   "pages-weather-today-content": "<p>Ce visualiseur de données, vous permet de connaitre les informations météorologique de l'heure actuelle jusqu'à l'heure actuelle + 23</p><br /><p>Les données affichés sont :</p><ul style='margin-left: 5%;'><li>L'heure</li><li>Un visualiseur météorologique</li><li>La température</li><li>La quantité de pluie</li></ul><br /><p>Ces données restent des estimations</p>",

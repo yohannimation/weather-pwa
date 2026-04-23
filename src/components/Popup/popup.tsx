@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 // Components
 import Button from '../Button';
@@ -16,18 +16,10 @@ interface PopupProps {
 }
 
 const Popup: React.FC<PopupProps> = ({ active, title, message, buttonText, action }) => {
-    const [rootClass, setRootClass] = useState(styles.unactive);
-
-    useEffect(() => {
-        if (active) {
-            setRootClass(styles.root);
-        } else {
-            setRootClass(styles.unactive);
-        }
-    }, [active]);
+    if (!active) return
 
     return (
-        <div className={rootClass}>
+        <div className={styles.root}>
             <span className={styles.background} onClick={action}></span>
             <div className={styles.container}>
                 <Title size={2}>{title}</Title>

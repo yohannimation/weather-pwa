@@ -3,33 +3,33 @@ import React, { useState, useEffect } from 'react';
 // Translation
 import { useTranslation } from 'react-i18next';
 
-// User Context
-import { useUser } from '../../contexts/UserContext';
-
 // Component logic
-import { cookiesAccepted } from "./useCookieModal";
+import { useCookieModal } from "./useCookieModal";
 
 // Components
 import Modal from '../Modal';
 
 const CookieModal: React.FC = () => {
     const { t } = useTranslation();
-    const { user } = useUser();
+    const { checkCookiesAccepted, acceptCookies } = useCookieModal();
     const [modalActive, setModalActive] = useState(false);
+    const cookieModalDisplayDelay = 500;
 
     const modalActionTrigger = () => {
-        if (cookiesAccepted()) {
-            setModalActive(false);
-        }
+        acceptCookies()
+        setModalActive(false);
     }
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            if (!user.cookies)
+            if (!checkCookiesAccepted())
                 setModalActive(true);
-        }, 500);
+        }, cookieModalDisplayDelay);
+        
         return () => clearTimeout(timer);
-    }, []);
+    }, [checkCookiesAccepted]);
+
+    if (!modalActive) return;
 
     return (
         <Modal

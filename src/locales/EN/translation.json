@@ -15,6 +15,15 @@
   "components-footer-iconAlt-reload": "Refresh",
   "components-footer-iconAlt-settings": "Settings",
 
+  "components-header-feeling": "Felling",
+  "components-header-precipitation": "Precipitation",
+  "components-header-weatherName-clear": "Clear sky",
+  "components-header-weatherName-cloudy": "Cloudy",
+  "components-header-weatherName-fogy": "Fogy",
+  "components-header-weatherName-rainy": "Rainy",
+  "components-header-weatherName-snowy": "Snowy",
+  "components-header-weatherName-thunderstorm": "Thunderstorm",
+
   "components-icon-iconAlt-clear": "Clear sky icon",
   "components-icon-iconAlt-cloudy": "Cloudy sky icon",
   "components-icon-iconAlt-close": "Close icon",
@@ -48,6 +57,7 @@
   "components-installBanner-installButton": "Install",
   
   "components-searchBar-resultSearchBar-noResult": "No result found",
+  "components-searchBar-resultSearchBar-error": "An error has occurred",
   
   "components-singleDataContainer-errorMessage": "Single data : An error has occurred",
   "components-singleDataContainer-itemSingleData-temperature_2m_max": "Max. temperature",
@@ -58,15 +68,6 @@
   "components-singleDataContainer-itemSingleData-uv_index_max": "UV index",
   "components-singleDataContainer-itemSingleData-wind_speed_10m_max": "Max. wind speed",
   "components-singleDataContainer-itemSingleData-wind_direction_10m_dominant": "Wind direction",
-  
-  "components-weatherHeader-feeling": "Felling",
-  "components-weatherHeader-precipitation": "Precipitation",
-  "components-weatherHeader-weatherName-clear": "Clear sky",
-  "components-weatherHeader-weatherName-cloudy": "Cloudy",
-  "components-weatherHeader-weatherName-fogy": "Fogy",
-  "components-weatherHeader-weatherName-rainy": "Rainy",
-  "components-weatherHeader-weatherName-snowy": "Snowy",
-  "components-weatherHeader-weatherName-thunderstorm": "Thunderstorm",
 
   "pages-weather-today": "Today",
   "pages-weather-today-content": "<p>This data visualizer, permite you to know the weather information from current time to time + 23</p><br /><p>Data displayed are :</p><ul style='margin-left: 5%;'><li>Time</li><li>Weather viewer</li><li>Temperature</li><li>Rain quantity</li></ul><br /><p>These data remain estimates</p>",

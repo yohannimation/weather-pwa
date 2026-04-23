@@ -5,3 +5,7 @@ export const redirectToWeather = (): void => {
 export const redirectToLocate = (): void => {
     window.location.replace('/locate');
 }
+
+export const reload = (): void => {
+    window.location.reload();
+}
