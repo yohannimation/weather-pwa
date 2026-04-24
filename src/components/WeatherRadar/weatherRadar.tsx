@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useUser } from 'contexts/UserContext';
 
 // Leaflet
-import { MapContainer, TileLayer } from 'react-leaflet';
+import { MapContainer, TileLayer, CircleMarker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 // Utils
@@ -12,7 +12,6 @@ import { formatTimestamp } from 'utils/dateUtils';
 
 // CSS
 import styles from './weatherRadar.module.css';
-import Loading from 'components/Loading';
 
 interface RainViewerFrame {
     time: number;
@@ -114,10 +113,17 @@ const WeatherRadar: React.FC = () => {
                 {currentFrame && (
                     <TileLayer
                         url={radarTileUrl}
-                        opacity={1}
+                        opacity={.7}
                         maxNativeZoom={7}
                     />
                 )}
+                <CircleMarker
+                    center={[Number(user.cityLatitude), Number(user.cityLongitude)]}
+                    radius={5}
+                    color="var(--dark-color)"
+                    fillColor="var(--day-first-color)"
+                    fillOpacity={1}
+                />
             </MapContainer>
 
             <div className={styles.controls}>
