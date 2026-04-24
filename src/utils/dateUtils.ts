@@ -31,3 +31,15 @@ export const getWeekdayName = (input: string): string => {
     const options: Intl.DateTimeFormatOptions = { weekday: 'long' };
     return new Intl.DateTimeFormat(loadUser().i18nextLng || 'en-US', options).format(date);
 }
+
+/**
+ * Format a unix timestamp into a short time string (HH:mm)
+ * @param {number} timestamp
+ * @returns string
+ */
+export const formatTimestamp = (timestamp: number): string => {
+    return new Date(timestamp * 1000).toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+}

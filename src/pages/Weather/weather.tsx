@@ -11,6 +11,7 @@ import DataContainer from 'components/DataContainer';
 import Footer from 'components/Footer';
 import SingleDataContainer from 'components/SingleDataContainer';
 import Header from 'components/Header';
+import WeatherRadar from 'components/WeatherRadar';
 
 import styles from './weather.module.css';
 
@@ -52,6 +53,7 @@ function Weather() {
                     <SingleDataContainer
                         data={today || []}
                     />
+                    <WeatherRadar />
                     <DataContainer
                         title={t("pages-weather-nextDays")}
                         infoData={nextDaysInfo}

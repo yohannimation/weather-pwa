@@ -1,0 +1,81 @@
+/* Container */
+.weatherRadarContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+    background: var(--dark-transparent-color);
+    color: var(--light-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    z-index: 0;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+/* Timeline bar */
+.controls {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 400;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    color: var(--light-color);
+    background: var(--dark-transparent-color);
+    backdrop-filter: blur(5px);
+    border-radius: var(--border-radius);
+}
+
+.timestamp {
+    min-width: 60px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 4px;
+}
+
+/* Buttons */
+.controlBtn,
+:global(.leaflet-touch .leaflet-bar > a:first-child),
+:global(.leaflet-touch .leaflet-bar > a:last-child) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    cursor: pointer;
+    background: var(--light-color);
+    border: none;
+    border-radius: var(--full-border-radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s ease;
+}
+
+/* Leaflet zoom overrides */
+:global(.leaflet-touch .leaflet-control-zoom) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 4px;
+    background: var(--dark-transparent-color);
+    backdrop-filter: blur(5px);
+    border-radius: var(--border-radius);
+}
+
+:global(.leaflet-touch .leaflet-bar) {
+    border: none;
+}
