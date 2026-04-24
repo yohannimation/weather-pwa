@@ -125,9 +125,7 @@ const Select: React.FC<SelectProps> = ({
                 <span className={value ? styles.triggerValue : styles.triggerPlaceholder}>
                     {value?.label ?? placeholder}
                 </span>
-                <span className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ''}`} aria-hidden>
-                    <Icon size={24} name='chevron' />
-                </span>
+                <Icon size={20} name={isOpen ? 'chevron-up' : 'chevron-down'} />
             </div>
 
             <ul

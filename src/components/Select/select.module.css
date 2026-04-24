@@ -15,6 +15,7 @@
     background-color: var(--light-color);
     border-radius: var(--full-border-radius);
     border: var(--border-grey-color);
+    cursor: pointer;
     z-index: 3;
     overflow: hidden;
 }
@@ -76,6 +77,7 @@
     width: 100%;
     background-color: var(--light-color);
     border-radius: var(--full-border-radius);
+    cursor: pointer;
     transition: var(--transition-time);
     transition-timing-function: var(--transition-timing-fuction);
 }
