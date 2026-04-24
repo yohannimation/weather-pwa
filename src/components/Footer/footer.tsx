@@ -33,9 +33,9 @@ const Footer: React.FC<FooterProps> = ({ refetch }: FooterProps) => {
 
     const [settingsModalIsOpen, setSettingsModalIsOpen] = useState(false);
 
-    const timezoneOptions: SelectOption[] = Intl.supportedValuesOf('timeZone').map(tz => ({
-        label: tz,
-        value: tz,
+    const timezoneOptions: SelectOption[] = Intl.supportedValuesOf('timeZone').map(timezone => ({
+        label: timezone,
+        value: timezone,
     }));
 
     const toggleModal = () => {
@@ -91,7 +91,7 @@ const Footer: React.FC<FooterProps> = ({ refetch }: FooterProps) => {
                     <p>{t("components-footer-settingsModal-language")}</p>
                     <BooleanSlider
                         values={parametersList.language}
-                        defaultValue={user.i18nextLng ?? 'default'}
+                        defaultValue={user.i18nextLng === "fr" ? 'default' : 'second'}
                         returnValue={triggerSetLanguage}
                     />
                 </li>
