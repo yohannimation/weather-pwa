@@ -126,7 +126,7 @@ const Select: React.FC<SelectProps> = ({
                     {value?.label ?? placeholder}
                 </span>
                 <span className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ''}`} aria-hidden>
-                    ▾
+                    <Icon size={24} name='close' />
                 </span>
             </div>
 
@@ -153,13 +153,12 @@ const Select: React.FC<SelectProps> = ({
                                     ${isSelected ? styles.optionSelected : ''}
                                     ${isFocused ? styles.optionFocused : ''}
                                 `}
-                                // onMouseEnter={() => setFocusedIndex(index)}
                                 onMouseDown={(e) => {
                                     e.preventDefault(); // Prevent the trigger blur
                                     selectOption(option);
                                 }}
                             >
-                                {isSelected && <Icon size={20} name='change' />}
+                                {isSelected && <Icon size={20} name='tick' />}
                                 {option.label}
                             </li>
                         );

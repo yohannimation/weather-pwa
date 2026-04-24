@@ -1,21 +1,22 @@
+:root {
+    --modal-start-position: -50vh;
+}
+
 .root {
     position: absolute;
     inset: 0;
     top: -1000px;
     padding: 0;
-    /* overflow: hidden; */
+    overflow: hidden;
     z-index: 10;
     animation: .1s linear forwards rootAnimation;
-}
-
-.unactive {
-    display: none;
 }
 
 .background {
     position: absolute;
     inset: -5px;
     background-color: var(--dark-transparent-color);
+    background: linear-gradient(0deg, var(--light-color) 20%, var(--dark-transparent-color) 25%);
     backdrop-filter: blur(4px);
     opacity: 0;
     z-index: 11;
@@ -25,16 +26,18 @@
 
 .container {
     position: absolute;
-    bottom: -50vh;
+    top: 100%;
+    bottom: var(--modal-start-position);
     display: flex;
     justify-content: start;
     align-items: left;
     flex-direction: column;
     background-color: var(--light-color);
     padding: var(--padding);
-    padding-bottom: 15vh;
-    min-height: 40vh;
+    padding-bottom: 5vh;
     width: 100%;
+    border: var(--border-grey-color);
+    border-bottom: 0;
     border-radius: var(--border-radius) var(--border-radius) 0 0;
     z-index: 12;
     animation: var(--transition-time) var(--transition-timing-fuction) forwards containerAnimation;
@@ -79,9 +82,11 @@
 
 @keyframes containerAnimation {
     from {
-        bottom: -40vh;
+        top: 100%;
+        bottom: var(--modal-start-position);
     }
     to {
-        bottom: -10vh;
+        top: unset;
+        bottom: 0;
     }
 }

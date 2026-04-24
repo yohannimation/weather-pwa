@@ -1,6 +1,8 @@
 .root {
     position: relative;
     width: 100%;
+    min-height: 100dvh;
+    height: fit-content;
     scrollbar-width: thin;
     scrollbar-color: lightgrey transparent;
     transition: var(--transition-time);
@@ -9,9 +11,10 @@
 .content {
     position: relative;
     inset: 0;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
     padding: 0 var(--padding);
     padding-top: 260px;
+    height: 100%;
 }
 
 .mainDataLoading {
@@ -27,7 +30,7 @@
     flex-direction: column;
     gap: 20px;
     width: 100%;
-    min-height: 105vh;
+    /* min-height: 105vh; */
     visibility: unset;
     animation: 1s cubic-bezier(.17,.84,.44,1) 0s fadeInUp;
 }
@@ -35,7 +38,7 @@
 @keyframes fadeInUp {
     0% {
         opacity: 0;
-        transform: translate(0, 50px);
+        transform: translate(0, 100px);
     }
     75% {
         transform: translate(0, 0px);
