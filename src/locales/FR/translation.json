@@ -66,7 +66,7 @@
   "components-singleDataContainer-itemSingleData-precipitation_probability_mean": "Probabilité de précipitation",
   "components-singleDataContainer-itemSingleData-sunrise": "Levé du soleil",
   "components-singleDataContainer-itemSingleData-sunset": "Couché du soleil",
-  "components-singleDataContainer-itemSingleData-uv_index_max": "Index UV",
+  "components-singleDataContainer-itemSingleData-uv_index_max": "Indice UV",
   "components-singleDataContainer-itemSingleData-wind_speed_10m_max": "Vitesse max. du vent",
   "components-singleDataContainer-itemSingleData-wind_direction_10m_dominant": "Orientation du vent",
 
