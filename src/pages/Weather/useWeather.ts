@@ -28,16 +28,20 @@ export const useWeather = () => {
         setState(prev => ({ ...prev, loading: isLoading, error: null }));
         try {
             const [current, hourly, today, weekly] = await getWeatherData();
-            setLoading(false)
 
-            setState({
-                current,
-                hourly,
-                today,
-                weekly,
-                loading: isLoading,
-                error: null,
-            });
+            // Adding a timeout to prevent the spamming
+            setTimeout(() => {
+                setLoading(false)
+                
+                setState({
+                    current,
+                    hourly,
+                    today,
+                    weekly,
+                    loading: isLoading,
+                    error: null,
+                });
+            }, 1000)
         } catch (err) {
             setLoading(false)
             setState(prev => ({
