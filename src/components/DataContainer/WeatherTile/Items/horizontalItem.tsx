@@ -16,6 +16,7 @@ const HorizontalWeatherItem: React.FC<{ item: HourlyWeather }> = ({ item }) => (
         <div className={horizontalStyles.temperature}>
             {item.temperature.value}
         </div>
+        <div className={horizontalStyles.graphArea}></div>
         <div className={horizontalStyles.precipitation}>
             <Icon size={24} name="precipitation" />{item.precipitation}
         </div>

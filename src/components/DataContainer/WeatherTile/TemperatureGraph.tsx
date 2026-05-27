@@ -18,9 +18,9 @@ const TemperatureGraph: React.FC<TemperatureGraphProps> = ({ data }) => {
     const maxTemp = Math.max(...temperatures);
     const range = maxTemp - minTemp || 1;
 
-    const graphHeight = 80;
+    const graphHeight = 25;
     const pointWidth = 100;
-    const verticalCenter = 100; // Container height is 200px
+    const verticalCenter = 170; // Aligned with the new graphArea position
 
     const points = temperatures.map((temp, i) => {
         const x = (i * pointWidth) + (pointWidth / 2);
@@ -44,9 +44,9 @@ const TemperatureGraph: React.FC<TemperatureGraphProps> = ({ data }) => {
             <polyline
                 fill="none"
                 stroke="var(--light-color)"
-                strokeWidth="2"
+                strokeWidth="2.5"
                 strokeLinejoin="round"
-                strokeOpacity="0.4"
+                strokeOpacity="0.8"
                 points={points}
             />
             {data.map((_, i) => {
@@ -57,7 +57,7 @@ const TemperatureGraph: React.FC<TemperatureGraphProps> = ({ data }) => {
                         key={i}
                         cx={x}
                         cy={y}
-                        r="3"
+                        r="5"
                         fill="var(--light-color)"
                         strokeOpacity="0.6"
                     />
