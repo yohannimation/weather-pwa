@@ -23,7 +23,7 @@ const TemperatureGraph: React.FC<TemperatureGraphProps> = ({ data }) => {
     const verticalCenter = 170;
 
     const getColor = (temp: number) => {
-        const coldThreshold = 15;
+        const coldThreshold = 10;
         const hotThreshold = 30;
         const transitionRange = 6; // Smooth transition over 6 degrees
 
