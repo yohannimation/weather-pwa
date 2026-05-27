@@ -103,7 +103,7 @@ const WeatherRadar: React.FC = () => {
                     Number(user.cityLatitude),
                     Number(user.cityLongitude)
                 ]}
-                zoom={15}
+                zoom={10}
                 className={styles.map}
                 maxZoom={12}
             >
