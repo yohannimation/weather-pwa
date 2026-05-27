@@ -14,9 +14,6 @@ const HorizontalWeatherItem: React.FC<{ item: HourlyWeather }> = ({ item }) => (
         <p className={horizontalStyles.hour}>{item.time}</p>
         <Icon size={50} name={item.icon} />
         <div className={horizontalStyles.temperature}>
-            {item.temperature.variation && (
-            <Icon size={24} name={item.temperature.variation} />
-            )}
             {item.temperature.value}
         </div>
         <div className={horizontalStyles.precipitation}>

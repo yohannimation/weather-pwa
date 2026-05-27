@@ -6,6 +6,7 @@ import { isWeeklyWeather, isHourlyWeather } from "./weatherGuards";
 // Component
 import VerticalWeatherItem from './Items/verticalItem';
 import HorizontalWeatherItem from './Items/horizontalItem';
+import TemperatureGraph from './TemperatureGraph';
 
 // CSS
 import verticalStyles from './Items/verticalItemData.module.css';
@@ -40,6 +41,7 @@ const WeatherTile: React.FC<WeatherTileProps> = ({ layout, data }) => {
 
     return (
         <>
+            <TemperatureGraph data={data as HourlyWeather[]} />
             {(data as HourlyWeather[]).map((item) => (
                 <HorizontalWeatherItem key={item.time} item={item} />
             ))}
